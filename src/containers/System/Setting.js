@@ -272,11 +272,9 @@ class Setting extends Component {
     }
 
     render() {
-
-        // console.log(this.state.files)
         const { userInfo } = this.props
         const { profileImg } = this.state
-        // console.log(profileImg)
+    
 
         return (
             <div className=''>

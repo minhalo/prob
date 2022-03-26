@@ -19,6 +19,11 @@ const getEdit = (id,firstName,lastName,address,phonenumber,name,profileImg,age,t
     return axios.put('http://localhost:8080/api/get-edit',{id,firstName,lastName,address,phonenumber,name,profileImg,age,textt,password})
 }
 
+const logout = (id) => {
+    return axios.post(`http://localhost:8080/api/logout?id=${id}`)
+
+}
+
 const getDelete = (id, password) =>{
     return axios.delete(`http://localhost:8080/api/delete-users?id=${id}&password=${password}`)
 }
@@ -67,5 +72,13 @@ const delf = (id,ids) => {
 const search = (name,id) => {
     return axios.get(`http://localhost:8080/api/getSearch?firstName=${name}&id=${id}`)
 }
-export {search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+
+const searched = (id) => {
+    return axios.get(`http://localhost:8080/api/getser?id=${id}`)
+}
+
+const brei = (id,ids) => {
+    return axios.get(`http://localhost:8080/api/bre?id=${id}&ids=${ids}`)
+}
+export {brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

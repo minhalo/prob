@@ -66,8 +66,6 @@ class Navset extends Component {
     }
 
     render() {
-        console.log(this.state.click)
-        // console.log(this.state.errMessage)
         return (
 
 

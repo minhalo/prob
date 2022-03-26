@@ -4,7 +4,7 @@ import '../Auth/login.scss'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { getCheckChangeEmail } from '../../services/userService';
+import { getCheckChangeEmail, logout } from '../../services/userService';
 
 import './Header.scss';
 import { Link } from 'react-router-dom';
@@ -22,7 +22,13 @@ class Modelset extends Component {
         this.props.isHide()
     }
 
+     handleout = async () => {
+        await logout(this.props.userInfo.id)
+        this.props.processLogout()
+    }
+
     render() {
+        console.log(this.props.userInfo.id)
         const { processLogout} = this.props;
         return (
             <Modal
@@ -35,7 +41,7 @@ class Modelset extends Component {
                 <ModalBody>
                     <div>
                         <div onClick={() => this.toggle()}><Link  to='/system/setting-manage'>Setting</Link></div>
-                        <div onClick={processLogout}><Link>Log out</Link></div>
+                        <div onClick={() => this.handleout()}><Link>Log out</Link></div>
                          {/* <div className="btn btn-logout" onClick={processLogout}>
                     <p>Log out</p>
                 </div> */}
@@ -49,7 +55,9 @@ class Modelset extends Component {
 }
 const mapStateToProps = state => {
     return {
-        language: state.app.language
+        language: state.app.language,
+        isLoggedIn: state.user.isLoggedIn,
+        userInfo: state.user.userInfo,
     };
 };
 

@@ -60,7 +60,6 @@ class Nav extends Component {
     }
 
     render() {
-        console.log(this.state.datas)
         return (
             <div className='app8'>
                 <div className='nav'>
@@ -74,18 +73,16 @@ class Nav extends Component {
 
                         </div>
                     </Link>
-                    <div className='navz'>
+                    <Link className='navz' to='/system/user-addfr'>
                         <div className='navcim'>
                             <img className='navimg' src={friend}/>
                         </div>
-                        <div className='navzk' onClick={() => this.test()}>Friends</div>
-                        
-                       
-                    </div>
-                    <Collapse isOpened={this.state.test}>
+                        <div className='navzk' >Friends</div>      
+                    </Link>
+                    {/* <Collapse isOpened={this.state.test}>
                         <div><Link to="/system/user-addfr">Add friend</Link></div>
                         <div><Link to="/system/user-update">Manage friend</Link></div>
-                    </Collapse>
+                    </Collapse> */}
 
 
                 </div>

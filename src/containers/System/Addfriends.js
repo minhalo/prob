@@ -14,7 +14,7 @@ import Modelpolicy from './Modelpolicy';
 
 
 
-import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, searched, brei } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -22,6 +22,7 @@ import '../System/m.scss';
 import '../System/Setting.scss';
 import { Link } from 'react-router-dom';
 import Nav from './nav';
+import Friends from './Friends';
 class Addfriends extends Component {
 
     constructor(props) {
@@ -33,59 +34,62 @@ class Addfriends extends Component {
             home: false,
             datas: [],
             han: '',
-            checks: '',
+            checks: null,
             dove: [],
             search: '',
-            clickprop: false
+            clickprop: false,
+            chet: '',
         };
-    }
-    effexts = () => {
-        this.setState({
-            clickprop: !this.state.clickprop
-        })
     }
 
     async componentDidUpdate() {
         let data = await search(this.state.search, this.props.userInfo.id)
-        await this.setState({
-            datas: data.userData
-        })
+            this.setState({
+           datas: data.userData
+       })
     }
-
-    effext = () => {
-        this.setState({
-            click: !this.state.click
-        })
-    }
-
+    
     async componentDidMount() {
-        // let data = await all(this.props.userInfo.id);
-        
-        // this.setState({
-        //     datas: data.userData
-        // })
-
         let dove = await addf(this.props.userInfo.id)
         this.setState({
             dove: dove.users
         })
-
-
-
+        let data = await searched(this.props.userInfo.id)
+            this.setState({
+           datas: data.userData
+       })
+       let ok = await brei(this.props.userInfo.id, this.state.chet)
+       await this.setState({
+           chet: ok.users
+       })
     }
 
     hans = async (id) => {
         await this.setState({
             han: id
         })
-        let data = await addfriend(this.props.userInfo.id, this.state.han)
+
         await this.setState({
+            chet:id
+        })
+        let data = await addfriend(this.props.userInfo.id, this.state.han)
+         this.setState({
             checks: data.users
         })
-        console.log(data.users)
-        window.location.reload();
+        // console.log(data.users)
+        await window.location.reload();
+    }
 
-
+    hansdet = async (id) => {
+        await this.setState({
+            han: id
+        })
+        let data = await delf(this.props.userInfo.id, this.state.han)
+         this.setState({
+            checks: data.users
+        })
+        
+         window.location.reload();
     }
     
 
@@ -96,9 +100,9 @@ class Addfriends extends Component {
     }
 
     render() {
-        console.log(this.state.datas)
+        console.log(this.state.chet)
         return (
-            <div className='app5'>
+            <div className=''>
                 
                 <Nav/>
                 <div className='search'>
@@ -106,18 +110,22 @@ class Addfriends extends Component {
 
                 </div>
                 <div className='add'>
-                    {this.state.datas.map(d => <div><img className='pic3' src={d.image} /> {d.firstName} {d.lastName}
-
-                        <button onClick={() => this.hans(d.id)}>add</button>
-                        
+                    {this.state.datas.map(d => 
+                    <div>
+                        <div>
+                            <img className='pic3' src={d.image} /> 
+                        </div>
+                        <div>
+                            {d.firstName} {d.lastName}
+                        </div>
+                        <div>
+                            {this.state.checks ? <button onClick={() => this.hansdet(d.id)}>delete</button> : <button onClick={() => this.hans(d.id)}>add</button>}
+                           
+                            
+                        </div>
                     </div>)}
                 </div>
-
-                <div className='navf'>
-                    <p className='pf'>Friends</p>
-                    {this.state.dove.map(d => <div><img className='pic4' src={d.image} /> {d.firstName} {d.id}
-                    </div>)}
-                </div>
+                <Friends/>
             </div >
         );
     }

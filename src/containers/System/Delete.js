@@ -94,11 +94,6 @@ class Delete extends Component {
     }
 
     render() {
-    
-        // console.log(this.state.password)
-        // console.log(this.state.message)
-        // console.log(this.state.messages)
-        // console.log(this.state.messagesx)
         
         return (
             <div className='app5'>

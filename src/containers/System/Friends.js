@@ -7,6 +7,8 @@ import * as actions from "../../store/actions";
 import Select from 'react-select'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modelpolicy from './Modelpolicy';
+import tect from '../../assets/images/onl.webp'
+import tese from '../../assets/images/offline.jpg'
 
 
 
@@ -46,21 +48,7 @@ class Friend extends Component {
     }
 
     async componentDidUpdate() {
-        // let circle = document.querySelector('.nav3')
-        // if (this.state.click === false && this.state.home === false) {
-        //     circle.style.display = 'none'
-        // }
-        // else {
-        //     circle.style.display = 'block'
-        // }
-
-        // let circles = document.querySelector('.nav4')
-        // if (this.state.clickprop === false) {
-        //     circles.style.display = 'none'
-        // }
-        // else {
-        //     circles.style.display = 'block'
-        // }
+       
 
         let data = await search(this.state.search, this.props.userInfo.id)
         await this.setState({
@@ -75,19 +63,10 @@ class Friend extends Component {
     }
 
     async componentDidMount() {
-        // let data = await all(this.props.userInfo.id);
-        
-        // this.setState({
-        //     datas: data.userData
-        // })
-
         let dove = await addf(this.props.userInfo.id)
         this.setState({
             dove: dove.users
         })
-
-
-
     }
 
     hans = async (id) => {
@@ -98,7 +77,6 @@ class Friend extends Component {
         await this.setState({
             checks: data.users
         })
-        console.log(data.users)
         window.location.reload();
 
 
@@ -112,12 +90,15 @@ class Friend extends Component {
     }
 
     render() {
-        // console.log(this.state.datas)
         return (
             <div className='app5'>
                 <div className='navf'>
                     <p className='pf'>Friends</p>
-                    {this.state.dove.map(d => <div><img className='pic4' src={d.image} /> {d.firstName} {d.id}
+                    {this.state.dove.map(d => 
+                    <div className='pichan'>
+                        <img className='pic4' src={d.image} />
+                        <h4 className='chanx'>{d.firstName} {d.lastName}</h4>
+                        {d.status ? <div><img className='Onlline' src={tect}/></div> : <div><img className='Offline' src={tese}/></div>}
                     </div>)}
                 </div>
             </div >
