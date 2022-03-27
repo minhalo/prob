@@ -186,65 +186,20 @@
 
 
   .manage-fr{
-    border: 1px solid red;
+    // border: 1px solid red;
     position: absolute;
-    top: 20%;
-    left: 26%;
-    width: 73.9vw;
-    height: 71.5vh;
+    top: 7%;
+    width: 100vw;
+    height: 80vh;
     overflow: -moz-scrollbars-vertical;
     overflow-y: scroll;
     overflow-wrap: break-word;
-    // .pic4{
-    //   width: 50px;
-    //   height: 50px;
-    //   border-radius: 50%;
-    // }
-    .card-container{
-      width: 20rem;
-      // overflow: hidden;
-      
-      box-shadow: 0px 0px 15px -5px;
-      // box-shadow: 0px 2px 20px $clr-gray300;
-      transition: 0.5s;
-      animation: ease-in-out;
-      margin-bottom: 1rem;
-      // border-top-left-radius: 5%;
-      border-radius: 5%;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-between;
-      .image-container
-      {
-        overflow: hidden;
-        height: 200px;
+    .cardi2{
+      float: left;
+      margin-left: 2%;
+      .btn-act{
+        position: absolute;
+        top: 29%;
       }
-
-      .content{
-        margin: 1rem;
-        margin-top: 0.5rem;
-        box-shadow: none;
-        .card-title{
-          margin-bottom: 0.5rem;
-          .h4{
-            margin-top: 0;
-          }
-        }
-        .card-body{
-          .p{
-            margin-top: 0;
-          }
-        }
-      }
-
-      
     }
-
-    .card-container:hover{
-      transform: scale(1,1);
-      box-shadow: 0px 0px 15px 0px;
-    }
-
-    
-    
   }

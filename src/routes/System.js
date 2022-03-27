@@ -8,6 +8,7 @@ import Addfriends from '../containers/System/Addfriends';
 import Changepass from '../containers/System/Changepass';
 import Delete from '../containers/System/Delete';
 import Profile from '../containers/System/Profile';
+import Managefe from '../containers/System/Managefe'
 // import '../routes/system.scss';
 
 class System extends Component {
@@ -23,6 +24,7 @@ class System extends Component {
                         <Route path="/system/user-change" component={Changepass} />
                         <Route path="/system/user-delete" component={Delete} />
                         <Route path="/system/user-profile" component={Profile} />
+                        <Route path="/system/user-fr" component={Managefe}/>
 
                         {/* <Redirect to="/system/user-manage"/> */}
                     </Switch>

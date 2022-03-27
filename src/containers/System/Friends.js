@@ -16,7 +16,7 @@ import tese from '../../assets/images/offline.jpg'
 
 
 
-import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -48,8 +48,6 @@ class Friend extends Component {
     }
 
     async componentDidUpdate() {
-       
-
         let data = await search(this.state.search, this.props.userInfo.id)
         await this.setState({
             datas: data.userData
@@ -64,6 +62,7 @@ class Friend extends Component {
 
     async componentDidMount() {
         let dove = await addf(this.props.userInfo.id)
+        // let dove = await req(this.props.userInfo.id)
         this.setState({
             dove: dove.users
         })

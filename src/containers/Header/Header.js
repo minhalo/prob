@@ -56,6 +56,7 @@ class Header extends Component {
                 isOpen={this.state.isOpen}
                 isHide={this.handleHind}
                 />
+                <div className='text-dudes'><p className='text-dude'>Dude</p></div>
                 <div className='lp' onClick={() => this.handleClick()}>
                     <img className='okk' src={okk}/>
                 </div>

@@ -1,3 +1,32 @@
+.erp{
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  position: absolute;
+  top: 15%;
+  left: 26%;
+  // border: 1px solid red;
+  width: 74vw;
+  height: 72.5vh;
+
+  .cardi4{
+    float: left;
+    margin-left: 10px;
+    .btn-act{
+      position: absolute;
+      top: 32%;
+    
+    }
+  }
+}
+.Annoucement{
+  position: absolute;
+  top: 3.6%;
+  left: 69.5%;
+  .rop{
+    color: red;
+  }
+}
 .conti{
   position: absolute;
   width: 800px;
@@ -192,16 +221,89 @@
   
 }
 
+.suggest{
+  position: absolute;
+  top: 8%;
+  left: 26%;
+}
+.random{
+  overflow: -moz-scrollbars-horizontal;
+  overflow-x: scroll;
+  overflow-wrap: break-word;
+  position: absolute;
+  // border: 1px solid red;
+  top: 13%;
+  left: 26%;
+  width: 900px;
+  height: 270px;
+  .cardi1{
+    float: left;
+    margin-left: 10px;
+    .btn-act{
+      position: absolute;
+      top: 80%;
+    
+    }
+  }
+  
+}
+.chickens{
+  position: absolute;
+  top: 45%;
+  left: 66%;
+  .btn-chickens:hover{
+    background-color: aqua;
+  }
+  .btn-chickens{
+    border: none;
+    box-shadow: 0px 0px 15px -5px;
+  }
+}
+.chicken{
+  position: absolute;
+  top: 45%;
+  left: 73.1%;
+  .vop{
+    position: absolute;
+    top: 65%;
+    left: 70%;
+    .img-vio{
+      cursor: pointer;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+  }
+  }
+  
+  .btn-chicken:hover{
+    background-color: aqua;
+  }
+  .btn-chicken{
+    border: none;
+    box-shadow: 0px 0px 15px -5px;
+  }
+}
+
 .add{
-  border: 1px solid red;
+  // border: 1px solid red;
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
   overflow-wrap: break-word;
   position: absolute;
-  width: 900px;
-  height: 600px;
-  top: 15%;
+  width: 74vw;
+  height: 320px;
+  top: 50%;
   left: 26%;
+
+  .cardi{
+    float: left;
+    margin-left: 10px;
+    .btn-act{
+      position: absolute;
+      top: 65%;
+    
+    }
+  }
   .pic3{
     width: 60px;
     height: 60px;
@@ -218,11 +320,57 @@
 
 .search{
   position: absolute;
-  border: 1px solid red;
-  width: 900px;
-  height: 70px;
-  top: 5%;
+  // border: 1px solid red;
+
+  width: 350px;
+  height: 40px;
+  top: 45%;
   left: 26%;
+  // box-shadow: 0px 0px 15px -5px;
+  border-radius: 20px 20px;
+  border: 1px solid rgb(193, 193, 240);
+  background-color: rgb(193, 193, 240);
+
+  .btn-ser{
+    position: absolute;
+    left: 104%;
+    top: 10%;
+    .btns-ser:hover{
+      background-color: aqua;
+    }
+    .btns-ser{
+      width: 60px;
+      height: 30px;
+      border-radius: 50px 50px;
+      border: none;
+      
+    }
+  }
+  .sep{
+    height: 40px;
+    margin-top: -1px;
+    margin-left: -1px;
+    width: 52px;
+    border-right: 1px solid black;
+    .ser{
+      margin-top: 10px;
+      margin-left: 16px;
+    width: 20px;
+    height: 20px;
+  }
+  }
+  
+  .search-in{
+    background-color: rgb(193, 193, 240);
+    border: none;
+    outline: none;
+    color: black;
+    position: absolute;
+    top: 7px;
+    font-size: 15px;
+    left: 70px;
+    width: 270px;
+  }
 }
 
 

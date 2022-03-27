@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import '../System/UserManage.scss'
+import pic from '../../assets/images/img2.png'
+import fs from 'fs'
+import * as actions from "../../store/actions";
+import Select from 'react-select'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Modelpolicy from './Modelpolicy';
+import ser from '../../assets/images/uo.png'
+import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -13,57 +20,50 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
+import vio from '../../assets/images/violet.png'
 
 
 
-import '../System/UserManage.scss';
+
+
+
+
+
+
+
+
+import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, searched, brei, req, kdp } from '../../services/userService'
+
+// import { getAllUsers } from '../../services/userService'
+
+import '../System/m.scss';
+import '../System/Setting.scss';
 import { Link } from 'react-router-dom';
-import { addf, delf, req, stop } from '../../services/userService';
-
 import Nav from './nav';
-class Userupdate extends Component {
+import Friends from './Friends';
+import { random } from 'lodash';
+import Modelanou from './Modelanou';
+class Managefe extends Component {
 
     constructor(props) {
         super(props);
+        const { userInfo } = this.props
+
         this.state = {
-            click: false,
-            clickprop: false,
-            dove: [],
-            han: '',
-        }
+            test: []
+        };
     }
 
-    effext = () => {
-        this.setState({
-            click: !this.state.click
-        })
-    }
-
-    effexts = () => {
-        this.setState({
-            clickprop: !this.state.clickprop
-        })
-    }
-
-  
 
     async componentDidMount() {
-        let dove = await req(this.props.userInfo.id)
+        let data = await kdp(this.props.userInfo.id)
         this.setState({
-            dove: dove.users
+            test: data.users
         })
     }
 
     hansdet = async (id) => {
-        await this.setState({
-            han: id
-        })
-        let data = await delf(this.props.userInfo.id, this.state.han)
-        window.location.reload();
-    }
-
-    handleok = async (id) => {
-        let data = await stop(this.props.userInfo.id,id)
+        let data = await delf(this.props.userInfo.id, id)
         window.location.reload();
     }
 
@@ -71,10 +71,11 @@ class Userupdate extends Component {
     render() {
 
         return (
-            <div>
-                <div className='manage-fr'>
-                {this.state.dove.map(d =>
-                        <Card className='cardi2' sx={{ maxWidth: 200, minWidth: 200, minHeight: 250, maxHeight: 250 }}>
+            <div className=''>
+                <Nav />
+                <div className='erp'>
+                    {this.state.test.map(d =>
+                        <Card className='cardi4' sx={{ maxWidth: 200, minWidth: 200, minHeight: 250, maxHeight: 250 }}>
                             <CardHeader
                                 avatar={<Avatar src={d.image} />}
                                 title={d.lastName && d.firstName}
@@ -89,13 +90,14 @@ class Userupdate extends Component {
                                 </Typography>
                             </CardContent>
                             <CardActions className='btn-act'>
-                                <Button onClick={() => this.handleok(d.id)} size="small">Accept</Button>
+                                <Button onClick={() => this.hansdet(d.id)} size="small">Delete</Button>
                                 {/* <Button size="small">Delete</Button> */}
                             </CardActions>
                         </Card>
                     )}
                 </div>
-            </div>
+
+            </div >
         );
     }
 
@@ -110,7 +112,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        processLogout: () => dispatch(actions.processLogout()),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Userupdate);
+export default connect(mapStateToProps, mapDispatchToProps)(Managefe);

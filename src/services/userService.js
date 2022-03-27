@@ -80,5 +80,23 @@ const searched = (id) => {
 const brei = (id,ids) => {
     return axios.get(`http://localhost:8080/api/bre?id=${id}&ids=${ids}`)
 }
-export {brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+
+const req = (id) => {
+    return axios.get(`http://localhost:8080/api/getReqFr?id=${id}`)
+}
+
+const random = () => {
+    return axios.get('http://localhost:8080/api/rendom')
+}
+const kdp = (id) => {
+    return axios.get(`http://localhost:8080/api/kdp?id=${id}`)
+}
+
+const count = (id) => {
+    return axios.get(`http://localhost:8080/api/count?id=${id}`)
+}
+const stop = (id,ids) => {
+    return axios.post(`http://localhost:8080/api/accept?id=${id}&ids=${ids}`)
+}
+export {kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 
