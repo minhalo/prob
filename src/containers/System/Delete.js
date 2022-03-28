@@ -70,7 +70,7 @@ class Delete extends Component {
             let data = await getDelete(this.props.userInfo.id, this.state.password)
             if(data.errCode != 0)
             {
-            console.log(data)
+           
                 this.setState({
                     errMessage: data.message,
                 })

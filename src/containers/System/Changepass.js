@@ -97,7 +97,7 @@ class Changepass extends Component {
         })
         try {
             let data = await passhw(this.props.userInfo.id, this.state.curpass, this.state.newpass, this.state.cpass)
-            console.log(data)
+        
             this.setState({
                 errMessage: data.message,
                 errMessages: data.messages,
@@ -123,10 +123,6 @@ class Changepass extends Component {
     }
 
     render() {
-        // console.log()
-        // console.log(this.state.message)
-        // console.log(this.state.messages)
-        // console.log(this.state.messagesx)
 
         return (
             <div className='app5'>

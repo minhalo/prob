@@ -22,13 +22,13 @@ class Modelpolicy extends Component {
     }
 
     render() {
-        // console.log(this.state.errMessage)
+   
         return (
 
             <Modal
                 isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}
-                className={"Forgot-account"}
+                className={"ite"}
                 centered
             >
                 <ModalHeader toggle={() => { this.toggle() }} >Some rules you have to follow</ModalHeader>

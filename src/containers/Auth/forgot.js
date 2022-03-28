@@ -113,6 +113,7 @@ class Forgot extends Component {
     }
 
     render() {
+        console.log(this.state.id)
         return (
             <div className=''>
                 <Modelforgot

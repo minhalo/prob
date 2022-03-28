@@ -166,8 +166,7 @@ class Setting extends Component {
         if (res) {
             this.setState({ selectOptions: options })
         }
-        // console.log(this.state.selectOptions)
-        // console.log(response)
+    
     }
 
     handleChange(e) {
@@ -250,7 +249,7 @@ class Setting extends Component {
         this.setState({
             checked: !this.state.checked
         })
-        console.log(this.state.checked)
+        
     }
     handleHind = () => {
         this.setState({
@@ -284,16 +283,12 @@ class Setting extends Component {
                 />
 
                 <Navset/>
-
-
-
                 <div className="users-container">
                     <scrollbars>
-                        <div className='chan'>@2</div>
                         <div className='imgdiv'>
                             <img src={profileImg} alt='' id='img' className='img' />
                         </div>
-                        <div className='test'>
+                       
                             <p className='Er'>{this.state.errMessagesxztukop}</p>
                             <p className='Er1'>{this.state.errMessage}</p>
                             <p className='Er2'>{this.state.errMessages}</p>
@@ -314,7 +309,7 @@ class Setting extends Component {
                             <div >
                                 <input onChange={(event) => this.handleOnChangeId(userInfo.id)} hidden value={userInfo.id} disabled type="text" placeholder="id" />
                             </div>
-                            <div className='input-container'>
+                           
                                 <div className='fistname'>
                                     <label className='text_fit'>First Name</label>
                                     <input className='input-fit' onChange={(event) => this.handleOnChangeFirstname(event)} type="text" />
@@ -340,9 +335,9 @@ class Setting extends Component {
                                     <Select className='text-select' options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
                                 </div>
                                 <div className='policy'>
-                                    <i onClick={() => this.handleClick()} className="fab fa-angellist"></i>
-                                </div>
-                                <div>
+                                    <i onClick={() => this.handleClick()} className="fab fa-angellist red"></i>
+                                </div>  
+                                <div className='cheto'>
                                     <input className='checkedr'
                                         onChange={this.handleCheckBox}
                                         name="check"
@@ -358,16 +353,16 @@ class Setting extends Component {
                                     <label className='text-pass'>Password</label>
                                     <input className='input-pass' onChange={(event) => this.handleOnChangeSet(event)} type="password" />
                                 </div>
-                                <p className='text-ter'>Decription</p>
                                 <div className='tear'>
+                                    <p className='text-ter'>Decription</p> 
                                     <textarea className='te' onChange={(event) => this.handleOnChangeText(event)} rows="5" cols="40" maxlength="100" name="description" />
                                 </div>
-                                <div>
-                                    <button className='buttonSuv' onClick={() => this.handleEdit()}>submit</button>
-                                </div>
-                            </div>
+                                
+                                <button className='buttonSuv' onClick={() => this.handleEdit()}>submit</button>
+                                
+                            
 
-                        </div>
+                      
                     </scrollbars>
                 </div>
 

@@ -51,7 +51,7 @@ class UserManage extends Component {
 
     render() {
         const { userInfo } = this.props
-        // console.log(this.state.click)
+        
         return (
             <div>
                <Nav/>

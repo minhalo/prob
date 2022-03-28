@@ -60,7 +60,7 @@ class Modeluser extends Component {
             <Modal
                 isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}
-                className={"Forgot-account"}
+                className={"abc"}
                 centered
             >
                 <ModalHeader toggle={() => { this.toggle() }} >Forgot password</ModalHeader>

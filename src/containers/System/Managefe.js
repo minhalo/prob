@@ -89,7 +89,7 @@ class Managefe extends Component {
                                     Description: {d.description}
                                 </Typography>
                             </CardContent>
-                            <CardActions className='btn-act'>
+                            <CardActions className='m'>
                                 <Button onClick={() => this.hansdet(d.id)} size="small">Delete</Button>
                                 {/* <Button size="small">Delete</Button> */}
                             </CardActions>

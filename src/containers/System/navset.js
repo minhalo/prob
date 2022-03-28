@@ -7,6 +7,9 @@ import * as actions from "../../store/actions";
 import { getCheckChangeEmail } from '../../services/userService';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'react-collapse';
+import set from '../../assets/images/setting.png'
+import change from '../../assets/images/change.png'
+import del from '../../assets/images/delete.png'
 
 
 
@@ -70,13 +73,26 @@ class Navset extends Component {
 
 
             <div className='app8'>
-                <div className='nav'>
-                    <ul className='ul1'>
-                            <li><Link className='link' to="/system/setting-manage">Update User</Link></li>
-                            <li><Link className='link' to='/system/user-change'>Change password</Link></li>
-                            <li><Link className='link' to='/system/user-delete'>Delete account</Link></li>
-                    </ul>
-                </div>
+                <div className='nav-setting-user'>
+                    <Link className='nav-child-setting' to='/system/setting-manage'>
+                        <div className='nav-img-setting'>
+                            <img className='navimg-setting' src={set}/>
+                        </div>
+                        <div className='nav-text-setting' >Update user</div>      
+                    </Link>
+                    <Link className='nav-child-setting1' to='/system/user-change'>
+                        <div className='nav-img-setting1'>
+                            <img className='navimg-setting1' src={change}/>
+                        </div>
+                        <div className='nav-text-setting1' >Change password</div>      
+                    </Link>
+                    <Link className='nav-child-setting2' to='/system/user-delete'>
+                        <div className='nav-img-setting2'>
+                            <img className='navimg-setting2' src={del}/>
+                        </div>
+                        <div className='nav-text-setting2' >Delete account</div>      
+                    </Link>
+                </div>              
             </div>
 
         )

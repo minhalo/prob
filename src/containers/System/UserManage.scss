@@ -1,47 +1,184 @@
-.users-container{
+// .users-container{
   
-  width: 65vw;
-  top: 5.2%;
-  left: 20%;
-  height: 86vh;
-  position: absolute;
+//   width: 65vw;
+//   top: 5.2%;
+//   left: 20%;
+//   height: 86vh;
+//   position: absolute;
+//   // border: 1px solid red;
 
-  .testok{
-    position: absolute;
-      left:7%;
-      top: 1%;
-      height: 600px;
-      width: 650px;
-      border: 1px solid red;
+//   .testok{
+//     position: absolute;
+//       left:7%;
+//       top: 1%;
+//       height: 600px;
+//       width: 650px;
+    
 
 
-    .btn-lock{
-      border: 1px solid black;
-      position: absolute;
-      cursor: pointer;
-      width: 20%;
-      left:79%;
-      font-size:200%;
-    }
-    .Input_text{
-      font-size: 200%;
-      border-radius: 2.5%;
-      height: 120px;
-      width: 100%;
-    }
-  }
+//     .btn-lock{
+//       border: 1px solid black;
+//       position: absolute;
+//       cursor: pointer;
+//       width: 20%;
+//       left:79%;
+//       font-size:200%;
+//     }
+//     .Input_text{
+//       font-size: 200%;
+//       border-radius: 2.5%;
+//       height: 120px;
+//       width: 100%;
+//     }
+//   }
   
-}
+// }
 .nav2{
   // box-shadow: 0px 0px 15px -5px;
   position: absolute;
-  border: 1px solid red;
+  // border: 1px solid red;
   top: 5.2%;
   left: 80%;
   width: 100vw;
   height: 86vh;
 }
+.nav-setting-user{
+  top: 10%;
+  width: 20vw;
+  height: 30vh;
+  position: absolute;
+  left: 0.7%;
+  // border: 1px solid red;
+  box-shadow: 0px 0px 15px -1px;
+  border-bottom-left-radius: 2.5%;
+  border-bottom-right-radius: 2.5%;
+  border-top-left-radius: 1.5%;
+  border-top-right-radius: 1.5%;
+  .nav-child-setting:hover{
+    background-color: #FFECEC
+  }
+  .nav-child-setting{
+    position: absolute;
+      top: 20px;
+      width: 341.3px;
+      height: 50px;
+      color: black;
+      // border: 1px solid red;
+      cursor: pointer;
+      .nav-img-setting{
+        margin-top: 4.5px;
+            margin-left: 55px;
+            position: absolute;
+            .navimg-setting{
+              width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+            }
+      }
+      .nav-text-setting{
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        font-size: 20px;
+      }
+  }
 
+
+  .nav-child-setting1:hover{
+    background-color: #FFECEC
+  }
+  .nav-child-setting1{
+    position: absolute;
+      top: 80px;
+      width: 341.3px;
+      height: 50px;
+      color: black;
+      // border: 1px solid red;
+      cursor: pointer;
+      .nav-img-setting1{
+        margin-top: 4.5px;
+            margin-left: 55px;
+            position: absolute;
+            .navimg-setting1{
+              width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+            }
+      }
+      .nav-text-setting1{
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        font-size: 20px;
+      }
+  }
+
+
+  .nav-child-setting2:hover{
+    background-color: #FFECEC
+  }
+  .nav-child-setting2{
+    position: absolute;
+      top: 140px;
+      width: 341.3px;
+      height: 50px;
+      color: black;
+      // border: 1px solid red;
+      cursor: pointer;
+      .nav-img-setting2{
+        margin-top: 4.5px;
+            margin-left: 55px;
+            position: absolute;
+            .navimg-setting2{
+              width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+            }
+      }
+      .nav-text-setting2{
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        font-size: 20px;
+      }
+  }
+}
+
+// .navz{
+//   position: absolute;
+//   top: 300px;
+//   width: 341.3px;
+//   height: 50px;
+//   color: black;
+//   // border: 1px solid red;
+//   cursor: pointer;
+
+//   .navcim{
+//     margin-top: 4.5px;
+//     margin-left: 55px;
+//     position: absolute;
+//     .navimg{
+//       width: 40px;
+//       height: 40px;
+//       border-radius: 50%;
+//     }
+//   }
+
+
+//   .navzk{
+//     position: absolute;
+//     left: 120px;
+//     top: 10px;
+//     font-family: Arial, Helvetica, sans-serif;
+//     font-size: 20px;
+//   }
+
+// }
+
+// .navz:hover
+// {
+//   background-color: #FFECEC;
+// }
 .nav{
   // box-shadow: 0px 0px 15px -1px;
     top: 6.5%;
@@ -49,6 +186,7 @@
     height: 60vh;
     position: absolute;
     left: 0.7%;
+    // border: 1px solid red;
     border-bottom-left-radius: 2.5%;
     border-bottom-right-radius: 2.5%;
     border-top-left-radius: 1.5%;
@@ -124,6 +262,47 @@
           font-size: 20px;
         }
       }   
+
+
+
+
+      .navz1{
+        position: absolute;
+        top: 360px;
+        width: 341.3px;
+        height: 50px;
+        color: black;
+        // border: 1px solid red;
+        cursor: pointer;
+
+        .navcim1{
+          margin-top: 4.5px;
+          margin-left: 55px;
+          position: absolute;
+          .navimg1{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+        }
+
+
+        .navzk1{
+          position: absolute;
+          left: 120px;
+          top: 10px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 20px;
+        }
+
+      }
+
+      .navz1:hover
+      {
+        background-color: #FFECEC;
+      }
+    
+    
   }
 
   .nav3{
@@ -195,11 +374,12 @@
     overflow-y: scroll;
     overflow-wrap: break-word;
     .cardi2{
+      position: relative;
       float: left;
       margin-left: 2%;
       .btn-act{
         position: absolute;
-        top: 29%;
+        bottom: 0px;
       }
     }
   }

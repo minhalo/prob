@@ -80,7 +80,7 @@ class Friend extends Component {
 
 
     }
-    
+
 
     handleOnChangeSearch = (event) => {
         this.setState({
@@ -88,17 +88,28 @@ class Friend extends Component {
         })
     }
 
+    rem = (idk) => {
+        let id = `/system/user-profile/${idk}`
+        window.location.assign(id);
+    }
+
     render() {
         return (
             <div className='app5'>
                 <div className='navf'>
                     <p className='pf'>Friends</p>
-                    {this.state.dove.map(d => 
-                    <div className='pichan'>
-                        <img className='pic4' src={d.image} />
-                        <h4 className='chanx'>{d.firstName} {d.lastName}</h4>
-                        {d.status ? <div><img className='Onlline' src={tect}/></div> : <div><img className='Offline' src={tese}/></div>}
-                    </div>)}
+                    {this.state.dove.map(d =>
+                        <div className='hipe'>
+                            <img className='pic4' src={d.image} />
+                            {d.status ? <div><img className='Onlline' src={tect} /></div> : <div><img className='Offline' src={tese} /></div>}
+
+                            <Link onClick={() => this.rem(d.id)} className='pichan' >
+                                <h4 className='chanx'>{d.firstName} {d.lastName}</h4>
+                            </Link>
+
+                        </div>
+                    )
+                    }
                 </div>
             </div >
         );

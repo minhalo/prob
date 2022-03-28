@@ -77,6 +77,10 @@ const searched = (id) => {
     return axios.get(`http://localhost:8080/api/getser?id=${id}`)
 }
 
+const profile = (id) => {
+    return axios.get(`http://localhost:8080/get/profile?id=${id}`)
+}
+
 const brei = (id,ids) => {
     return axios.get(`http://localhost:8080/api/bre?id=${id}&ids=${ids}`)
 }
@@ -98,5 +102,5 @@ const count = (id) => {
 const stop = (id,ids) => {
     return axios.post(`http://localhost:8080/api/accept?id=${id}&ids=${ids}`)
 }
-export {kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+export {profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

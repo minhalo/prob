@@ -28,7 +28,7 @@ class Modelset extends Component {
     }
 
     render() {
-        console.log(this.props.userInfo.id)
+       
         const { processLogout} = this.props;
         return (
             <Modal

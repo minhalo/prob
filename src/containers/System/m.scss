@@ -1,3 +1,11 @@
+
+@keyframes myanimation {
+  0% {background-color: red;}
+  25%{background-color:yellow;}
+  50%{background-color:green;}
+  75%{background-color:brown;}
+  100% {background-color: red;}
+}
 .erp{
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
@@ -10,15 +18,19 @@
   height: 72.5vh;
 
   .cardi4{
+    position: relative;
     float: left;
     margin-left: 10px;
-    .btn-act{
+    // border: 1px solid red;
+    .m{
+      // border: 1px solid red;
       position: absolute;
-      top: 32%;
-    
+      bottom: 0px;
     }
   }
 }
+
+
 .Annoucement{
   position: absolute;
   top: 3.6%;
@@ -174,17 +186,28 @@
     font-size: 20px;
     margin-top: 50px;
     margin-left: 20px;
-    
+    // border: 1px solid red;
   }
 
-  .pichan{
-    // margin-left: 20px;
-    border: none;
-    height: 70px;
+  .hipe:hover{
+    background-color: #F0F2ED;
+  }
+  .hipe{
+    width: 19vw;
+    margin-top: 10px;
+    height: 65px;
     // border: 1px solid red;
-    // margin-top: px;
+    .pic4{
+      position: absolute;
+    width: 55px;
+    height: 55px;
+    margin-top: 4px;
+    margin-left: 20px;
+    border-radius: 50%;
+    }
     .Onlline{
       position: absolute;
+      // margin-top: 50px;
       margin-top: 50px;
       margin-left: 17%;
       border-radius: 50%;
@@ -199,25 +222,33 @@
       width: 15px;
       height: 15px;
     }
-    .chanx{
-      position: absolute;
-      // border: 1px solid red;
-      font-size: 20px;
-      margin-top: 22px;
-      width: 200px;
-      font-family: cursive;
-      margin-left: 100px;
+  
+    .pichan{
       // position: absolute;
-    }
-    .pic4{
-      position: absolute;
-    width: 55px;
-    height: 55px;
-    margin-top: 7px;
-    margin-left: 20px;
-    border-radius: 50%;
+      // // margin-left: 20px;
+      // border: none;
+      // height: 70px;
+      width: 20vw;
+      top: 30%;
+      // // width: 200px;
+      // border: 1px solid red;
+      // // margin-top: px;
+     
+      .chanx{
+        // // border: 1px solid red;
+        position: absolute;
+        // // border: 1px solid red;
+        // font-size: 20px;
+        margin-top: 20px;
+        width: 300px;
+        // font-family: cursive;
+        margin-left: 100px;
+        // position: absolute;
+      }
+     
     }
   }
+ 
   
 }
 
@@ -237,11 +268,12 @@
   width: 900px;
   height: 270px;
   .cardi1{
+    position: relative;
     float: left;
     margin-left: 10px;
     .btn-act{
       position: absolute;
-      top: 80%;
+      bottom: 0px;
     
     }
   }
@@ -298,10 +330,11 @@
   .cardi{
     float: left;
     margin-left: 10px;
+    position: relative;
     .btn-act{
       position: absolute;
-      top: 65%;
-    
+      bottom: 0px;
+
     }
   }
   .pic3{
@@ -376,11 +409,11 @@
 
 .bob{
   position: absolute;
-  width: 74vw;
-  height: 86vh;
-  top: 5%;
-  left: 26%;
-  border: 1px solid red;
+  width: 50vw;
+  height: 36vh;
+  top: 6%;
+  left: 24%;
+  // border: 1px solid red;
 
   .prob{
     position: absolute;
@@ -389,7 +422,85 @@
     height: 300px;
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
-
     box-shadow: 0px 0px 15px -5px;
+    .totole{
+      position: absolute;
+      top: 80%;
+      left: 10%;
+      .fas-genders{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+    .phonenumbers{
+      position: absolute;
+      top: 72%;
+      left: 10%;
+      .fas-genders{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+    .addresses{
+      position: absolute;
+      top: 64%;
+      left: 10%;
+      .fas-genders{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+    .genders{
+      position: absolute;
+      top: 56%;
+      left: 10%;
+      .fas-genders{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+
+    .desi{
+      position: absolute;
+      top: 48%;
+      left: 50%;
+    }
+    .desip{
+      position: absolute;
+      top: 60%;
+      height: 100px;
+      width: 300px;
+      word-wrap: break-word;
+      // border: 1px solid red;
+      left: 50%;
+    }
+
+    .age{
+      position: absolute;
+      top: 48%;
+      left: 10%;
+      .fas{
+        // font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+    .img-prie{
+      position: absolute;
+      width: 700px;
+      height: 90px;
+      animation: myanimation 10s infinite;
+    }
+    
+    .input-prof{
+      position: absolute;
+      top: 30%;
+      left: 30%;
+    }
+    .img-prof{
+      position: absolute;
+      top: 9%;
+      left: 10%;
+      .img-prof-f{
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+      }
+    }
   }
 }
