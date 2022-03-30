@@ -29,28 +29,41 @@ import Groupchat from './groupchat';
 import ListFriend from './listFriend';
 import Headerchat from './headerchat';
 import Mainchat from './mainchat';
-class Chat extends Component {
+import Handlechat from './handlechat';
+import Chati from './chati';
+class Chats extends Component {
 
     constructor(props) {
         super(props);
         const { userInfo } = this.props
 
         this.state = {
-           
+            ids:  this.props.match.params.id
         };
     }
 
   
 
     render() {
-        
+        console.log(this.state.ids)
         return (
             <div className='app5'>
                {/* <Friends/> */}
-               <ListFriend/>
-               {/* <Headerchat/> */}
-               {/* <Mainchat/> */}
+               <ListFriend
+               isokay ={this.state.ids}
+               />
+               <Headerchat
+               isokay={this.state.ids}
+               />
+               <Mainchat
+               isokay ={this.state.ids}
+               />
+               {/* <Handlechat/> */}
+               <Chati
+               isokay ={this.state.ids}
+               />
                <Groupchat/>
+               
             </div>
         );
     }
@@ -70,4 +83,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default connect(mapStateToProps, mapDispatchToProps)(Chats);

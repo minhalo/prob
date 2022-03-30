@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import pic from '../../assets/images/img2.png'
@@ -16,7 +16,7 @@ import tese from '../../assets/images/offline.jpg'
 
 
 
-import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, dmmn } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -24,7 +24,7 @@ import '../System/m.scss';
 import '../System/Setting.scss';
 import { Link } from 'react-router-dom';
 import Nav from './nav';
-class Friend extends Component {
+class Listfr extends Component {
 
     constructor(props) {
         super(props);
@@ -48,12 +48,6 @@ class Friend extends Component {
         })
     }
 
-    async componentDidUpdate() {
-        let data = await search(this.state.search, this.props.userInfo.id)
-        await this.setState({
-            datas: data.userData
-        })
-    }
 
     effext = () => {
         this.setState({
@@ -62,10 +56,10 @@ class Friend extends Component {
     }
 
     async componentDidMount() {
-        let dove = await addf(this.props.userInfo.id)
+        let dove = await dmmn(this.props.isokay)
         // let dove = await req(this.props.userInfo.id)
         this.setState({
-            dove: dove.users
+            dove: dove.userData
         })
     }
 
@@ -95,15 +89,13 @@ class Friend extends Component {
     }
 
     render() {
-        console.log(this.state.id)
         return (
             <div className='app5'>
-                <div className='navf'>
-                    <p className='pf'>Friends</p>
+                <div className='listfriend'>
+                <p className='pf'>Members</p>
                     {this.state.dove.map(d =>
                         <div className='hipe'>
                             <img className='pic4' src={d.image} />
-                            {d.status ? <div><img className='Onlline' src={tect} /></div> : <div><img className='Offline' src={tese} /></div>}
                             <Link onClick={() => this.rem(d.id)} className='pichan' >
                                 <h4 className='chanx'>{d.firstName} {d.lastName}</h4>
                             </Link>
@@ -129,4 +121,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Friend);
+export default connect(mapStateToProps, mapDispatchToProps)(Listfr);

@@ -10,6 +10,7 @@ import Delete from '../containers/System/Delete';
 import Profile from '../containers/System/Profile';
 import Managefe from '../containers/System/Managefe'
 import Chat from '../containers/System/Chat';
+import Chats from '../containers/System/Chats';
 // import '../routes/system.scss';
 
 class System extends Component {
@@ -27,6 +28,7 @@ class System extends Component {
                         <Route path="/system/user-profile/:id" component={Profile} />
                         <Route path="/system/user-fr" component={Managefe}/>
                         <Route path="/system/user-chat" component={Chat}/>
+                        <Route path="/system/user-chats/:id" component={Chats}/>
                         {/* <Redirect to="/system/user-manage"/> */}
                     </Switch>
                 </div>

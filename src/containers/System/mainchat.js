@@ -7,7 +7,8 @@ import * as actions from "../../store/actions";
 import Select from 'react-select'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modelpolicy from './Modelpolicy';
-import { getDelete, passhw } from '../../services/userService'
+import tect from '../../assets/images/onl.webp'
+import tese from '../../assets/images/offline.jpg'
 
 
 
@@ -15,7 +16,7 @@ import { getDelete, passhw } from '../../services/userService'
 
 
 
-import { getUsers, getEdit, getBox } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, take } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -23,35 +24,40 @@ import '../System/m.scss';
 import '../System/Setting.scss';
 import { Link } from 'react-router-dom';
 import Nav from './nav';
-import Navset from './navset';
-import Friends from './Friends';
-import Groupchat from './groupchat';
-import ListFriend from './listFriend';
-import Headerchat from './headerchat';
-import Mainchat from './mainchat';
-class Chat extends Component {
+class Mainchat extends Component {
 
     constructor(props) {
         super(props);
         const { userInfo } = this.props
 
         this.state = {
-           
+           mes: '',
+
         };
     }
+    handlemes = async () => {
+        //to do
+        let data = await take(this.props.userInfo.id, this.props.isokay, this.state.mes)
+       
+    }
 
-  
+
+    handleOnChangeSet = (event) => {
+        this.setState({
+            mes: event.target.value
+        })
+    }
+
+    
 
     render() {
-        
         return (
             <div className='app5'>
-               {/* <Friends/> */}
-               <ListFriend/>
-               {/* <Headerchat/> */}
-               {/* <Mainchat/> */}
-               <Groupchat/>
-            </div>
+                <div className='mainchat'>
+                            <input onChange={(event) => this.handleOnChangeSet(event)} type='text'/>
+                            <button onClick={() => this.handlemes()}>send</button>
+                    </div>
+            </div >
         );
     }
 
@@ -70,4 +76,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default connect(mapStateToProps, mapDispatchToProps)(Mainchat);

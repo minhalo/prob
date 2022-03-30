@@ -7,15 +7,18 @@ import * as actions from "../../store/actions";
 import Select from 'react-select'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modelpolicy from './Modelpolicy';
-import { getDelete, passhw } from '../../services/userService'
+import tect from '../../assets/images/onl.webp'
+import tese from '../../assets/images/offline.jpg'
+import created from '../../assets/images/create.png'
+
+import { okgr, socket } from '../../services/userService';
 
 
 
 
 
 
-
-import { getUsers, getEdit, getBox } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, header } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -23,35 +26,32 @@ import '../System/m.scss';
 import '../System/Setting.scss';
 import { Link } from 'react-router-dom';
 import Nav from './nav';
-import Navset from './navset';
-import Friends from './Friends';
-import Groupchat from './groupchat';
-import ListFriend from './listFriend';
-import Headerchat from './headerchat';
-import Mainchat from './mainchat';
-class Chat extends Component {
+import Modelcreate from './modelcreate';
+// import group from '../../services/userService'
+import { group ,take } from '../../services/userService';
+import { getgroups } from 'process';
+// import { header } from '../../services/userService';
+
+class Handlechat extends Component {
 
     constructor(props) {
         super(props);
         const { userInfo } = this.props
 
         this.state = {
-           
         };
     }
 
-  
 
     render() {
-        
+        // console.log(this.state.idchange)
         return (
             <div className='app5'>
-               {/* <Friends/> */}
-               <ListFriend/>
-               {/* <Headerchat/> */}
-               {/* <Mainchat/> */}
-               <Groupchat/>
-            </div>
+                    <div className='handlechat'>
+                            {/* <input onChange={(event) => this.handleOnChangeSet(event)} type='text'/>
+                            <button onClick={() => this.handlemes()}>send</button> */}
+                    </div>
+                </div>
         );
     }
 
@@ -70,4 +70,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Chat);
+export default connect(mapStateToProps, mapDispatchToProps)(Handlechat);

@@ -23,6 +23,9 @@ import Footer from './footer/Footer';
 import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
 import Forgot from './Auth/forgot'
+import io from 'socket.io-client'
+
+const socket = io.connect("http://localhost:7000")
 
 class App extends Component {
 

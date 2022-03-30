@@ -1,5 +1,9 @@
 import axios from "../axios"
 
+import io from 'socket.io-client'
+
+const socket = io.connect("http://localhost:7000")
+
 const handleLogin = (email,password) =>
 {
     return axios.post('http://localhost:8080/api/login', {email,password})
@@ -102,5 +106,41 @@ const count = (id) => {
 const stop = (id,ids) => {
     return axios.post(`http://localhost:8080/api/accept?id=${id}&ids=${ids}`)
 }
-export {profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+
+const group = () => {
+    return axios.post(`http://localhost:8080/api/group`)
+}
+
+const getGroup = (id, ids) => {
+    return axios.post(`http://localhost:8080/api/group?id=${id}&ids=${ids}`)
+}
+
+const okgr = (id) => {
+    return axios.get(`http://localhost:8080/api/okgr?id=${id}`)
+}
+
+const take = (id, ids ,idss) => {
+    return axios.post(`http://localhost:8080/api/task?id=${id}&ids=${ids}&idss=${idss}`)
+}
+
+const activate = (id,ids) => {
+    return axios.post(`http://localhost:8080/api/activate?id=${id}&ids=${ids}`)
+}
+
+const dmmn = (id) => {
+    return axios.get(`http://localhost:8080/api/dmm?id=${id}`)
+}
+
+
+const chatlist = (id) => {
+    return axios.get(`http://localhost:8080/api/messa?id=${id}`)
+}
+
+
+const namegr = (id) => {
+    return axios.get(`http://localhost:8080/api/getnamegr?id=${id}`)
+}
+
+
+export {namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 
