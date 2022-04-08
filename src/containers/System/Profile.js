@@ -60,7 +60,6 @@ class Profile extends Component {
 
 
     render() {
-        // console.log(this.state.datas.lastName)
         return (
             <div className='app8'>
                 <Nav />

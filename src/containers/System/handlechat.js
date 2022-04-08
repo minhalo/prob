@@ -44,7 +44,6 @@ class Handlechat extends Component {
 
 
     render() {
-        // console.log(this.state.idchange)
         return (
             <div className='app5'>
                     <div className='handlechat'>

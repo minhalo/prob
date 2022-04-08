@@ -36,34 +36,46 @@ class Chats extends Component {
     constructor(props) {
         super(props);
         const { userInfo } = this.props
-
         this.state = {
-            ids:  this.props.match.params.id
+            ids: this.props.match.params.id,
+            mes: '',
         };
     }
 
-  
+    // callbackFunction = (childData) => {
+    //     setTimeout(function () { //Start the timer
+    //         this.setState({
+    //             mes: childData
+    //         })
+
+    //     }.bind(this), 2000)
+
+    // }
 
     render() {
-        console.log(this.state.ids)
+        // setTimeout(function() { //Start the timer
+        // }.bind(this), 2000)
+
         return (
             <div className='app5'>
-               {/* <Friends/> */}
-               <ListFriend
-               isokay ={this.state.ids}
-               />
-               <Headerchat
-               isokay={this.state.ids}
-               />
-               <Mainchat
-               isokay ={this.state.ids}
-               />
-               {/* <Handlechat/> */}
-               <Chati
-               isokay ={this.state.ids}
-               />
-               <Groupchat/>
-               
+                {/* <Friends/> */}
+                <ListFriend
+                    isokay={this.state.ids}
+                />
+                <Headerchat
+                    isokay={this.state.ids}
+                />
+                {/* <Mainchat
+                    parentCallback={this.callbackFunction}
+                    isokay={this.state.ids}
+                /> */}
+                {/* <Handlechat/> */}
+                <Chati
+
+                    isokay={this.state.ids}
+                />
+                <Groupchat />
+
             </div>
         );
     }

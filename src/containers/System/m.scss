@@ -183,6 +183,7 @@
 .navf{
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+  overflow-x: hidden;
   overflow-wrap: break-word;
   position: fixed;
   // box-shadow: -1px 0px 10px 0px;
@@ -268,19 +269,29 @@
   left: 26%;
 }
 .random{
-  overflow: -moz-scrollbars-horizontal;
-  overflow-x: scroll;
-  overflow-wrap: break-word;
+  box-shadow: 0px 0px 10px 0px;
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+
+  // overflow-x: scroll;
+  overflow-y: scroll;
+  // overflow-wrap: break-word;
   position: absolute;
   // border: 1px solid red;
-  top: 13%;
-  left: 26%;
-  width: 900px;
-  height: 270px;
+
+  top: 2%;
+  left: 11%;
+  width: 640px;
+  height: 260px;
+  border-radius: 10px 10px;
   .cardi1{
+    cursor: pointer;
     position: relative;
     float: left;
     margin-left: 10px;
+
+   
     .btn-act{
       position: absolute;
       bottom: 0px;
@@ -540,7 +551,7 @@
       .avatargr-1{
         width: 50px;
         border-radius: 50%;
-        border: 1px solid red;
+        // border: 1px solid red;
         height: 50px;
       }
       
@@ -580,9 +591,11 @@
         margin-left: 10px;
       }
       .p-goup{
-        font-size: 35px;
+        font-size: 20px;
+        margin-top: 5.6%;
         margin-left: 80px;
         position: absolute;
+        text-transform: uppercase;
       }
     }
 
@@ -593,12 +606,16 @@
   
 }
 .listfriend{
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+  overflow-x:hidden;
+  overflow-wrap: break-word;
   position: absolute;
   top: 6.4%;
-  width: 25vw;
+  width: 20vw;
   height: 81.4vh;
-  border: 1px solid red;
-  left: 74.9%;
+  // border: 1px solid red;
+  left: 79.9%;
 
   .pf{
     font-weight: bold;
@@ -612,7 +629,7 @@
     background-color: #F0F2ED;
   }
   .hipe{
-    width: 19vw;
+    width: 18vw;
     margin-top: 10px;
     height: 65px;
     // border: 1px solid red;
@@ -678,8 +695,26 @@
   // border: 1px solid red;
   border-bottom: 1px solid gray;
   left: 25%;
+
+  .meni{
+    cursor: pointer;
+    top: 15%;
+    margin-left: 800px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;
+  }
+  .nameavto{
+    position: absolute;
+    top: 15%;
+    left: 4%;
+    border-radius: 50%;
+  }
   .name{
     position: absolute;
+    top: 30%;
+    left: 10%;
     font-size: 20px;
     text-transform: uppercase;
   }
@@ -707,14 +742,7 @@
   
 }
 
-.mainchat{
-  position: absolute;
-  top:  80%;
-  width: 50vw;
-  height: 70px;
-  // border: 1px solid red
-  left: 25%;
-}
+
 
 .handlechat{
   position: absolute;
@@ -723,6 +751,39 @@
   border: 1px solid red;
   width: 850px;
   height: 70px;
+}
+.chiopl{
+  // border: 1px solid red;
+  // border-top: 1px solid gray;
+  position: absolute;
+  top: 83%;
+  width: 50vw;
+  height: 4.6vh;
+  left:25%;
+
+  .chat-con{
+    // margin-top: 2px;
+    margin-left: 220px;
+    // border: 1px solid red;
+    width: 620px;
+    background-color: #F2F3F4;
+    height: 38px;
+    border-radius: 50px 50px;
+     .input-chat{
+       border: none;
+       background-color: #F2F3F4;
+    position: absolute;
+    margin-top: 0px;
+    font-size: 13px;
+    outline: none;
+    margin-top: 3px;
+    margin-left: 9px;
+    width: 600px;
+    height: 30px;
+  }
+  }
+ 
+
 }
 
 .chati{
@@ -734,7 +795,189 @@
   top: 14.5%;
   left: 25%;
 }
-.poir{
+
+
+
+.cati{
+  margin-top: 5%;
+  // border: 1px solid red;
+  height: 300px;
+
+  .poci{
+    // border: 1px solid red;
+    height: 75px;
+    .poirc{
+      margin-right: 10px;
+      margin-top: 10px;
+      float: right;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .poird{
+    margin-left: 10px;
+      margin-top: 10px;
+    float: left;
   width: 60px;
   height: 60px;
+  border-radius: 50%;
+  }
+  }
+
+
+  .abcd{
+    // border: 1px solid red;
+    height: 20px;
+    .c{
+      margin-right: 10px;
+      margin-top: 0px;
+        float: right;
+        height: 20px;
+        margin-bottom: 0px;
+    }
+  
+    .d{
+      margin-left: 10px;
+      margin-top: 0px;
+        float: left;
+        height: 20px;
+        margin-bottom: 0px;
+
+    }
+  }
+
+  .timezone{
+    // border: 1px solid red;
+    height: 30px;
+    // margin-top: 65px;
+    .k{
+      margin-right: 10px;
+      margin-top: 0px;
+        float: right;
+        height: 20px;
+        margin-bottom: 0px;
+    }
+    .g{
+      margin-left: 10px;
+      margin-top: 0px;
+        float: left;
+        height: 20px;
+        margin-bottom: 0px;
+    }
+  }
+
+  .iconseri{
+    // border: 1px solid red;
+    height: 34px;
+    .likeyo{
+      float: right;
+      border-radius: 50%;
+      margin-top: 1.5px;
+      // border: 1px solid red;
+      height: 30px;
+      width: 30px;
+      // margin-left: 40px;
+    }
+    .likei{
+      float: right;
+      border-radius: 50%;
+      margin-top: 1.5px;
+      // border: 1px solid red;
+      height: 30px;
+      width: 30px;
+      margin-left: 30px;
+    }
+
+    .likeii{
+      float: right;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    .likeik{
+      float: right;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    .likeiki{
+      float: right;
+      margin-top: 10px;
+      margin-right: 690px;
+    }
+
+    .likey{
+      float: right;
+      border-radius: 50%;
+      margin-top: 1.5px;
+      // border: 1px solid red;
+      height: 30px;
+      width: 30px;
+      margin-left: 30px;
+    }
+  }
+
+  .mys{
+    // border: 1px solid red;
+    height: 140px;
+    .r{
+      margin-right: 10px;
+      margin-top: 0px;
+        float: right;
+        height: 20px;
+        width: 550px;
+        margin-bottom: 0px;
+        font-size: 20px;
+    // font-size: 1vw;
+    text-align: right;
+    word-wrap: break-word;
+    }
+    .t{
+      margin-left: 10px;
+      margin-top: 0px;
+        float: left;
+        height: 20px;
+        width: 550px;
+        margin-bottom: 0px;
+        word-wrap: break-word;
+    }
+  }
+  
+
+  
+}
+
+
+
+.wib{
+  position: absolute;
+  top: 7%;
+  left: 25.5%;
+  width: 1262px;
+  height: 711px;
+  border-radius: 0.5%;
+}
+
+
+
+.send-post{
+  // border: 1px solid red;
+  height: 300px;
+  .arepost{
+    margin-top: 15px;
+    width: 468px;
+    height: 300px;
+    outline: none;
+  }
+}
+.okmg{
+  position: absolute;
+  margin-left: 10% ;
+  margin-top: -5%;
+}
+.rungroi{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }

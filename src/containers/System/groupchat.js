@@ -96,7 +96,6 @@ class Groupchat extends Component {
     }
 
     render() {
-        // console.log(this.state.idchange)
         return (
             <div className='app5'>
                 {/* <Modelset

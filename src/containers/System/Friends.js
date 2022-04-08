@@ -95,7 +95,6 @@ class Friend extends Component {
     }
 
     render() {
-        console.log(this.state.id)
         return (
             <div className='app5'>
                 <div className='navf'>

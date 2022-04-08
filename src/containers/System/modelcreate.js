@@ -69,7 +69,6 @@ class Modelcreate extends Component {
     }
 
     render() {
-        // console.log(this.state.name)
         const { processLogout} = this.props;
         return (
             <Modal

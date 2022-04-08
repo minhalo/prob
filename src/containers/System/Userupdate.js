@@ -87,6 +87,8 @@ class Userupdate extends Component {
                                 <Typography paragraph>
                                     Description: {d.description}
                                 </Typography>
+                                
+
                             </CardContent>
                             <CardActions className='btn-act'>
                                 <Button onClick={() => this.handleok(d.id)} size="small">Accept</Button>

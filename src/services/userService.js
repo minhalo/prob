@@ -141,6 +141,37 @@ const namegr = (id) => {
     return axios.get(`http://localhost:8080/api/getnamegr?id=${id}`)
 }
 
+const listactivate = (id) => {
+    return axios.get(`http://localhost:8080/api/listActivate?id=${id}`)
+}
 
-export {namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+const listpost = () => {
+    return axios.get(`http://localhost:8080/api/listpost`)
+}
+
+const creatpost = (id, mes) => {
+    return axios.post(`http://localhost:8080/api/creatpost?id=${id}&text=${mes}`)
+}
+
+const inlike = (id) => {
+    return axios.put(`http://localhost:8080/api/like?id=${id}`)
+}
+
+const dislike = (id) => {
+    return axios.put(`http://localhost:8080/api/dislike?id=${id}`)
+}
+
+// commenti
+const commenti = (id, idk, mes) => {
+    return axios.post(`http://localhost:8080/api/commenti?id=${id}&ids=${idk}&mes=${mes}`)
+}
+
+// listcomment
+
+const listcomment = () => {
+    return axios.get(`http://localhost:8080/api/listcomment`)
+}
+
+
+export {listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

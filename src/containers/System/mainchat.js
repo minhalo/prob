@@ -31,14 +31,12 @@ class Mainchat extends Component {
         const { userInfo } = this.props
 
         this.state = {
-           mes: '',
-
+            mes: '',
+            ko: true
         };
     }
     handlemes = async () => {
-        //to do
         let data = await take(this.props.userInfo.id, this.props.isokay, this.state.mes)
-       
     }
 
 
