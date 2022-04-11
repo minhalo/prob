@@ -20,7 +20,11 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
-import vio from '../../assets/images/violet.png'
+import vio from '../../assets/images/violet.png';
+import ReactSearchBox from "react-search-box";
+import Search from 'react-search'
+
+
 
 
 
@@ -43,6 +47,7 @@ import Nav from './nav';
 import Friends from './Friends';
 import { random } from 'lodash';
 import Modelanou from './Modelanou';
+import Navfriend from './navfriend';
 class Addfriends extends Component {
 
     constructor(props) {
@@ -63,12 +68,11 @@ class Addfriends extends Component {
             isOpen: false
         };
     }
-    handleClick =   () =>
-    {
+    handleClick = () => {
         this.setState({
-            isOpen:true
+            isOpen: true
         })
-    } 
+    }
 
     async componentDidUpdate() {
 
@@ -92,6 +96,20 @@ class Addfriends extends Component {
         this.setState({
             lomdom: lon
         })
+
+        const listener = event => {
+            if (event.code === "Enter"|| event.code === "NumpadEnter") {
+            //console.log("Enter key was pressed. Run function.");
+                event.preventDefault();
+                // callMyFunction();
+                this.spo()
+                
+            }
+          };
+          document.addEventListener("keydown", listener);
+          return () => {
+            document.removeEventListener("keydown", listener);
+          };
     }
 
     spo = async () => {
@@ -136,56 +154,35 @@ class Addfriends extends Component {
         })
     }
 
-    handleHind =   () =>
-    {
+    handleHind = () => {
         this.setState({
             isOpen: !this.state.isOpen
         })
     }
 
     render() {
-        
+
         return (
             <div className=''>
-                <Nav />
+                {/* <Nav /> */}
                 <Modelanou
-                 isOpen={this.state.isOpen}
-                 isHide={this.handleHind}
-                 />
-                <div className='suggest'><h3>Suggestion</h3></div>
-                
+                    isOpen={this.state.isOpen}
+                    isHide={this.handleHind}
+                />
+                <Navfriend />
+
                 <div className='search'>
                     <div className='sep'>
                         <img className='ser' src={ser} />
                     </div>
-                    <div className='btn-ser'>
-                        <button className='btns-ser' onClick={() => this.spo()}>Search</button>
-                    </div>
+                  
                     <input className='search-in' onChange={(event) => this.handleOnChangeSearch(event)} type='text' />
                 </div>
-                <div className='chicken'>
-                        <button className='btn-chicken'><Link to='/system/user-update'>Friends request</Link></button>
-                        <div className='vop'><img onClick={() => this.handleClick()} className='img-vio' src={vio}/></div>                   
-                </div>
-                <div className='chickens'>
-                        <button className='btn-chickens'><Link to='/system/user-fr'>Manage friend</Link></button>
-                </div>
+
+               
                 <div className='add'>
-                    {/* {this.state.datas.map(d => 
-                    <div>
-                        <div>
-                            <img className='pic3' src={d.image} /> 
-                        </div>
-                        <div>
-                            {d.firstName} {d.lastName}
-                        </div>
-                        <div>
-                        <button onClick={() => this.hansdet(d.id)}>delete</button> 
-                        <button onClick={() => this.hans(d.id)}>add</button>
-                        </div>
-                    </div>)} */}
                     {this.state.datas.map(d =>
-                        <Card className='cardi' sx={{ maxWidth: 200, minWidth: 200, minHeight: 250, maxHeight: 250 }}>
+                        <Card className='cardi' sx={{ maxWidth: 350, minWidth: 350, minHeight: 250, maxHeight: 250 }}>
                             <CardHeader
                                 avatar={<Avatar src={d.image} />}
                                 title={d.lastName && d.firstName}
@@ -201,7 +198,6 @@ class Addfriends extends Component {
                             </CardContent>
                             <CardActions className='btn-act'>
                                 <Button onClick={() => this.hans(d.id)} size="small">Add</Button>
-                                {/* <Button size="small">Delete</Button> */}
                             </CardActions>
 
                         </Card>

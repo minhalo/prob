@@ -94,11 +94,7 @@ class Headerchat extends Component {
         return (
             <div className='app5'>
                 <div className='headerchat'>
-                  <Modalheaderchat
-                      isOpen={this.state.isOpens}
-                      isHide={this.handleHinds}
-                     
-                  />
+                  
                     <Modeladd
                         isOpen={this.state.isOpen}
                         isHide={this.handleHind}
@@ -109,7 +105,7 @@ class Headerchat extends Component {
                     
                     <Menu menuButton={<img className='meni' src={men}/>} transition>
                         <MenuItem onClick={() => this.handleClick()}>Add New Members</MenuItem>
-                        <MenuItem onClick={() => this.handleClicks()}>Activate Group</MenuItem>
+                        {/* <MenuItem onClick={() => this.handleClicks()}>Activate Group</MenuItem> */}
                        
                     </Menu>
                 </div>

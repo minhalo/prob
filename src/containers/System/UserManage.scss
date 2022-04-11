@@ -130,6 +130,17 @@
   border-bottom-right-radius: 2.5%;
   border-top-left-radius: 1.5%;
   border-top-right-radius: 1.5%;
+  .reqfriendcheck{
+    position: absolute;
+    background-color: red;
+    // border-radius: 5px 5px;
+    text-align: center;
+    margin-top: 180px;
+    margin-left: 250px;
+    display: block;
+    color: white;
+    // border: 1px solid red;
+  }
   .nav-child-setting:hover{
     background-color: #FFECEC
   }
@@ -443,19 +454,29 @@
   .manage-fr{
     // border: 1px solid red;
     position: absolute;
-    top: 7%;
-    width: 100vw;
-    height: 80vh;
+    width: 74vw;
+    height: 640px;
+    top: 16%;
+    left: 26%;
     overflow: -moz-scrollbars-vertical;
     overflow-y: scroll;
     overflow-wrap: break-word;
     .cardi2{
+      margin-top: 1%;
+      border-radius: 5%;
+      box-shadow: 0px 0px 15px -5px;
       position: relative;
       float: left;
-      margin-left: 2%;
-      .btn-act{
+      margin-left: 10px;
+            .btn-act{
         position: absolute;
         bottom: 0px;
       }
     }
   }
+
+
+.videocall{
+  position: absolute;
+  top: 20%;
+}

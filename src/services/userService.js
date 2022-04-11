@@ -173,5 +173,18 @@ const listcomment = () => {
 }
 
 
-export {listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+const searchaff = (name, id) => {
+    return axios.get(`http://localhost:8080/api/getmanagefr?name=${name}&id=${id}`)
+}
+
+const deleteaff = (id, ids) =>{
+    return axios.delete(`http://localhost:8080/api/deleteAff?id=${id}&ids=${ids}`)
+}
+
+
+const searchrequest = (name, id) =>{
+    return axios.get(`http://localhost:8080/api/searchrequest?name=${name}&id=${id}`)
+}
+
+export {searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

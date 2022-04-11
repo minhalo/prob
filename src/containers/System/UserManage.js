@@ -21,7 +21,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import vio from '../../assets/images/violet.png'
-import { header, listpost, searched, inlike, dislike,commenti,listcomment } from '../../services/userService';
+import { header, listpost, searched, inlike, dislike,commenti,listcomment, addfriend } from '../../services/userService';
 import Modalpost from './Modalpost';
 import moment from 'moment'
 class UserManage extends Component {
@@ -120,6 +120,10 @@ class UserManage extends Component {
         })
     }
 
+    hans = async (id) => {
+        let data = await addfriend(this.props.userInfo.id, id)     
+    }
+
    
 
     handleOnChangeText = (event) => {
@@ -129,7 +133,7 @@ class UserManage extends Component {
     }
     render() {
         const { userInfo } = this.props
-        console.log(this.state.com)
+        
         return (
             <div>
                 <Nav />

@@ -9,9 +9,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modelpolicy from './Modelpolicy';
 import tect from '../../assets/images/onl.webp'
 import tese from '../../assets/images/offline.jpg'
-import created from '../../assets/images/create.png'
+import created from '../../assets/images/io.png'
 
 import { okgr, socket } from '../../services/userService';
+import {
+    Menu,
+    MenuItem,
+    MenuButton
+} from '@szhsin/react-menu';
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/slide.css';
+import Modalheaderchat from './Modalheaderchat';
 
 
 
@@ -30,7 +38,7 @@ import { Link } from 'react-router-dom';
 import Nav from './nav';
 import Modelcreate from './modelcreate';
 // import group from '../../services/userService'
-import { group ,take } from '../../services/userService';
+import { group, take } from '../../services/userService';
 import { getgroups } from 'process';
 // import { header } from '../../services/userService';
 
@@ -45,7 +53,8 @@ class Groupchat extends Component {
             datas: '',
             oo: [],
             idchange: '',
-            mes: ''
+            mes: '',
+            isOpens: false,
         };
     }
     handleClick = () => {
@@ -95,6 +104,19 @@ class Groupchat extends Component {
         window.location.assign(id);
     }
 
+    handleClicks= () => {
+        this.setState({
+            isOpens: true
+        })
+    }
+
+    handleHinds = () => {
+        this.setState({
+            isOpens: !this.state.isOpens
+        })
+    }
+
+
     render() {
         return (
             <div className='app5'>
@@ -105,25 +127,35 @@ class Groupchat extends Component {
                     isOpen={this.state.isOpen}
                     isHide={this.handleHind}
                 />
+                <Modalheaderchat
+                      isOpen={this.state.isOpens}
+                      isHide={this.handleHinds}
+                     
+                  />
                 <div className='group'>
                     <div className='headgroup'>
                         <div className='avatargr'>
                             <img className='avatargr-1' src={this.state.datas.image} />
 
                         </div>
-                        <div className='btn-create'>
+                        {/* <div className='btn-create'>
                             <img onClick={() => this.handleClick()} className='create' src={created} />
-                        </div>
+                        </div> */}
+                        <Menu menuButton={<img className='createo' src={created} />} transition>
+                            <MenuItem onClick={() => this.handleClick()}>Add New Group</MenuItem>
+                            <MenuItem onClick={() => this.handleClicks()}>Activate Group</MenuItem>
+
+                        </Menu>
                     </div>
                     <div className='listmem'>
                         {this.state.oo.map(d =>
-                            <div onClick={() => this.rem(d.id)}  className='groupoo'>
+                            <div onClick={() => this.rem(d.id)} className='groupoo'>
                                 <Avatar size={40} className='avtargr' name={d.groupname} />
                                 <p className='p-goup'>{d.groupname}</p>
                             </div>
                         )}
                     </div>
-                   
+
                 </div>
             </div >
         );

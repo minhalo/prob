@@ -11,6 +11,7 @@ import Profile from '../containers/System/Profile';
 import Managefe from '../containers/System/Managefe'
 import Chat from '../containers/System/Chat';
 import Chats from '../containers/System/Chats';
+import Video from '../containers/System/Video';
 // import '../routes/system.scss';
 
 class System extends Component {
@@ -29,6 +30,7 @@ class System extends Component {
                         <Route path="/system/user-fr" component={Managefe}/>
                         <Route path="/system/user-chat" component={Chat}/>
                         <Route path="/system/user-chats/:id" component={Chats}/>
+                        <Route path="/system/user-video" component={Video}/>
                         {/* <Redirect to="/system/user-manage"/> */}
                     </Switch>
                 </div>

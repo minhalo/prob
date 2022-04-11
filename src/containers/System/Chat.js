@@ -29,7 +29,8 @@ import Groupchat from './groupchat';
 import ListFriend from './listFriend';
 import Headerchat from './headerchat';
 import Mainchat from './mainchat';
-import ani from '../../assets/images/animate.jpg'
+import ani from '../../assets/images/person.png'
+import Navfriend from './navfriend';
 class Chat extends Component {
 
     constructor(props) {
@@ -52,6 +53,8 @@ class Chat extends Component {
                {/* <Headerchat/> */}
                {/* <Mainchat/> */}
                <img className='wib' src={ani}/>
+               {/* <Navfriend/> */}
+               <Friends/>
                <Groupchat/>
             </div>
         );

@@ -32,7 +32,7 @@ import vio from '../../assets/images/violet.png'
 
 
 
-import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, searched, brei, req, kdp } from '../../services/userService'
+import { deleteaff,getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, searched, brei, req, kdp, searchaff } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -43,6 +43,7 @@ import Nav from './nav';
 import Friends from './Friends';
 import { random } from 'lodash';
 import Modelanou from './Modelanou';
+import Navfriend from './navfriend';
 class Managefe extends Component {
 
     constructor(props) {
@@ -50,7 +51,9 @@ class Managefe extends Component {
         const { userInfo } = this.props
 
         this.state = {
-            test: []
+            test: [],
+            search: '',
+            // datas: []
         };
     }
 
@@ -60,25 +63,67 @@ class Managefe extends Component {
         this.setState({
             test: data.users
         })
+
+        const listener = event => {
+            if (event.code === "Enter"|| event.code === "NumpadEnter") {
+            //console.log("Enter key was pressed. Run function.");
+                event.preventDefault();
+                // callMyFunction();
+                this.spo()
+                
+            }
+          };
+          document.addEventListener("keydown", listener);
+          return () => {
+            document.removeEventListener("keydown", listener);
+          };
     }
 
     hansdet = async (id) => {
         let data = await delf(this.props.userInfo.id, id)
-        window.location.reload();
+        let datai = await kdp(this.props.userInfo.id)
+        this.setState({
+            test: datai.users
+        })    }
+
+    handleOnChangeSearch = (event) => {
+        this.setState({
+            search: event.target.value
+        })
+    }
+
+
+  
+
+
+    spo = async () => {
+        let data = await searchaff(this.state.search, this.props.userInfo.id)
+        this.setState({
+            test: data.users
+        })
     }
 
 
     render() {
+        console.log(this.state.test)
 
         return (
             <div className=''>
-                <Nav />
+                <Navfriend/>
+                <div className='search'>
+                    <div className='sep'>
+                        <img className='ser' src={ser} />
+                    </div>
+                  
+                    <input className='search-in' onChange={(event) => this.handleOnChangeSearch(event)} type='text' />
+                </div>
                 <div className='erp'>
+                    {/* ok */}
                     {this.state.test.map(d =>
-                        <Card className='cardi4' sx={{ maxWidth: 200, minWidth: 200, minHeight: 250, maxHeight: 250 }}>
+                        <Card className='cardi4' sx={{ maxWidth: 350, minWidth: 350, minHeight: 250, maxHeight: 250 }}>
                             <CardHeader
                                 avatar={<Avatar src={d.image} />}
-                                title={d.lastName && d.firstName}
+                                title={d.firstName}
                             />
                             <CardContent>
                                 <Typography variant="body2" color="text.secondary">
@@ -91,7 +136,6 @@ class Managefe extends Component {
                             </CardContent>
                             <CardActions className='m'>
                                 <Button onClick={() => this.hansdet(d.id)} size="small">Delete</Button>
-                                {/* <Button size="small">Delete</Button> */}
                             </CardActions>
                         </Card>
                     )}

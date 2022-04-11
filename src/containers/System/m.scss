@@ -11,13 +11,16 @@
   overflow-y: scroll;
   overflow-wrap: break-word;
   position: absolute;
-  top: 15%;
+  top: 16%;
   left: 26%;
   // border: 1px solid red;
   width: 74vw;
-  height: 72.5vh;
+  height: 640px;
 
   .cardi4{
+    margin-top: 1%;
+    border-radius: 5%;
+    box-shadow: 0px 0px 15px -5px;
     position: relative;
     float: left;
     margin-left: 10px;
@@ -300,6 +303,7 @@
   }
   
 }
+
 .chickens{
   position: absolute;
   top: 45%;
@@ -344,11 +348,15 @@
   overflow-wrap: break-word;
   position: absolute;
   width: 74vw;
-  height: 320px;
-  top: 50%;
+  height: 640px;
+  top: 16%;
   left: 26%;
 
   .cardi{
+    margin-top: 1%;
+      box-shadow: 0px 0px 15px -5px;
+      border-radius: 5%;
+
     float: left;
     margin-left: 10px;
     position: relative;
@@ -374,16 +382,16 @@
 
 .search{
   position: absolute;
-  // border: 1px solid red;
+  border: 1px solid gray;
 
   width: 350px;
   height: 40px;
-  top: 45%;
+  top:9.5%;
   left: 26%;
   // box-shadow: 0px 0px 15px -5px;
-  border-radius: 20px 20px;
-  border: 1px solid rgb(193, 193, 240);
-  background-color: rgb(193, 193, 240);
+  border-radius: 10px 10px;
+  // border: 1px solid rgb(193, 193, 240);
+  // background-color: rgb(193, 193, 240);
 
   .btn-ser{
     position: absolute;
@@ -400,6 +408,7 @@
       
     }
   }
+
   .sep{
     height: 40px;
     margin-top: -1px;
@@ -412,10 +421,10 @@
     width: 20px;
     height: 20px;
   }
-  }
+}
   
   .search-in{
-    background-color: rgb(193, 193, 240);
+    // background-color: rgb(193, 193, 240);
     border: none;
     outline: none;
     color: black;
@@ -556,16 +565,25 @@
       }
       
     }
+
+    .createo{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      margin-left: 380px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
     .btn-create{
       top: 10px;
       position: absolute;
-      left: 350px;
+      left: 380px;
       .create{
         cursor: pointer;
-        width: 50px;
+        width: 25px;
         border-radius: 50%;
-        border: 1px solid red;
-        height: 50px;
+        // border: 1px solid red;
+        height: 25px;
       }
     }
   }
@@ -952,10 +970,10 @@
 
 .wib{
   position: absolute;
-  top: 7%;
-  left: 25.5%;
-  width: 1262px;
-  height: 711px;
+  top: 15%;
+  left: 47%;
+  width: 250px;
+  height: 400px;
   border-radius: 0.5%;
 }
 
@@ -980,4 +998,9 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+.srsearch{
+  position: absolute;
+  top: 17%;
+  left: 50%;
 }
