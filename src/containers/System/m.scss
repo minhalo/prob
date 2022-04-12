@@ -207,6 +207,8 @@
     background-color: #F0F2ED;
   }
   .hipe{
+    // cursor: pointer;
+
     width: 19vw;
     margin-top: 10px;
     height: 65px;
@@ -239,6 +241,7 @@
   
     .pichan{
       // position: absolute;
+      color: black;
       // // margin-left: 20px;
       // border: none;
       // height: 70px;
@@ -249,15 +252,13 @@
       // // margin-top: px;
      
       .chanx{
-        // // border: 1px solid red;
         position: absolute;
-        // // border: 1px solid red;
-        // font-size: 20px;
+        
         margin-top: 20px;
         width: 300px;
-        // font-family: cursive;
+      
         margin-left: 100px;
-        // position: absolute;
+    
       }
      
     }
@@ -651,6 +652,8 @@
     margin-top: 10px;
     height: 65px;
     // border: 1px solid red;
+    cursor: pointer;
+
     .pic4{
       position: absolute;
     width: 55px;
@@ -684,6 +687,7 @@
       // height: 70px;
       width: 20vw;
       top: 30%;
+      color: black;
       // // width: 200px;
       // border: 1px solid red;
       // // margin-top: px;
@@ -779,6 +783,17 @@
   height: 4.6vh;
   left:25%;
 
+
+  .lqp{
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 5px;
+    cursor: pointer;
+    .lqp1{
+      width: 30px;
+      height: 30px;
+    }
+  }
   .chat-con{
     // margin-top: 2px;
     margin-left: 220px;
@@ -807,10 +822,18 @@
 .chati{
 
   position: absolute;
-  // border: 1px solid red;
+  
   width: 850.5px;
   height: 580px;
   top: 14.5%;
+  left: 25%;
+ 
+}
+.uey
+{
+  border: 1px solid red;
+  position: absolute;
+  top: 44%;
   left: 25%;
 }
 
@@ -819,11 +842,11 @@
 .cati{
   margin-top: 5%;
   // border: 1px solid red;
-  height: 300px;
+  // height: 10px;
 
   .poci{
     // border: 1px solid red;
-    height: 75px;
+    // height: 75px;
     .poirc{
       margin-right: 10px;
       margin-top: 10px;
@@ -838,7 +861,7 @@
       margin-top: 10px;
     float: left;
   width: 60px;
-  height: 60px;
+  // height: 60px;
   border-radius: 50%;
   }
   }
@@ -938,7 +961,7 @@
 
   .mys{
     // border: 1px solid red;
-    height: 140px;
+    height: 50px;
     .r{
       margin-right: 10px;
       margin-top: 0px;
@@ -976,6 +999,17 @@
   height: 400px;
   border-radius: 0.5%;
 }
+.wib2{
+  position: absolute;
+  top: 68%;
+  left: 48.3%;
+}
+
+.wib1{
+  position: absolute;
+  top: 63%;
+  left: 50%;
+}
 
 
 
@@ -1003,4 +1037,43 @@
   position: absolute;
   top: 17%;
   left: 50%;
+}
+
+
+.cmts{
+  // border: 1px solid red;
+  height: 400px;
+  .btn-comment:hover{
+    background-color: aqua;
+  }
+  .btn-comment{
+    border: none;
+    margin-left: 3%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  .formo{
+    // border: 1px solid red;
+ 
+    height: 100px;
+    .formo1{
+      outline: none;
+      width: 250px;
+      height: 200px;
+    }
+  }
+  .avtarcom{
+    // width: 70px;
+    // margin-left: 10px;
+    height: 50px;
+    // border: 1px solid red;
+    .avtarcom1{
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .avtarcom2{
+    margin-left: 10px;
+  }
 }

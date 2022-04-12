@@ -127,8 +127,8 @@ const activate = (id,ids) => {
     return axios.post(`http://localhost:8080/api/activate?id=${id}&ids=${ids}`)
 }
 
-const dmmn = (id) => {
-    return axios.get(`http://localhost:8080/api/dmm?id=${id}`)
+const dmmn = (id,ids) => {
+    return axios.get(`http://localhost:8080/api/dmm?id=${id}&ids=${ids}`)
 }
 
 
@@ -168,8 +168,8 @@ const commenti = (id, idk, mes) => {
 
 // listcomment
 
-const listcomment = () => {
-    return axios.get(`http://localhost:8080/api/listcomment`)
+const listcomment = (id) => {
+    return axios.get(`http://localhost:8080/api/listcomment?id=${id}`)
 }
 
 
@@ -186,5 +186,9 @@ const searchrequest = (name, id) =>{
     return axios.get(`http://localhost:8080/api/searchrequest?name=${name}&id=${id}`)
 }
 
-export {searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+const deleteGr = (id) => {
+    return axios.delete(`http://localhost:8080/api/deleteGr?id=${id}`)
+}
+
+export {deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

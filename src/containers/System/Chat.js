@@ -7,7 +7,7 @@ import * as actions from "../../store/actions";
 import Select from 'react-select'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modelpolicy from './Modelpolicy';
-import { getDelete, passhw } from '../../services/userService'
+import { getDelete, header, passhw } from '../../services/userService'
 
 
 
@@ -38,22 +38,27 @@ class Chat extends Component {
         const { userInfo } = this.props
 
         this.state = {
-           
+           data: []
         };
+    }
+    async componentDidMount()  {
+        let datas = await header(this.props.userInfo.id)
+        this.setState({
+            data: datas.userData
+        })
     }
 
   
 
     render() {
         
+        
         return (
             <div className='app5'>
-               {/* <Friends/> */}
-               {/* <ListFriend/> */}
-               {/* <Headerchat/> */}
-               {/* <Mainchat/> */}
-               <img className='wib' src={ani}/>
-               {/* <Navfriend/> */}
+                <img className='wib' src={ani}/>
+                <h4 className='wib1'>Hello {this.state.data.firstName} {this.state.data.lastName}</h4>
+                <h5 className='wib2'>Wanna meet some friends?</h5>
+              
                <Friends/>
                <Groupchat/>
             </div>

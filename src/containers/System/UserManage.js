@@ -21,9 +21,10 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import vio from '../../assets/images/violet.png'
-import { header, listpost, searched, inlike, dislike,commenti,listcomment, addfriend } from '../../services/userService';
+import { header, listpost, searched, inlike, dislike, commenti, listcomment, addfriend } from '../../services/userService';
 import Modalpost from './Modalpost';
 import moment from 'moment'
+import ModelComment from './ModelComment';
 class UserManage extends Component {
 
     constructor(props) {
@@ -37,7 +38,10 @@ class UserManage extends Component {
             isOpens: false,
             pops: [],
             textl: '',
-            com: []
+            com: [],
+            isOpen: false,
+            ids: [],
+            ide: ''
         }
     }
     // componentDidUpdate () {
@@ -94,13 +98,34 @@ class UserManage extends Component {
         })
     }
 
+    handleClick = async (idk) => {
+        this.setState({
+            isOpen: true
+        })
+
+        let data = await listcomment(idk)
+
+        this.setState({
+            ids: data.userData
+        })
+        this.setState({
+            ide: idk
+        })
+    }
+
     handleComment = async (idk) => {
         let insert = await commenti(this.props.userInfo.id, idk, this.state.text)
-    } 
+    }
 
     handleHinds = () => {
         this.setState({
             isOpens: !this.state.isOpens
+        })
+    }
+
+    handleHind = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
         })
     }
 
@@ -121,10 +146,10 @@ class UserManage extends Component {
     }
 
     hans = async (id) => {
-        let data = await addfriend(this.props.userInfo.id, id)     
+        let data = await addfriend(this.props.userInfo.id, id)
     }
 
-   
+
 
     handleOnChangeText = (event) => {
         this.setState({
@@ -133,14 +158,21 @@ class UserManage extends Component {
     }
     render() {
         const { userInfo } = this.props
-        
+
         return (
             <div>
                 <Nav />
+
                 <div className="users-container">
                     <Modalpost
                         isOpen={this.state.isOpens}
                         isHide={this.handleHinds}
+                    />
+                    <ModelComment
+                        isOpen={this.state.isOpen}
+                        isHide={this.handleHind}
+                        ido={this.state.ids}
+                        ide={this.state.ide}
                     />
                     <div className='testok'>
                         <div className='random'>
@@ -199,9 +231,10 @@ class UserManage extends Component {
                                 <CardActions className='btn-act'>
                                     <Button onClick={() => this.handlelike(d.id)} size="small">Like {d.like} </Button>
                                     <Button onClick={() => this.handledislike(d.id)} size="small">Dislike {d.dislike}</Button>
+                                    <Button onClick={() => this.handleClick(d.id)} size="small">Comment</Button>
                                 </CardActions>
-                                
-                                    <Comment.Group className='scopei' >
+
+                                {/* <Comment.Group  >
                                         <Header as='h6' className='headcom' dividing>
                                             Comments
                                         </Header>
@@ -213,7 +246,7 @@ class UserManage extends Component {
                                         
                                             
                                             <ReactScrollableFeed>
-                                            {/*  */}
+                                          
                                             
                                             <Comment>
                                                 <Comment.Avatar className='avtarcom' src='ok' />
@@ -227,13 +260,13 @@ class UserManage extends Component {
                                                 </Comment.Content>
                                             </Comment>
 
-                                            {/* // */}
+                                           
 
                                             </ReactScrollableFeed>
                                         
                                        
 
-                                    </Comment.Group>
+                                    </Comment.Group> */}
                             </Card>
                         )}
                     </div>

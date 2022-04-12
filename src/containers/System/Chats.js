@@ -42,34 +42,23 @@ class Chats extends Component {
         };
     }
 
-    // callbackFunction = (childData) => {
-    //     setTimeout(function () { //Start the timer
-    //         this.setState({
-    //             mes: childData
-    //         })
-
-    //     }.bind(this), 2000)
-
-    // }
+    componentDidMount() {
+      
+    }
 
     render() {
-        // setTimeout(function() { //Start the timer
-        // }.bind(this), 2000)
-
+      
         return (
             <div className='app5'>
-                {/* <Friends/> */}
+                
                 <ListFriend
                     isokay={this.state.ids}
                 />
                 <Headerchat
+                    // content ={this.state}
                     isokay={this.state.ids}
                 />
-                {/* <Mainchat
-                    parentCallback={this.callbackFunction}
-                    isokay={this.state.ids}
-                /> */}
-                {/* <Handlechat/> */}
+               
                 <Chati
 
                     isokay={this.state.ids}

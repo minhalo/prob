@@ -27,7 +27,7 @@ import '@szhsin/react-menu/dist/transitions/slide.css';
 
 
 
-import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, activate, namegr } from '../../services/userService'
+import {deleteGr, getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, activate, namegr } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -48,7 +48,8 @@ class Headerchat extends Component {
         this.state = {
             isOpen: false,
             isOpens: false,
-            it: ''
+            it: '',
+            // ids: this.props.match.params.id,
         };
     }
 
@@ -86,11 +87,20 @@ class Headerchat extends Component {
         this.setState({
             it: data.userData.groupname
         })
+        // if(!this.state.data)
+        // {
+        //     window.location.assign('/system/user-chat')
+        // }
+    }
+
+    handledelete = async () => {
+        window.location.assign('/system/user-chat')
+        let data = await deleteGr(this.props.isokay)   
     }
 
 
-
     render() {
+        // console.log(this.props.isokay)
         return (
             <div className='app5'>
                 <div className='headerchat'>
@@ -105,8 +115,7 @@ class Headerchat extends Component {
                     
                     <Menu menuButton={<img className='meni' src={men}/>} transition>
                         <MenuItem onClick={() => this.handleClick()}>Add New Members</MenuItem>
-                        {/* <MenuItem onClick={() => this.handleClicks()}>Activate Group</MenuItem> */}
-                       
+                        <MenuItem onClick={() => this.handledelete()}>Delete Group</MenuItem>
                     </Menu>
                 </div>
 

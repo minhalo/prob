@@ -56,7 +56,7 @@ class Listfr extends Component {
     }
 
     async componentDidMount() {
-        let dove = await dmmn(this.props.isokay)
+        let dove = await dmmn(this.props.isokay,this.props.userInfo.id)
         // let dove = await req(this.props.userInfo.id)
         this.setState({
             dove: dove.userData
@@ -94,9 +94,9 @@ class Listfr extends Component {
                 <div className='listfriend'>
                 <p className='pf'>Members</p>
                     {this.state.dove.map(d =>
-                        <div className='hipe'>
+                        <div className='hipe' onClick={() => this.rem(d.id)} >
                             <img className='pic4' src={d.image} />
-                            <Link onClick={() => this.rem(d.id)} className='pichan' >
+                            <Link className='pichan' >
                                 <h4 className='chanx'>{d.firstName} {d.lastName}</h4>
                             </Link>
                         </div>

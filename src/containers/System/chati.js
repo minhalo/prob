@@ -16,6 +16,9 @@ import ReactScrollableFeed from 'react-scrollable-feed'
 import moment from 'moment'
 import like from '../../assets/images/like.webp'
 import dislike from '../../assets/images/dislike.jpg'
+import Picker from 'emoji-picker-react';
+import imoji from '../../assets/images/haha.webp'
+
 
 
 
@@ -46,7 +49,9 @@ class Chati extends Component {
             dove: [],
             isLoading: false,
             mes: '',
-            thischeck: false
+            thischeck: false,
+            imo: null,
+            chooseImo: false
         };
     }
 
@@ -56,9 +61,10 @@ class Chati extends Component {
             dove: data.userData
         })
         
+
         const listener = event => {
-            if (event.code === "Enter"|| event.code === "NumpadEnter") {
-            //console.log("Enter key was pressed. Run function.");
+            if (event.code === "Enter" || event.code === "NumpadEnter") {
+                //console.log("Enter key was pressed. Run function.");
                 event.preventDefault();
                 // callMyFunction();
                 this.handlemes()
@@ -66,27 +72,25 @@ class Chati extends Component {
                     thischeck: false
                 })
             }
-          };
-          document.addEventListener("keydown", listener);
-          return () => {
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
             document.removeEventListener("keydown", listener);
-          };
+        };
+    }
 
-
-        // this.setState({       
-        //     dove: [...this.state.dove,data.userData],         
-        // });
+   
+    handlechoose = () => {
+        this.setState({
+            chooseImo: !this.state.chooseImo
+        })
     }
 
     handlemes = async () => {
         let data = await take(this.props.userInfo.id, this.props.isokay, this.state.mes)
-        // this.setState({       
-        //     dove: [...this.state.dove,data.userData],         
-        // });
         this.setState({
             thischeck: true
         })
-        
     }
 
 
@@ -101,22 +105,42 @@ class Chati extends Component {
         // let data = await chatlist(this.props.isokay)
         // this.setState({
         //     dove:data.userData
+
         // })
-        if (this.state.thischeck === true)
+        let circle = document.querySelector('.uey')
+        if(this.state.chooseImo === false)
         {
-            let datas = await chatlist(this.props.isokay)
-        this.setState({
-            dove: datas.userData
-        })
+            circle.style.display = 'none'
         }
-        
-        
+        else{
+            circle.style.display = 'block'
+        }
+        if (this.state.thischeck === true) {
+            let datas = await chatlist(this.props.isokay)
+            this.setState({
+                dove: datas.userData
+            })
+        }
+
+
     }
+
+    onEmojiClick = async (event, emojiObject) => {
+        let dbk = ''
+        let obk = dbk.concat('&#x', emojiObject.originalUnified, ';')
+        this.setState({
+            imo: obk
+        })      
+
+        let data = await take(this.props.userInfo.id, this.props.isokay, emojiObject.originalUnified)
+        
+    };
 
 
 
 
     render() {
+        // console.log(this.state.imo)
         return (
             <div className='app5'>
                 <div className='chati' ref={this.chati}>
@@ -134,26 +158,33 @@ class Chati extends Component {
                                     <p className={d.firstName === this.props.userInfo.firstName ? 'k' : 'g'}> {moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')} </p>
                                 </div>
                                 <div className='mys'>
-                                    <p className={d.firstName === this.props.userInfo.firstName ? 'r' : 't'}>{d.message}</p>
+                                    <p className={d.firstName === this.props.userInfo.firstName ? 'r' : 't'}>{d.message } </p>
+                                    {/* {d.message} */}
                                 </div>
-                                <div className='iconseri'>
-                                    <i  className={d.firstName === this.props.userInfo.firstName ? 'likeii' : 'likeiki'}>100</i>
-                                    {/* className={d.firstName === this.props.userInfo.firstName ? 'r' : 't'} */}
+                                {/* <div className='iconseri'>
+                                    <i className={d.firstName === this.props.userInfo.firstName ? 'likeii' : 'likeiki'}>100</i>
                                     <img className={d.firstName === this.props.userInfo.firstName ? 'likei' : 'likey'} src={like} />
                                     <i className={d.firstName === this.props.userInfo.firstName ? 'likeii' : 'likeik'}>100</i>
                                     <img className={d.firstName === this.props.userInfo.firstName ? 'likei' : 'likeyo'} src={dislike} />
 
-                                </div>
+                                </div> */}
 
                             </div>
                         )}
+                        
+                       
                     </ReactScrollableFeed>
+                </div>
+                <div className='uey'>
+                    <Picker onEmojiClick={this.onEmojiClick} />
                 </div>
 
                 <div className='chiopl'>
+                    <div  className='lqp'>
+                       <img onClick={() => this.handlechoose()} className='lqp1' src={imoji}/>
+                    </div>
                     <div className='chat-con'>
-                    <input placeholder='Aa' className='input-chat' max="200" onChange={(event) => this.handleOnChangeSet(event)} type='text' />
-
+                        <input placeholder='Aa' className='input-chat' max="200" onChange={(event) => this.handleOnChangeSet(event)} type='text' />
                     </div>
                 </div>
             </div >
