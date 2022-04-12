@@ -5,8 +5,14 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
 import { activate, all, getCheckChangeEmail, getGroup, kdp, logout } from '../../services/userService';
+import Dropzone from 'react-dropzone';
 
-// import './Header.scss';
+import pdf from '../../assets/images/pdf.jpg'
+import jpg from '../../assets/images/jpg.png'
+import drag from '../../assets/images/drag.jpg'
+
+
+import './m.scss';
 import { Link } from 'react-router-dom';
 import Select from 'react-select'
 
@@ -25,7 +31,7 @@ import { red } from '@mui/material/colors';
 import vio from '../../assets/images/violet.png'
 // import header from '../../services/userService'
 
-import { header, creatpost,listpost } from '../../services/userService'
+import { header, creatpost, listpost } from '../../services/userService'
 
 
 
@@ -35,9 +41,33 @@ class Modalpost extends Component {
         this.state = {
             isOpen: false,
             data: [],
-            mes: ''
+            mes: '',
+            files: [],
+            filebase64: null
         }
+
+        this.onDrop = (files) => {
+            this.setState({ files })
+            // const reader = new FileReader();
+            // reader.onload = () => {
+            //     if (reader.readyState === 2) {
+            //         this.setState({ filebase64: reader.result })
+            //     }
+            // }
+            // reader.readAsDataURL(files.target.files[0])
+            // this.setState({ filebase64: files.target.files[0] })
+            var file = files[0]
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                // console.log(event.target.result);
+                this.setState({ filebase64:  event.target.result})
+            };
+            reader.readAsDataURL(file);
+        };
+
     }
+
+
     toggle = () => {
         this.props.isHide()
     }
@@ -48,27 +78,55 @@ class Modalpost extends Component {
         this.setState({
             data: data.userData
         })
+
     }
-   
+
     handleOnChangeSet = (event) => {
         this.setState({
             mes: event.target.value
         })
     }
 
-    handleinsert =async () => {
-        let ok = creatpost(this.props.userInfo.id, this.state.mes)
-        // window.location.reload()
-        // let pop = await listpost()
-        // this.props.parentCallback(pop.userData);   
+    handleinsert = async () => {
+        let ok = creatpost(this.props.userInfo.id, this.state.mes, this.state.filebase64) 
+        
         this.props.isHide()
     }
+
+   
+
 
 
 
 
     render() {
-        // console.log(this.state.name)
+        console.log(this.state.filebase64)
+        const files = this.state.files.map(
+            function (file, i) {
+
+                if (file.type === 'image/jpeg') {
+                    return (
+                        <div key={file.name}>
+                            <img className='pdf' src={jpg} />
+                            <br />
+                            {file.name}
+                        </div>
+                    )
+                }
+
+                else if (file.type === 'application/pdf') {
+                    return (
+                        <div key={file.name}>
+                            <img className='pdf' src={pdf} />
+                            <br />
+                            {file.name}
+                        </div>
+                    )
+                }
+
+
+            }
+        );
         const { processLogout } = this.props;
         return (
             <Modal
@@ -80,13 +138,28 @@ class Modalpost extends Component {
             >
                 <ModalBody>
                     <div>
-                        <img className='rungroi' src={this.state.data.image}/>
+                        <img className='rungroi' src={this.state.data.image} />
                         <h4 className='okmg'>{this.state.data.firstName}</h4>
                     </div>
                     <div className='send-post'>
-                        <textarea className='arepost' max="300" onChange={(event) => this.handleOnChangeSet(event)} type="text"/>
+                        <textarea className='arepost' maxlength="256" onChange={(event) => this.handleOnChangeSet(event)} type="text" />
                         {/* <input type='text'/> */}
                     </div>
+                    <Dropzone onDrop={this.onDrop}>
+                        {({ getRootProps, getInputProps }) => (
+                            <section className="congtino">
+                                <div {...getRootProps({ className: 'dropzone' })}>
+                                    <input {...getInputProps()} />
+                                    <img className='drag' src={drag} />
+                                    <p>File only accept Jpg, pdf</p>
+                                </div>
+                                <aside className='file'>
+                                    <h4>Files</h4>
+                                    <ul>{files}</ul>
+                                </aside>
+                            </section>
+                        )}
+                    </Dropzone>
 
                 </ModalBody>
                 <ModalFooter>

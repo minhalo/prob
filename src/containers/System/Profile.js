@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../Auth/login.scss'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { getCheckChangeEmail, profile } from '../../services/userService';
+import { getCheckChangeEmail, profile, setc, listcomment } from '../../services/userService';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'react-collapse';
 import p from '../../assets/images/back.webp'
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+// import Collapse from '@mui/material/Collapse';
+import Avatar from '@mui/material/Avatar';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import { red } from '@mui/material/colors';
+import Button from '@mui/material/Button';
+import ModelComment from './ModelComment';
+import FileDownload from 'js-file-download'
+import moment from 'moment'
+
+import { triggerBase64Download } from 'common-base64-downloader-react';
 
 
 
 import '../System/m.scss';
+import '../System/UserManage.scss';
 import '../System/Setting.scss';
 import Nav from './nav';
 import Friends from './Friends';
@@ -30,7 +47,11 @@ class Profile extends Component {
             clickprop: false,
             test: false,
             id: this.props.match.params.id,
-            datas: []
+            datas: [],
+            set: [],
+            isOpen: false,
+            ids: [],
+            ide: ''
         }
     }
     effext = () => {
@@ -50,11 +71,30 @@ class Profile extends Component {
         this.setState({
             datas: data.users
         })
+        let io = await setc(this.state.id)
+        this.setState({
+            set: io.userData
+        })
     }
 
     test = () => {
         this.setState({
             test: !this.state.test
+        })
+    }
+
+    handleClick = async (idk) => {
+        this.setState({
+            isOpen: true
+        })
+
+        let data = await listcomment(idk)
+
+        this.setState({
+            ids: data.userData
+        })
+        this.setState({
+            ide: idk
         })
     }
 
@@ -96,7 +136,36 @@ class Profile extends Component {
                             {this.state.datas.description}
                         </div>
                     </div>
+                    <div className='cutew'></div>
+
+                    {this.state.set.map(d =>
+                            <Card className='cardio' sx={{ maxWidth: 700, minWidth: 700, minHeight: 100, maxHeight: 1000 }}>
+                                <CardHeader
+                                    avatar={<Avatar src={d.image} />}
+                                    title={d.firstName}
+                                    subheader={moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                                />
+                                <CardContent>
+                                    <Typography paragraph>
+                                        {d.text}
+                                        {/* {d.op} */}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions className='btn-act'>
+                                    <Button onClick={() => this.handlelike(d.id)} size="small">Like {d.like} </Button>
+                                    <Button onClick={() => this.handledislike(d.id)} size="small">Dislike {d.dislike}</Button>
+                                    <Button onClick={() => this.handleClick(d.id)} size="small">Comment</Button>
+                                    <Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
+                                        Download
+                                    </Button>;
+
+                                </CardActions>
+                            </Card>
+                        )}
                 </div>
+                {/* <div className='profiig'>
+
+                </div> */}
                 <Friends />
             </div>
 

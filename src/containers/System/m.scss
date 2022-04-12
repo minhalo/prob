@@ -440,15 +440,26 @@
 
 .bob{
   position: absolute;
-  width: 50vw;
-  height: 36vh;
+  width: 68vw;
+  height: 81vh;
   top: 6%;
-  left: 24%;
+  left: 32%;
   // border: 1px solid red;
-
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  .cardio{
+    margin-left: 1%;
+    margin-top: 2%;
+    box-shadow: 0px 0px 15px -5px;
+    border-radius: 10px 10px;
+  }
+  .cutew{
+    margin-top: 30%;
+  }
   .prob{
     position: absolute;
-    left: 10%;
+    left: 1%;
     width: 700px;
     height: 300px;
     border-bottom-left-radius: 5%;
@@ -1015,11 +1026,11 @@
 
 .send-post{
   // border: 1px solid red;
-  height: 300px;
+  height: 130px;
   .arepost{
     margin-top: 15px;
     width: 468px;
-    height: 300px;
+    height: 120px;
     outline: none;
   }
 }
@@ -1076,4 +1087,46 @@
   .avtarcom2{
     margin-left: 10px;
   }
+}
+
+.pdf{
+  // text-align: center;
+  width: 60px;
+  height: 60px;
+}
+
+.congtino{
+
+  height: 370px;
+  // border: 1px solid red;
+  .drag{
+    width: 300px;
+    height: 120px;
+  }
+
+  .file{
+    margin-top: 10px;
+    // border: 1px solid red;
+    height: 120px;
+  }
+}
+
+.dropzone{
+  border: 1px dashed blue;
+  margin-top: 15px;
+  text-align: center;
+  // background-origin: padding-box;
+  border-radius: 20px 20px;
+  border-width: thick;
+}
+
+.profiig{
+  border: 1px solid red;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  margin-top: 21%;
+  margin-left: 29%;
+  width: 700px;
+  height: 420px;
 }

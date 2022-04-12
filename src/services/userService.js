@@ -149,8 +149,8 @@ const listpost = () => {
     return axios.get(`http://localhost:8080/api/listpost`)
 }
 
-const creatpost = (id, mes) => {
-    return axios.post(`http://localhost:8080/api/creatpost?id=${id}&text=${mes}`)
+const creatpost = (id, mes,img) => {
+    return axios.post(`http://localhost:8080/api/creatpost?id=${id}&text=${mes}`, {img})
 }
 
 const inlike = (id) => {
@@ -190,5 +190,12 @@ const deleteGr = (id) => {
     return axios.delete(`http://localhost:8080/api/deleteGr?id=${id}`)
 }
 
-export {deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+const postExac = (id) =>{
+    return axios.get(`http://localhost:8080/api/postidk?id=${id}`)
+}
+
+const setc = (id) =>{
+    return axios.get(`http://localhost:8080/api/setc?id=${id}`)
+}
+export {setc,postExac,deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

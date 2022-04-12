@@ -21,10 +21,14 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import vio from '../../assets/images/violet.png'
-import { header, listpost, searched, inlike, dislike, commenti, listcomment, addfriend } from '../../services/userService';
+import { postExac, header, listpost, searched, inlike, dislike, commenti, listcomment, addfriend } from '../../services/userService';
 import Modalpost from './Modalpost';
 import moment from 'moment'
 import ModelComment from './ModelComment';
+import FileDownload from 'js-file-download'
+import { triggerBase64Download } from 'common-base64-downloader-react';
+
+
 class UserManage extends Component {
 
     constructor(props) {
@@ -113,6 +117,20 @@ class UserManage extends Component {
         })
     }
 
+    download = async (idk) => {
+        let pop = await postExac(idk)
+        let ok = pop.userData
+
+        let oks = ok.image
+        // const base64 = await fetch(oks);
+        // const base64Response = await fetch(`data:image/jpeg;base64,${oks}`);
+
+        // const blob = await base64Response.blob();
+        console.log(ok)
+        // FileDownload(oks, 'download')
+        // window.open(`ok`)
+    }
+
     handleComment = async (idk) => {
         let insert = await commenti(this.props.userInfo.id, idk, this.state.text)
     }
@@ -149,6 +167,13 @@ class UserManage extends Component {
         let data = await addfriend(this.props.userInfo.id, id)
     }
 
+    handleCallback = async () => {
+        let data = await listcomment(this.state.ide)
+
+        this.setState({
+            ids: data.userData
+        })
+    }
 
 
     handleOnChangeText = (event) => {
@@ -173,6 +198,7 @@ class UserManage extends Component {
                         isHide={this.handleHind}
                         ido={this.state.ids}
                         ide={this.state.ide}
+                        handleback={this.handleCallback}
                     />
                     <div className='testok'>
                         <div className='random'>
@@ -219,54 +245,20 @@ class UserManage extends Component {
                                     subheader={moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
                                 />
                                 <CardContent>
-
-
                                     <Typography paragraph>
                                         {d.text}
+                                        {/* {d.op} */}
                                     </Typography>
-
-
-
                                 </CardContent>
                                 <CardActions className='btn-act'>
                                     <Button onClick={() => this.handlelike(d.id)} size="small">Like {d.like} </Button>
                                     <Button onClick={() => this.handledislike(d.id)} size="small">Dislike {d.dislike}</Button>
                                     <Button onClick={() => this.handleClick(d.id)} size="small">Comment</Button>
+                                    <Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
+                                        Download
+                                    </Button>;
+
                                 </CardActions>
-
-                                {/* <Comment.Group  >
-                                        <Header as='h6' className='headcom' dividing>
-                                            Comments
-                                        </Header>
-                                        <Form reply className='formo'>
-                                            <textarea className='formo1' onChange={(event) => this.handleOnChangeText(event)}/>
-                                            
-                                        </Form>
-                                            <button onClick={() => this.handleComment(d.id)} className='btn-comment'>Send</button>
-                                        
-                                            
-                                            <ReactScrollableFeed>
-                                          
-                                            
-                                            <Comment>
-                                                <Comment.Avatar className='avtarcom' src='ok' />
-                                                <Comment.Content>
-                                                    <Comment.Author as='a'>Matt</Comment.Author>
-                                                    <Comment.Metadata>
-                                                        Today at 5:42PM
-                                                    </Comment.Metadata>
-                                                    <Comment.Text>ok</Comment.Text>
-
-                                                </Comment.Content>
-                                            </Comment>
-
-                                           
-
-                                            </ReactScrollableFeed>
-                                        
-                                       
-
-                                    </Comment.Group> */}
                             </Card>
                         )}
                     </div>

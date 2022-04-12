@@ -7,6 +7,7 @@ import * as actions from "../../store/actions";
 import { getCheckChangeEmail, getGroup, kdp, logout, listcomment,commenti } from '../../services/userService';
 import ReactScrollableFeed from 'react-scrollable-feed'
 import { Comment, Form, Header } from 'semantic-ui-react'
+import moment from 'moment'
 
 
 // import './Header.scss';
@@ -39,6 +40,7 @@ class ModelComment extends Component {
 
     handleComment = async () => {
         let insert = await commenti(this.props.userInfo.id, this.props.ide, this.state.text)
+        this.props.handleback()
     }
 
     handleOnChangeText = (event) => {
@@ -81,7 +83,7 @@ class ModelComment extends Component {
                                         <Comment.Content className='avtarcom2'>
                                             <Comment.Author as='a'>{d.firstName}</Comment.Author>
                                             <Comment.Metadata>
-                                               {d.createdAt}
+                                               {moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
                                             </Comment.Metadata>
                                             <Comment.Text>{d.content}</Comment.Text>
 
