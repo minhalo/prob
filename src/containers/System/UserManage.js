@@ -21,12 +21,18 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import vio from '../../assets/images/violet.png'
-import { postExac, header, listpost, searched, inlike, dislike, commenti, listcomment, addfriend } from '../../services/userService';
+import { postExac, header, listpost, searched, inlike, dislike, commenti, listcomment, addfriend, deletepost } from '../../services/userService';
 import Modalpost from './Modalpost';
 import moment from 'moment'
 import ModelComment from './ModelComment';
 import FileDownload from 'js-file-download'
 import { triggerBase64Download } from 'common-base64-downloader-react';
+import RainbowText from 'react-rainbow-text';
+import movert from '../../assets/images/bird.png'
+// import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+import chalkAnimation from 'chalk-animation';
+
 
 
 class UserManage extends Component {
@@ -175,6 +181,21 @@ class UserManage extends Component {
         })
     }
 
+    callback = async () => {
+        let pop = await listpost()
+        this.setState({
+            pops: pop.userData
+        })
+    }
+
+    deletepost = async (idk) => {
+        let ok = deletepost(idk)
+        let pop = await listpost()
+        this.setState({
+            pops: pop.userData
+        })
+    }
+
 
     handleOnChangeText = (event) => {
         this.setState({
@@ -192,6 +213,7 @@ class UserManage extends Component {
                     <Modalpost
                         isOpen={this.state.isOpens}
                         isHide={this.handleHinds}
+                        callbacks={this.callback}
                     />
                     <ModelComment
                         isOpen={this.state.isOpen}
@@ -216,10 +238,6 @@ class UserManage extends Component {
                                         <Typography paragraph>
                                             Description: {d.description}
                                         </Typography>
-
-
-
-
                                     </CardContent>
                                     <CardActions className='btn-act'>
                                         <Button onClick={() => this.hans(d.id)} size="small">Add</Button>
@@ -238,25 +256,39 @@ class UserManage extends Component {
                         <div className='lopl'></div>
 
                         {this.state.pops.map(d =>
-                            <Card className='cardio' sx={{ maxWidth: 640, minWidth: 640, minHeight: 100, maxHeight: 1000 }}>
+                            <Card className='cardio' sx={{ maxWidth: 640, minWidth: 640, minHeight: 100, maxHeight: 2000 }}>
                                 <CardHeader
                                     avatar={<Avatar src={d.image} />}
                                     title={d.firstName}
                                     subheader={moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                                    action={d.pop === this.props.userInfo.id ?
+                                        <IconButton onClick={() => this.deletepost(d.id)} aria-label="settings">
+                                            {/* <MoreVertIcon /> */}
+                                            <img className='bird' src={movert} />
+                                        </IconButton> : null
+                                    }
                                 />
                                 <CardContent>
+                                    <RainbowText className='ueue' lightness={0.3} saturation={1}>
+                                        {'Level' + ': ' + d.name}
+                                    </RainbowText>
                                     <Typography paragraph>
-                                        {d.text}
-                                        {/* {d.op} */}
+
+
+
+                                        <div>{d.text}</div>
+                                        {d.op ? <img className='oppc' src={d.op} /> : <div></div>}
+
                                     </Typography>
                                 </CardContent>
                                 <CardActions className='btn-act'>
                                     <Button onClick={() => this.handlelike(d.id)} size="small">Like {d.like} </Button>
                                     <Button onClick={() => this.handledislike(d.id)} size="small">Dislike {d.dislike}</Button>
                                     <Button onClick={() => this.handleClick(d.id)} size="small">Comment</Button>
-                                    <Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
+                                    {d.op && d.pop === this.props.userInfo.id ? <Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
                                         Download
-                                    </Button>;
+                                    </Button> : <div></div>}
+
 
                                 </CardActions>
                             </Card>

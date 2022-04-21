@@ -12,6 +12,10 @@ import Managefe from '../containers/System/Managefe'
 import Chat from '../containers/System/Chat';
 import Chats from '../containers/System/Chats';
 import Video from '../containers/System/Video';
+import Roleupdate from '../containers/System/Roleupdate';
+import Groupaccess from '../containers/System/groupaccess';
+import Managepost from '../containers/System/Managepost';
+import studentaccess from '../containers/System/studentaccess';
 // import '../routes/system.scss';
 
 class System extends Component {
@@ -31,6 +35,11 @@ class System extends Component {
                         <Route path="/system/user-chat" component={Chat}/>
                         <Route path="/system/user-chats/:id" component={Chats}/>
                         <Route path="/system/user-video" component={Video}/>
+                        <Route path="/system/user-updaterole" component={Roleupdate}/>
+                        <Route path="/system/user-group/:id" component={Groupaccess}/>
+                        <Route path="/system/user-managepost" component={Managepost}/>
+                        <Route path="/system/user-student/:id" component={studentaccess}/>
+
                         {/* <Redirect to="/system/user-manage"/> */}
                     </Switch>
                 </div>

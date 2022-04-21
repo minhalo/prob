@@ -11,6 +11,7 @@ import { Collapse } from 'react-collapse';
 import friend from '../../assets/images/fixedfriend.jpg'
 
 import chat from '../../assets/images/chat.jpg'
+import group from '../../assets/images/groupicon.jpg'
 
 
 
@@ -82,20 +83,31 @@ class Nav extends Component {
                     </Link>
                     <Link className='navz' to='/system/user-addfr'>
                         <div className='navcim'>
-                            <img className='navimg' src={friend}/>
+                            <img className='navimg' src={friend} />
                         </div>
-                        <div className='navzk' >Friends</div>      
+                        <div className='navzk' >Friends</div>
                     </Link>
                     <Link className='navz1' to='/system/user-chat'>
                         <div className='navcim1'>
-                            <img className='navimg1' src={chat}/>
+                            <img className='navimg1' src={chat} />
                         </div>
-                        <div className='navzk1' >Chat</div>      
+                        <div className='navzk1' >Chat</div>
                     </Link>
-                    {/* <Collapse isOpened={this.state.test}>
-                        <div><Link to="/system/user-addfr">Add friend</Link></div>
-                        <div><Link to="/system/user-update">Manage friend</Link></div>
-                    </Collapse> */}
+                    {this.state.datas.roleid == 1 ?
+                        <Link className='navz2' to='/system/user-updaterole'>
+                            <div className='navcim2'>
+                                <img className='navimg2' src={group} />
+                            </div>
+                            <div className='navzk2' >Admin</div>
+                        </Link> :
+                        null
+                    }
+                    <Link className='navz3' to='/system/user-video'>
+                        <div className='navcim3'>
+                            <img className='navimg3' src={chat} />
+                        </div>
+                        <div className='navzk3' >Learning</div>
+                    </Link>
 
 
                 </div>

@@ -60,7 +60,7 @@ class ModelComment extends Component {
                 toggle={() => { this.toggle() }}
                 className={"onj"}
                 centered
-                size="sm"
+                size="md"
             >
                 {/* <ModalHeader>Comment</ModalHeader> */}
                 <ModalBody>
@@ -70,10 +70,10 @@ class ModelComment extends Component {
                         <Comment.Group  >
 
                             <Form reply className='formo'>
-                                <textarea className='formo1' onChange={(event) => this.handleOnChangeText(event)} />
+                                <textarea className='formo1' placeholder='Text something here' onChange={(event) => this.handleOnChangeText(event)} />
 
                             </Form>
-                            <button onClick={() => this.handleComment()}  className='btn-comment'>Send</button>
+                            {/* <button onClick={() => this.handleComment()}  className='btn-comment'>Send</button> */}
                             
                                 {this.props.ido.map(d =>
                                     <Comment>
@@ -96,6 +96,9 @@ class ModelComment extends Component {
                     </div>
 
                 </ModalBody>
+                <ModalFooter>
+                    <Button className='px-3' color='primary' onClick={() => this.handleComment()} >Create</Button>
+                </ModalFooter>
                 
             </Modal>
 

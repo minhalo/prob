@@ -7,9 +7,13 @@ import * as actions from "../../store/actions";
 import { activate, all, getCheckChangeEmail, getGroup, kdp, logout } from '../../services/userService';
 import Dropzone from 'react-dropzone';
 
-import pdf from '../../assets/images/pdf.jpg'
-import jpg from '../../assets/images/jpg.png'
+import pdf from '../../assets/images/pdfreal.png'
+import jpg from '../../assets/images/jpgreal.png'
+import doc from '../../assets/images/docreal.png'
+import xls from '../../assets/images/xlsreal.png'
 import drag from '../../assets/images/drag.jpg'
+import FileViewer from 'react-file-viewer';
+
 
 
 import './m.scss';
@@ -32,6 +36,7 @@ import vio from '../../assets/images/violet.png'
 // import header from '../../services/userService'
 
 import { header, creatpost, listpost } from '../../services/userService'
+import filetap from '../../assets/images/file.png'
 
 
 
@@ -43,27 +48,28 @@ class Modalpost extends Component {
             data: [],
             mes: '',
             files: [],
-            filebase64: null
+            filebase64: null,
+            check: false,
+            error: null
         }
 
         this.onDrop = (files) => {
+            // if (files.type === 'image/jpeg') {
             this.setState({ files })
-            // const reader = new FileReader();
-            // reader.onload = () => {
-            //     if (reader.readyState === 2) {
-            //         this.setState({ filebase64: reader.result })
-            //     }
-            // }
-            // reader.readAsDataURL(files.target.files[0])
-            // this.setState({ filebase64: files.target.files[0] })
-            var file = files[0]
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                // console.log(event.target.result);
-                this.setState({ filebase64:  event.target.result})
+            // console.log(files[0].type)
+            if (files[0].type === 'image/jpeg') {
+                var file = files[0]
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    // console.log(event.target.result);
+                    this.setState({ filebase64: event.target.result })
+                };
+                reader.readAsDataURL(file);
             };
-            reader.readAsDataURL(file);
-        };
+        }
+
+        // }
+
 
     }
 
@@ -88,28 +94,60 @@ class Modalpost extends Component {
     }
 
     handleinsert = async () => {
-        let ok = creatpost(this.props.userInfo.id, this.state.mes, this.state.filebase64) 
-        
+        if(this.state.files[0].type === 'image/jpeg')
+        {
+        let ok = creatpost(this.props.userInfo.id, this.state.mes, this.state.filebase64)
+
         this.props.isHide()
+        this.props.callbacks()
+        }
+        else{
+            this.setState({
+                error: 'File must be jpg'
+            })
+        }
     }
 
-   
+
+    handlecheck = () => {
+        this.setState({
+            check: !this.state.check
+        })
+    }
+
+
+    componentDidUpdate() {
+        let circle = document.querySelector('.dropx')
+        if (this.state.check === true) {
+            circle.style.display = 'block'
+        }
+
+    }
+
 
 
 
 
 
     render() {
-        console.log(this.state.filebase64)
+
+
         const files = this.state.files.map(
             function (file, i) {
 
                 if (file.type === 'image/jpeg') {
                     return (
                         <div key={file.name}>
-                            <img className='pdf' src={jpg} />
-                            <br />
-                            {file.name}
+                            <div className='jpg-container'>
+                                <img className='jpg' src={jpg} />
+                            </div>
+                            <div className='pcontainer'>
+                                <h6 className='pcontainer1'>
+                                    {file.name}
+                                </h6>
+                            </div>
+
+
                         </div>
                     )
                 }
@@ -117,12 +155,19 @@ class Modalpost extends Component {
                 else if (file.type === 'application/pdf') {
                     return (
                         <div key={file.name}>
-                            <img className='pdf' src={pdf} />
-                            <br />
-                            {file.name}
+                            <div className='jpg-container'>
+                                <img className='jpg' src={pdf} />
+                            </div>
+                            <div className='pcontainer'>
+                                <h6 className='pcontainer1'>
+                                    {file.name}
+                                </h6>
+                            </div>
                         </div>
                     )
                 }
+
+
 
 
             }
@@ -139,31 +184,39 @@ class Modalpost extends Component {
                 <ModalBody>
                     <div>
                         <img className='rungroi' src={this.state.data.image} />
-                        <h4 className='okmg'>{this.state.data.firstName}</h4>
+                        <h4 className='okmg'>{this.state.data.firstName} {this.state.data.lastName}</h4>
                     </div>
                     <div className='send-post'>
-                        <textarea className='arepost' maxlength="256" onChange={(event) => this.handleOnChangeSet(event)} type="text" />
+                        {/* <label></label> */}
+                        <textarea className='arepost' maxlength="256" placeholder='Text something here' onChange={(event) => this.handleOnChangeSet(event)} type="text" />
                         {/* <input type='text'/> */}
                     </div>
-                    <Dropzone onDrop={this.onDrop}>
-                        {({ getRootProps, getInputProps }) => (
-                            <section className="congtino">
-                                <div {...getRootProps({ className: 'dropzone' })}>
-                                    <input {...getInputProps()} />
-                                    <img className='drag' src={drag} />
-                                    <p>File only accept Jpg, pdf</p>
-                                </div>
-                                <aside className='file'>
-                                    <h4>Files</h4>
-                                    <ul>{files}</ul>
-                                </aside>
-                            </section>
-                        )}
-                    </Dropzone>
+                    <div>
+                        <img className='filetap' onClick={() => this.handlecheck()} src={filetap} />
+                    </div>
+                    <div className='dropx'>
+                        <Dropzone onDrop={this.onDrop}>
+                            {({ getRootProps, getInputProps }) => (
+                                <section className="congtino">
+                                    <div {...getRootProps({ className: 'dropzone' })}>
+                                        <input {...getInputProps()} />
+                                        <img className='drag' src={drag} />
+                                        <p>Drag a file or choose here</p>
+                                    </div>
+                                    <aside className='file'>
+                                        <div className='filep'>{files}</div>
+                                    </aside>
+                                </section>
+                            )}
+                        </Dropzone>
+
+                    </div>
+                    {this.state.error ? this.state.error : null}
+
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button className='px-3' color='primary' onClick={() => { this.handleinsert() }}>Send</Button>
+                    <Button className='px-3' color='primary' onClick={() => { this.handleinsert() }}>Create</Button>
                 </ModalFooter>
             </Modal>
 

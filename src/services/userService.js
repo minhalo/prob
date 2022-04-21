@@ -61,6 +61,10 @@ const all = (id) => {
     return axios.get(`http://localhost:8080/api/allusers?id=${id}`)
 }
 
+const role = (id) => {
+    return axios.get(`http://localhost:8080/api/role?id=${id}`)
+}
+
 const addfriend = (id,ids) =>{
     return axios.post(`http://localhost:8080/api/allFriend?id=${id}&ids=${ids}`)
 }
@@ -197,5 +201,97 @@ const postExac = (id) =>{
 const setc = (id) =>{
     return axios.get(`http://localhost:8080/api/setc?id=${id}`)
 }
-export {setc,postExac,deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+const deleteaccount = (id) =>{
+    return axios.delete(`http://localhost:8080/api/deleteaccount?id=${id}`)
+}
+const getAdmin = () =>{
+    return axios.get(`http://localhost:8080/api/getAdmin`)
+}
+
+const accept = (id,ids) =>{
+    return axios.put(`http://localhost:8080/api/accept?id=${id}&ids=${ids}`)
+}
+
+const createGroupl = (id, name,ok) =>{
+    return axios.post(`http://localhost:8080/api/createGroupl?id=${id}&name=${name}&ok=${ok}`)
+}
+
+const getlearning = (id) =>{
+    return axios.get(`http://localhost:8080/api/getlearning?id=${id}`)
+}
+
+
+//getlearning
+
+const deletepost = (id) =>{
+    return axios.delete(`http://localhost:8080/api/deletepost?id=${id}`)
+}
+
+const searchRole = (id, ids) =>{
+    return axios.get(`http://localhost:8080/api/searchRole?id=${id}&ids=${ids}`)
+}
+
+
+const Charty = () =>{
+    return axios.get(`http://localhost:8080/api/Charty`)
+}
+
+const userup = () =>{
+    return axios.get(`http://localhost:8080/api/userup`)
+}
+
+const learndel = (id) =>{
+    return axios.delete(`http://localhost:8080/api/learndel?id=${id}`)
+}
+
+
+const rip = (id,ids,idss) =>{
+    return axios.post(`http://localhost:8080/api/rip?id=${id}&ids=${ids}&idss=${idss}`)
+}
+
+const getlearningopc = (id) =>{
+    return axios.get(`http://localhost:8080/api/getlearningopc?id=${id}`)
+}
+
+const getoff = (id) =>{
+    return axios.get(`http://localhost:8080/api/getoff?id=${id}`)
+}
+
+
+const dellpost = (id,ids) =>{
+    return axios.delete(`http://localhost:8080/api/dellpost?id=${id}&ids=${ids}`)
+}
+
+
+const getclass = (id) =>{
+    return axios.get(`http://localhost:8080/api/getclass?id=${id}`)
+}
+
+const codeclass = (id,ids) =>{
+    return axios.post(`http://localhost:8080/api/codeclass?id=${id}&ids=${ids}`)
+}
+
+
+const studendel = (id,ids) =>{
+    return axios.delete(`http://localhost:8080/api/studendel?id=${id}&ids=${ids}`)
+}
+
+const toce = (id) =>{
+    return axios.get(`http://localhost:8080/api/toce?id=${id}`)
+}
+
+
+const kickoff = (id,ids) =>{
+    return axios.delete(`http://localhost:8080/api/kickoff?id=${id}&ids=${ids}`)
+}
+
+
+
+
+
+
+
+///api/userup
+
+export {kickoff,toce,studendel,codeclass,getclass,dellpost,getoff,getlearningopc,rip,learndel,userup,Charty,searchRole,deletepost, getlearning,createGroupl,accept,getAdmin,deleteaccount,role,setc,postExac,deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

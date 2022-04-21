@@ -147,17 +147,19 @@ class Profile extends Component {
                                 />
                                 <CardContent>
                                     <Typography paragraph>
-                                        {d.text}
+                                       
+                                        <div> {d.text}</div>
                                         {/* {d.op} */}
+                                        {d.op ? <img className='oppc' src={d.op}/> : <div></div>}
                                     </Typography>
                                 </CardContent>
                                 <CardActions className='btn-act'>
                                     <Button onClick={() => this.handlelike(d.id)} size="small">Like {d.like} </Button>
                                     <Button onClick={() => this.handledislike(d.id)} size="small">Dislike {d.dislike}</Button>
                                     <Button onClick={() => this.handleClick(d.id)} size="small">Comment</Button>
-                                    <Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
+                                    {d.op ?<Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
                                         Download
-                                    </Button>;
+                                    </Button> : <div></div>}
 
                                 </CardActions>
                             </Card>

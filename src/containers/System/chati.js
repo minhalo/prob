@@ -19,8 +19,18 @@ import dislike from '../../assets/images/dislike.jpg'
 import Picker from 'emoji-picker-react';
 import imoji from '../../assets/images/haha.webp'
 
+import {retext} from 'retext'
+import retextProfanities from 'retext-profanities'
 
 
+
+
+
+// const file = retext()
+//   .use(emoji, {convert: 'encode'})
+//   .processSync('I’m going to bed. :zzz:')
+
+// console.log(String(file))
 
 
 
@@ -140,7 +150,7 @@ class Chati extends Component {
 
 
     render() {
-        // console.log(this.state.imo)
+    
         return (
             <div className='app5'>
                 <div className='chati' ref={this.chati}>

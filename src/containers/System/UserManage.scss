@@ -374,6 +374,82 @@
     
   }
 
+  .navz2{
+    position: absolute;
+    top: 480px;
+    width: 341.3px;
+    height: 50px;
+    color: black;
+    // border: 1px solid red;
+    cursor: pointer;
+
+    .navcim2{
+      margin-top: 4.5px;
+      margin-left: 55px;
+      position: absolute;
+      .navimg2{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+
+
+    .navzk2{
+      position: absolute;
+      left: 120px;
+      top: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+    }
+
+  }
+
+  .navz2:hover
+  {
+    background-color: #FFECEC;
+  }
+
+
+  .navz3{
+    position: absolute;
+    top: 420px;
+    width: 341.3px;
+    height: 50px;
+    color: black;
+    // border: 1px solid red;
+    cursor: pointer;
+
+    .navcim3{
+      margin-top: 4.5px;
+      margin-left: 55px;
+      position: absolute;
+      .navimg3{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+
+
+    .navzk3{
+      position: absolute;
+      left: 120px;
+      top: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+    }
+
+  }
+
+  .navz3:hover
+  {
+    background-color: #FFECEC;
+  }
+
+
+
+
   .nav3{
     display:none;
     border-bottom-left-radius: 5%;
