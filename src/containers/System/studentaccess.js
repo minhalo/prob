@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from "../../store/actions";
 import Modeladstudent from './Modeladstudent';
-import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, header, rip, getlearningopc, getoff, dellpost } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend,countew, allupdate, refresh, getallfile, addf, delf, search, req, header, rip, getlearningopc, getoff, dellpost } from '../../services/userService'
 import Avatar from 'react-avatar';
 import '../System/m.scss';
 import '../System/Setting.scss';
@@ -18,6 +18,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
+import { triggerBase64Download } from 'common-base64-downloader-react';
 // import Avatar from '@mui/material/Avatar';
 
 import movert from '../../assets/images/bird.png'
@@ -29,6 +30,7 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
+import Modelangre from './Modelangre';
 
 
 class Studentaccess extends Component {
@@ -38,27 +40,101 @@ class Studentaccess extends Component {
         const { userInfo } = this.props
 
         this.state = {
-            datas: []
+            folder: [],
+            id: this.props.match.params.id,
+            datas: [],
+            isOpen: false,
+            ido: '',
+            sutu: [],
+            total: ''
         };
 
     }
 
 
-    async componentDidMount() {
-        let data = await header(this.props.userInfo.id)
+    handleClick = (idk) => {
+
         this.setState({
-            datas: data.userData.roleid
+            isOpen: true
         })
+        this.setState({
+            ido: idk
+        })
+
+
+    }
+
+    handleHind = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+    }
+
+    async componentDidMount() {
+
+        let getfile = await getallfile(this.state.id)
+        this.setState({
+            folder: getfile.userData
+        })
+
+        let data = await getlearningopc(this.state.id)
+        this.setState({
+            datas: data.userData
+        })
+
+        let allfie = await allupdate(this.props.userInfo.id, this.state.id)
+        this.setState({
+            sutu: allfie.userData
+        })
+
+
+        let count = await countew(this.props.userInfo.id, this.state.id)
+        console.log(count.userData[0].pop)
+        this.setState({
+            total: count.userData[0].pop
+        })
+
     }
 
 
 
+
     render() {
-        // console.log(this.state.ofu)
+        // console.log(this.state.total)
 
         return (
             <div className='app5'>
-                 <div className="inr">
+                <div className='scorcipe'>
+                    <h6 className='scorcipe1'>Score</h6>
+                    <h6 className='scorcipe2'>{this.state.total}</h6>
+                </div>
+                <div className='allsu'>All Material</div>
+                <div className='ioewq'>
+                    <h3 className='ioewq1'>All File Upload</h3>
+                    {this.state.sutu.map(d =>
+                        <div className='material1'>
+                            <img className='pdfname' src={pdf} />
+                            <h6 className='filenames'>{d.fileName}</h6>
+                            {/* {d.file} */}
+                            {/* <Button className='tbndown' onClick={() => triggerBase64Download(d.file, d.fileName)}>
+                             Download
+                         </Button> */}
+                            {d.point == 0 ? <Button onClick={() => this.delpdf(d.id)} className='tbndown1'>
+                                Delete
+                            </Button>: <div className='pospd'>{d.point}</div>}
+                            
+                        </div>
+
+
+                    )}
+
+                </div>
+                <div className="inr">
+                    <Modelangre
+                        isOpen={this.state.isOpen}
+                        isHide={this.handleHind}
+                        isId={this.state.id} />
+
                     {this.state.datas.map(d =>
                         <Card className='cardiok' sx={{ maxWidth: 640, minWidth: 640, minHeight: 100, maxHeight: 2000 }}>
                             <CardHeader
@@ -78,17 +154,27 @@ class Studentaccess extends Component {
                                 </Typography>
                             </CardContent>
                             <CardActions className='btn-act'>
-                                <Button size="small">Upload </Button>
-
-
-
-
+                                <Button onClick={() => this.handleClick(d.id)} size="small" >Upload</Button>
                             </CardActions>
                         </Card>
                     )}
 
                 </div>
 
+                <div className='material'>
+                    {this.state.folder.map(d =>
+                        <div className='material1'>
+                            <img className='pdfname' src={pdf} />
+                            <h6 className='filenames'>{d.fileName}</h6>
+                            {/* {d.file} */}
+                            <Button className='tbndown' onClick={() => triggerBase64Download(d.file, d.fileName)}>
+                                Download
+                            </Button>
+                        </div>
+
+                    )}
+
+                </div>
 
             </div >
         );

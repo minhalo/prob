@@ -16,6 +16,7 @@ import Roleupdate from '../containers/System/Roleupdate';
 import Groupaccess from '../containers/System/groupaccess';
 import Managepost from '../containers/System/Managepost';
 import studentaccess from '../containers/System/studentaccess';
+import Score from '../containers/System/Score';
 // import '../routes/system.scss';
 
 class System extends Component {
@@ -39,6 +40,7 @@ class System extends Component {
                         <Route path="/system/user-group/:id" component={Groupaccess}/>
                         <Route path="/system/user-managepost" component={Managepost}/>
                         <Route path="/system/user-student/:id" component={studentaccess}/>
+                        <Route path="/system/user-score/:id" component={Score}/>
 
                         {/* <Redirect to="/system/user-manage"/> */}
                     </Switch>

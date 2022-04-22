@@ -6,7 +6,7 @@ import '../Auth/login.scss'
 import {  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { getCheckChangeEmail, getGroup, kdp, logout, listcomment,commenti } from '../../services/userService';
+import { getCheckChangeEmail, getGroup, kdp, logout, listcomment,commenti,postput } from '../../services/userService';
 import ReactScrollableFeed from 'react-scrollable-feed'
 import { Comment, Form, Header } from 'semantic-ui-react'
 import moment from 'moment'
@@ -40,6 +40,7 @@ class Modeladstudent extends Component {
         super(props);
         this.state = {
             isOpen: false,
+            tux: ''
         }
     }
     toggle = () => {
@@ -63,6 +64,18 @@ class Modeladstudent extends Component {
 
         
     // }
+    handleOnChangetux = (event) => {
+        this.setState({
+            tux: event.target.value
+        })
+    }
+
+    handleinsert = async () => {
+        //todoc
+        let data = await postput(this.props.isPop, this.state.tux)
+        this.props.isReset()
+        this.props.isHide()
+    }
 
 
 
@@ -76,29 +89,16 @@ class Modeladstudent extends Component {
                 toggle={() => { this.toggle() }}
                 className={"khkkkhkh"}
                 centered
-                size="lg"
+                size="sm"
             >
                 <ModalBody>
                     <div className='input-created'>
-                        <label>Choose student to add</label>
+                        <label>Change post</label>
                     </div>
-                    <div className='box-gradient'>
-                        {/* {this.state.dove.map(d =>
-                            <Card  
-                            // onclick = {} 
-                            onClick={() => this.handleClick(d.id)}
-                            className='cardi1' sx={{ maxWidth: 200, minWidth: 200, minHeight: 100, maxHeight: 100 }}>
-                                <CardHeader
-                                    avatar={<Avatar src={d.image} />}
-                                    title={d.lastName && d.firstName}
-                                />
-                            </Card>
-                        )} */}
-                    </div>
-
+                    <textarea onChange={(event) => this.handleOnChangetux(event)} maxlength="256" placeholder="Input text here..." className="noname" />
                 </ModalBody>
                 <ModalFooter>
-                    {/* <Button className='px-3' color='primary' onClick={() => { this.handleinsert() }}>Send</Button> */}
+                    <Button className='px-3' color='primary' onClick={() => this.handleinsert()}>Send</Button>
                 </ModalFooter>
             </Modal>
 
