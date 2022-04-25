@@ -86,6 +86,12 @@ class Navor extends Component {
                         </div>
                         <div className='nav-text-setting1' >Role update</div>
                     </Link>
+                    <Link className='nav-child-setting2' to='/system/user-mage'>
+                        <div className='nav-img-setting2'>
+                            <img className='navimg-setting2' src={del}/>
+                        </div>
+                        <div className='nav-text-setting2' >Post management</div>      
+                    </Link>
                 </div>
             </div>
 

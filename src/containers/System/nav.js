@@ -94,21 +94,22 @@ class Nav extends Component {
                         <div className='navzk1' >Chat</div>
                     </Link>
                     {this.state.datas.roleid == 1 ?
-                        <Link className='navz2' to='/system/user-updaterole'>
-                            <div className='navcim2'>
-                                <img className='navimg2' src={group} />
+                        <Link className='navz3' to='/system/user-updaterole'>
+                            <div className='navcim3'>
+                                <img className='navimg3' src={group} />
                             </div>
-                            <div className='navzk2' >Admin</div>
+                            <div className='navzk3' >Admin</div>
                         </Link> :
                         null
                     }
+                     {this.state.datas.roleid == 2 || this.state.datas.roleid == 3 ?
                     <Link className='navz3' to='/system/user-video'>
                         <div className='navcim3'>
                             <img className='navimg3' src={chat} />
                         </div>
                         <div className='navzk3' >Learning</div>
-                    </Link>
-
+                    </Link>: null
+                    }
 
                 </div>
             </div>

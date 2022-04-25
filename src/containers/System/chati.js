@@ -190,9 +190,9 @@ class Chati extends Component {
                 </div>
 
                 <div className='chiopl'>
-                    <div  className='lqp'>
+                    {/* <div  className='lqp'>
                        <img onClick={() => this.handlechoose()} className='lqp1' src={imoji}/>
-                    </div>
+                    </div> */}
                     <div className='chat-con'>
                         <input placeholder='Aa' className='input-chat' max="200" onChange={(event) => this.handleOnChangeSet(event)} type='text' />
                     </div>

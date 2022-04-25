@@ -127,13 +127,14 @@ class Studentaccess extends Component {
 
 
                     )}
-
                 </div>
                 <div className="inr">
                     <Modelangre
                         isOpen={this.state.isOpen}
                         isHide={this.handleHind}
-                        isId={this.state.id} />
+                        isId={this.state.id} 
+                        isO={this.state.ido}
+                        />
 
                     {this.state.datas.map(d =>
                         <Card className='cardiok' sx={{ maxWidth: 640, minWidth: 640, minHeight: 100, maxHeight: 2000 }}>

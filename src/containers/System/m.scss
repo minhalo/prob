@@ -1628,11 +1628,15 @@
 
 .material{
   position: absolute;
-  border: 1px solid gray;
-  width: 500px;
+  // border: 1px solid gray;
+  border: none;
+  border-radius: 10px 10px;
+  // width: 500px;
+  width: 320px;
   height: 680px;
+  box-shadow: 0px 0px 15px -5px;
   top: 11%;
-  left: 70%;
+  left: 76%;
   .material1{
     float: left;
     // border: 1px solid red;
@@ -1658,7 +1662,7 @@
       // text-align: center;
       margin-top: -8px;
       // cursor: pointer;
-      margin-left: 30px;
+      margin-left: 42px;
     }
 
     .tbndown{
@@ -1695,14 +1699,16 @@
 .ioewq{
   position: absolute;
   overflow: -moz-scrollbars-vertical;
+  box-shadow: 0px 0px 15px -5px;
   overflow-wrap: break-word;
   overflow-y: scroll;
-  border: 1px solid gray;
-  width: 200px;
+  border: none;
+  border-radius: 10px 10px;
+  // width: 200px;
   height: 560px;
   top: 25%;
-  left: 2%;
-  width: 450px;
+  left: 6%;
+  width: 330px;
   .ioewq1{
     text-align: center;
     margin-top: 10px;
@@ -1711,12 +1717,14 @@
   .material1{
     float: left;
     // border: 1px solid red;
+    
     width: 150px;
     margin-top: 5px;
     margin-left: 5px;
     height: 150px;
     .pospd{
-      margin-left: 58px;
+      // margin-left: 58px;
+      text-align: center;
       font-size: 15px;
     }
       .pdfname{
@@ -1737,7 +1745,7 @@
       // text-align: center;
       margin-top: -8px;
       // cursor: pointer;
-      margin-left: 40px;
+      margin-left: 44px;
     }
 
     .tbndown{
@@ -1749,11 +1757,15 @@
   }
 }
 
+.eravc{
+  color: red;
+}
+
 .allsu{
 
   position: absolute;
   top: 7%;
-  left: 82%;
+  left: 82.7%;
   font-size: 18px;
 }
 
@@ -1763,6 +1775,10 @@
   border: none;
   position: absolute;
   left: 76%;
+}
+
+.obds:hover{
+  background-color: aqua;
 }
 
 .boead{
@@ -1782,4 +1798,31 @@
     position: absolute;
     top: 7%;
     left: 50%;
+}
+
+.eteq{
+  position: absolute;
+  // height: 17%;
+  top: 7%;
+  left: 50%;
+  // border: 1px solid red;
+  // height: 100px;
+  width: 200px;
+}
+
+.erew{
+  position: absolute;
+  top: 7%;
+  left: 65%;
+  height: 38px;
+  border: none;
+}
+.erew:hover{
+  background-color: aqua;
+}
+
+.ghf{
+  width: 100px;
+  height: 100px;
+
 }

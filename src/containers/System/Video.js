@@ -170,11 +170,11 @@ class Video extends Component {
 
 
                 <div className='learninglist'>
-                    <table class="table table-dark">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">Group Name</th>
-                                <th scope="col">Group Point</th>
+                                {/* <th scope="col">Group Point</th> */}
                                 <th scope="col">Access</th>
                                 {/* <th scope="col">Action</th> */}
                             </tr>
@@ -186,7 +186,7 @@ class Video extends Component {
                             {this.state.arr.map(d =>
                                 <tr>
                                     <th scope="row">{d.groupname}</th>
-                                    <th scope="row">/{d.point}</th>
+                                    {/* <th scope="row">/{d.point}</th> */}
                                     <td>
                                         <div>
                                             <ButtonBase onClick={() => this.handledelete(d.id)}>Delete</ButtonBase>
@@ -208,7 +208,7 @@ class Video extends Component {
                             {this.state.arrs.map(d =>
                                 <tr>
                                     <th scope="row">{d.groupname}</th>
-                                    <th scope="row">/{d.point}</th>
+                                    {/* <th scope="row">/{d.point}</th> */}
                                     <td>
                                         <div>
                                             <ButtonBase onClick={() => this.handledeletes(d.id)}>Out Group</ButtonBase>

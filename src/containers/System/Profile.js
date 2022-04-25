@@ -4,7 +4,7 @@ import '../Auth/login.scss'
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { getCheckChangeEmail, profile, setc, listcomment } from '../../services/userService';
+import { getCheckChangeEmail, profile, setc, listcomment,jscore } from '../../services/userService';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'react-collapse';
 import p from '../../assets/images/back.webp'
@@ -51,7 +51,8 @@ class Profile extends Component {
             set: [],
             isOpen: false,
             ids: [],
-            ide: ''
+            ide: '',
+            score: '',
         }
     }
     effext = () => {
@@ -74,6 +75,13 @@ class Profile extends Component {
         let io = await setc(this.state.id)
         this.setState({
             set: io.userData
+        })
+
+
+        let alljscore = await jscore(this.props.userInfo.id)
+        let check = alljscore.userData[0].pop
+        this.setState({
+            score: check
         })
     }
 
@@ -100,6 +108,7 @@ class Profile extends Component {
 
 
     render() {
+        console.log(this.state.score)
         return (
             <div className='app8'>
                 <Nav />
@@ -127,7 +136,7 @@ class Profile extends Component {
                             <p className=''>Phonenumber: {this.state.datas.phonenumber}</p>
                         </div>
                         <div className='totole'>
-                            <p className=''>Total score: not set yet</p>
+                            <p className=''>Total score: {this.state.score == null ? 0 : this.state.score} Point</p>
                         </div>
                         <div className='desi'>
                             <p>Description</p>
@@ -176,7 +185,9 @@ class Profile extends Component {
 }
 const mapStateToProps = state => {
     return {
-        language: state.app.language
+        language: state.app.language,
+        isLoggedIn: state.user.isLoggedIn,
+        userInfo: state.user.userInfo,
     };
 };
 

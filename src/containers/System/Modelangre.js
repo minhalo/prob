@@ -101,7 +101,7 @@ class Modelangre extends Component {
     handleinsert = async () => {
         if(this.state.files[0].type === 'application/pdf')
         {
-        let ok = filepoststudent(this.props.userInfo.id,this.props.isId,  this.state.filebase64, this.state.name)
+        let ok = filepoststudent(this.props.userInfo.id,this.props.isId,  this.state.filebase64, this.state.name, this.props.isO)
 
         this.props.isHide()
        

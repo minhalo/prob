@@ -4,7 +4,7 @@ import '../Auth/login.scss'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { activate, all, getCheckChangeEmail, getGroup, kdp, logout,filepost, filepoststudent, sote } from '../../services/userService';
+import { activate, all, getCheckChangeEmail, getGroup, kdp, logout, filepost, filepoststudent, sote } from '../../services/userService';
 import Dropzone from 'react-dropzone';
 
 import pdf from '../../assets/images/pdfreal.png'
@@ -47,6 +47,8 @@ class Modelwatch extends Component {
             isOpen: false,
             lastName: '',
             datas: '',
+            check: '',
+            err: ''
         }
 
         // }
@@ -54,16 +56,15 @@ class Modelwatch extends Component {
 
     }
 
-    async componentDidMount()
-    {
-        let data = header(this.props.userInfo.id)
+    async componentDidMount() {
+        let checks = await header(this.props.userInfo.id)
         this.setState({
-            datas: data.userData
+            check: checks.userData.roleid
         })
     }
 
 
-   
+
     toggle = () => {
         this.props.isHide()
     }
@@ -76,16 +77,31 @@ class Modelwatch extends Component {
         })
     }
     handleinsert = async () => {
-        
+
+        if (this.state.check === 3) {
             let data = await sote(this.props.isId, this.state.lastName)
-            this.props.isReset()
-            this.props.isHide()
-        
+            if (data.userData === true) {
+                this.setState({
+                    err: null
+                })
+                this.props.isReset()
+                this.props.isHide()
+            }
+            else {
+                this.setState({
+                    err: data.userData
+                })
+            }
+
+
+        }
+
+
     }
 
 
     render() {
-        console.log(this.state.datas)
+        // console.log(this.state.err)
         const { processLogout } = this.props;
         return (
             <Modal
@@ -96,8 +112,12 @@ class Modelwatch extends Component {
                 size="sm"
             >
                 <ModalBody>
+
+                    <input className='input-fit' onChange={(event) => this.handleOnChangeFirstname(event)} type="text" />
+                    <div className='eravc'>
+                        {this.state.err}
+                    </div>
                     
-                <input className='input-fit' onChange={(event) => this.handleOnChangeFirstname(event)} type="text" />
 
                 </ModalBody>
                 <ModalFooter>

@@ -303,8 +303,8 @@ const pdfdel = (id) =>{
 }
 
 
-const filepoststudent = (idt,id,ids,idss) =>{
-    return axios.post(`http://localhost:8080/api/filepoststudent`,  {idt,id,ids,idss})
+const filepoststudent = (idt,id,ids,idss,iei) =>{
+    return axios.post(`http://localhost:8080/api/filepoststudent`,  {idt,id,ids,idss,iei})
 }
 
 
@@ -332,12 +332,27 @@ const sote = (id,ids) =>{
 }
 
 
+const chune = (id,ids) =>{
+    return axios.get(`http://localhost:8080/api/chune?id=${id}&ids=${ids}`)
+}
+
+const jscore = (id) =>{
+    return axios.get(`http://localhost:8080/api/jscore?id=${id}`)
+}
+
+const qtq = () =>{
+    return axios.get(`http://localhost:8080/api/qtq`)
+}
+
+const searchText = (id,ids) =>{
+    return axios.get(`http://localhost:8080/api/searchText?id=${id}&ids=${ids}`)
+}
 
 
 
-
+// chune
 
 ///api/userup
 
-export {sote,uiui,getallscore,countew,allupdate,filepoststudent,pdfdel,getallfile,filepost, postput,kickoff,toce,studendel,codeclass,getclass,dellpost,getoff,getlearningopc,rip,learndel,userup,Charty,searchRole,deletepost, getlearning,createGroupl,accept,getAdmin,deleteaccount,role,setc,postExac,deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+export {searchText,qtq,jscore,chune,sote,uiui,getallscore,countew,allupdate,filepoststudent,pdfdel,getallfile,filepost, postput,kickoff,toce,studendel,codeclass,getclass,dellpost,getoff,getlearningopc,rip,learndel,userup,Charty,searchRole,deletepost, getlearning,createGroupl,accept,getAdmin,deleteaccount,role,setc,postExac,deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

@@ -4,7 +4,7 @@ import '../Auth/login.scss'
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { getCheckChangeEmail, profile, setc, listcomment, getallscore, getlearningopc, uiui } from '../../services/userService';
+import { getCheckChangeEmail, profile, setc, listcomment, getallscore, getlearningopc, uiui,chune } from '../../services/userService';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'react-collapse';
 import p from '../../assets/images/back.webp'
@@ -52,7 +52,8 @@ class Score extends Component {
             idf: '',
             name: '',
             isOpen: false,
-            ido: ''
+            ido: '',
+            check: []
         }
     }
 
@@ -97,7 +98,7 @@ class Score extends Component {
         const datas = res.userData
         const options = datas.map(d => ({
             "value": d.id,
-            "label": d.text
+            "label": d.id
         }))
         if (res) {
             this.setState({ selectOptions: options })
@@ -119,8 +120,16 @@ class Score extends Component {
         console.log(this.state.idf)
     }
 
+    choun = async () => {
+        let data = await chune(this.state.name,this.state.id)
+        this.setState({
+            allscore: data.userData
+        })
+
+    }
+
     render() {
-        console.log(this.state.allscore)
+        console.log(this.state.name)
         return (
             <div className='app8'>
                 <Modelwatch
@@ -129,6 +138,10 @@ class Score extends Component {
                     isId={this.state.ido}
                     isReset={this.reset}
                 />
+                <div className='eteq'> 
+                     <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
+                </div>
+                <button onClick={() => this.choun()} className='erew'>Choose</button>
 
 
                 <div className='boead'>
