@@ -51,26 +51,36 @@ class UserManage extends Component {
             com: [],
             isOpen: false,
             ids: [],
-            ide: ''
+            ide: '',
+            diey: []
         }
     }
-    // componentDidUpdate () {
-    //     let circle = document.querySelector('.nav3')
-    //     if (this.state.click === false && this.state.home === false){
-    //         circle.style.display = 'none'
-    //     }
-    //     else{
-    //         circle.style.display = 'block'
-    //     }
+    componentDidUpdate () {
+        // let circle = document.querySelector('.nav3')
+        // if (this.state.click === false && this.state.home === false){
+        //     circle.style.display = 'none'
+        // }
+        // else{
+        //     circle.style.display = 'block'
+        // }
 
-    //     let circles = document.querySelector('.nav4')
-    //     if (this.state.clickprop === false){
-    //         circles.style.display = 'none'
-    //     }
-    //     else{
-    //         circles.style.display = 'block'
-    //     }
-    // }
+        // let circles = document.querySelector('.nav4')
+        // if (this.state.clickprop === false){
+        //     circles.style.display = 'none'
+        // }
+        // else{
+        //     circles.style.display = 'block'
+        // }
+        let circle = document.querySelector('.loadmore')
+        if (this.state.pops.length === this.state.diey.length)
+        {
+            circle.style.display = 'none'   
+        }
+         else{
+                circle.style.display = 'block'
+            }
+        
+    }
 
     effexts = () => {
         this.setState({
@@ -95,9 +105,15 @@ class UserManage extends Component {
         })
 
         let pop = await listpost()
+        let sos = pop.userData.slice(0, 10)
         this.setState({
-            pops: pop.userData
+            pops: sos
         })
+        this.setState({
+            diey: pop.userData
+        })
+
+        // console.log(this.state.diey)
 
 
     }
@@ -132,7 +148,7 @@ class UserManage extends Component {
         // const base64Response = await fetch(`data:image/jpeg;base64,${oks}`);
 
         // const blob = await base64Response.blob();
-        console.log(ok)
+        // console.log(ok)
         // FileDownload(oks, 'download')
         // window.open(`ok`)
     }
@@ -196,6 +212,14 @@ class UserManage extends Component {
         })
     }
 
+    loading = async () => {
+        let pop = await listpost()
+        let sos = pop.userData.slice(0, this.state.pops.length + 10)
+        this.setState({
+            pops: sos
+        })
+    }
+
 
     handleOnChangeText = (event) => {
         this.setState({
@@ -204,7 +228,8 @@ class UserManage extends Component {
     }
     render() {
         const { userInfo } = this.props
-
+        console.log(this.state.pops.length)
+        console.log(this.state.diey.length)
         return (
             <div>
                 <Nav />
@@ -293,6 +318,7 @@ class UserManage extends Component {
                                 </CardActions>
                             </Card>
                         )}
+                        <div onClick={() => this.loading()} className='loadmore'><h6 className='loadmore1'>Load more</h6></div>
                     </div>
                 </div>
                 <Friends />

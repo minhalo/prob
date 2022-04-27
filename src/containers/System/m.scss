@@ -799,9 +799,9 @@
   // border-top: 1px solid gray;
   position: absolute;
   top: 83%;
-  width: 50vw;
+  // width: 47vw;
   height: 4.6vh;
-  left:25%;
+  left:35%;
 
 
   .lqp{
@@ -816,7 +816,7 @@
   }
   .chat-con{
     // margin-top: 2px;
-    margin-left: 220px;
+    margin-left: 0px;
     // border: 1px solid red;
     width: 620px;
     background-color: #F2F3F4;
@@ -849,18 +849,65 @@
   left: 25%;
  
 }
+.listemoju{
+  position: absolute;
+
+  top: 70%;
+  left: 25%;
+  width: 150px;
+  height: 100px;
+  // border: 1px solid red;
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  .omiy{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    float: left;
+  }
+  .omiy:hover{
+    background-color: aqua;
+  }
+}
 .uey
 {
-  border: 1px solid red;
+  // border: 1px solid red;
   position: absolute;
-  top: 44%;
-  left: 25%;
+  width: 20px;
+  height: 20px;
+
+  top: 84%;
+  cursor: pointer;
+  left: 27%;
+  .ompx{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+.uey1
+{
+  // border: 1px solid red;
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
+  top: 84%;
+  left: 29%;
+  .ompx1{
+    width: 20px;
+    height: 20px;
+  }
 }
 
 
 
+
 .cati{
-  margin-top: 5%;
+  margin-top: 9%;
   // border: 1px solid red;
   // height: 10px;
 
@@ -869,6 +916,7 @@
     // height: 75px;
     .poirc{
       margin-right: 10px;
+     
       margin-top: 10px;
       float: right;
     width: 60px;
@@ -878,10 +926,11 @@
   
   .poird{
     margin-left: 10px;
+    // border: 1px solid red;
       margin-top: 10px;
     float: left;
   width: 60px;
-  // height: 60px;
+  height: 60px;
   border-radius: 50%;
   }
   }
@@ -982,6 +1031,10 @@
   .mys{
     // border: 1px solid red;
     height: 50px;
+    .ojs{
+      width: 100px;
+      height: 100px;
+    }
     .r{
       margin-right: 10px;
       margin-top: 0px;
@@ -1150,7 +1203,7 @@
 
   // border: 1px solid red;
   margin-top: 10px;
-  display: none;
+  // display: none;
   .dropzone{
   border: 1px dashed gray;
   margin-top: 15px;
@@ -1824,5 +1877,35 @@
 .ghf{
   width: 100px;
   height: 100px;
+
+}
+
+.erue{
+  margin-top: 10px;
+  text-align: center;
+  color: red;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.loadmore{
+  box-shadow: 0px 0px 15px -5px;
+  // border: 1px solid red;
+  width: 642px;
+  margin-top: 15px;
+  margin-left: 140px;
+  cursor: pointer;
+  height: 30px;
+  border-radius: 10px 10px;
+  margin-bottom: 10px;
+
+  .loadmore1{
+    // margin-top: 15px;
+    text-align: center;
+    // margin-top: 10px;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 285px;
+  }
 
 }

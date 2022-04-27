@@ -4,7 +4,7 @@ import '../Auth/login.scss'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { activate, all, getCheckChangeEmail, getGroup, kdp, logout } from '../../services/userService';
+import { activate, all, getCheckChangeEmail, getGroup, kdp, logout,filepost,take } from '../../services/userService';
 import Dropzone from 'react-dropzone';
 
 import pdf from '../../assets/images/pdfreal.png'
@@ -40,7 +40,7 @@ import filetap from '../../assets/images/file.png'
 
 
 
-class Modalpost extends Component {
+class Modeluphide extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -50,18 +50,19 @@ class Modalpost extends Component {
             files: [],
             filebase64: null,
             check: false,
-            error: null
+            error: null,
+            name: ''
         }
 
         this.onDrop = (files) => {
             // if (files.type === 'image/jpeg') {
+
             this.setState({ files })
-            // console.log(files[0].type)
+            console.log(files[0].name)
+            this.setState({
+                name: files[0].name
+            })
             if (files[0].type === 'image/jpeg') {
-                this.setState({
-                    error: ''
-                })
-                
                 var file = files[0]
                 const reader = new FileReader();
                 reader.onload = (event) => {
@@ -69,14 +70,7 @@ class Modalpost extends Component {
                     this.setState({ filebase64: event.target.result })
                 };
                 reader.readAsDataURL(file);
-            }
-            else{
-                this.setState({
-                    error: 'File must be jpg'
-                })
             };
-            
-
         }
 
         // }
@@ -105,21 +99,16 @@ class Modalpost extends Component {
     }
 
     handleinsert = async () => {
-        if(this.state.files)
+        if(this.state.files[0].type === 'image/jpeg')
         {
-        let ok = creatpost(this.props.userInfo.id, this.state.mes, this.state.filebase64)
-        this.setState({
-          
-            files: [],
-            filebase64: null,
-        })
+        let ok = take(this.props.isok1,this.props.isok2, this.state.filebase64)
 
         this.props.isHide()
-        this.props.callbacks()
+       
         }
         else{
             this.setState({
-                error: 'File invalid'
+                error: 'File must be jpg'
             })
         }
     }
@@ -132,14 +121,6 @@ class Modalpost extends Component {
     }
 
 
-    componentDidUpdate() {
-        // let circle = document.querySelector('.dropx')
-        // if (this.state.check === true) {
-        //     circle.style.display = 'block'
-        // }
-
-    }
-
 
 
 
@@ -151,7 +132,7 @@ class Modalpost extends Component {
         const files = this.state.files.map(
             function (file, i) {
 
-           
+                if (file.type === 'image/jpeg') {
                     return (
                         <div key={file.name}>
                             <div className='jpg-container'>
@@ -166,6 +147,22 @@ class Modalpost extends Component {
 
                         </div>
                     )
+                }
+
+                else if (file.type === 'application/pdf') {
+                    return (
+                        <div key={file.name}>
+                            <div className='jpg-container'>
+                                <img className='jpg' src={pdf} />
+                            </div>
+                            <div className='pcontainer'>
+                                <h6 className='pcontainer1'>
+                                    {file.type}
+                                </h6>
+                            </div>
+                        </div>
+                    )
+                }
 
 
 
@@ -177,7 +174,7 @@ class Modalpost extends Component {
             <Modal
                 isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}
-                className={"bisode"}
+                className={"djdjdjdjdjd"}
                 centered
                 size="md"
             >
@@ -186,19 +183,13 @@ class Modalpost extends Component {
                         <img className='rungroi' src={this.state.data.image} />
                         <h4 className='okmg'>{this.state.data.firstName} {this.state.data.lastName}</h4>
                     </div>
-                    <div className='send-post'>
-                        {/* <label></label> */}
-                        <textarea className='arepost' maxlength="256" placeholder='Text something here' onChange={(event) => this.handleOnChangeSet(event)} type="text" />
-                        {/* <input type='text'/> */}
-                    </div>
-                    {/* <div>
-                        <img className='filetap' onClick={() => this.handlecheck()} src={filetap} />
-                    </div> */}
-                    <div className='dropx'>
+                   
+                  
+                    <div className='dropx1'>
                         <Dropzone onDrop={this.onDrop}>
                             {({ getRootProps, getInputProps }) => (
                                 <section className="congtino">
-                                    <div {...getRootProps({ className: 'dropzone' })}>
+                                    <div {...getRootProps({ className: 'dropzone1' })}>
                                         <input {...getInputProps()} />
                                         <img className='drag' src={drag} />
                                         <p>Drag a file or choose here</p>
@@ -211,8 +202,7 @@ class Modalpost extends Component {
                         </Dropzone>
 
                     </div>
-                    <h5 className='erue'>{this.state.error ? this.state.error : null}</h5>  
-                  
+                    {this.state.error ? this.state.error : null}
 
 
                 </ModalBody>
@@ -241,4 +231,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modalpost);
+export default connect(mapStateToProps, mapDispatchToProps)(Modeluphide);

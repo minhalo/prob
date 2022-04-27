@@ -124,7 +124,7 @@ const okgr = (id) => {
 }
 
 const take = (id, ids ,idss) => {
-    return axios.post(`http://localhost:8080/api/task?id=${id}&ids=${ids}&idss=${idss}`)
+    return axios.post(`http://localhost:8080/api/task`,{id,ids,idss})
 }
 
 const activate = (id,ids) => {
@@ -348,11 +348,15 @@ const searchText = (id,ids) =>{
     return axios.get(`http://localhost:8080/api/searchText?id=${id}&ids=${ids}`)
 }
 
+const emotion = (id,ids) =>{
+    return axios.get(`http://localhost:8080/api/emotion`)
+}
+
 
 
 // chune
 
 ///api/userup
 
-export {searchText,qtq,jscore,chune,sote,uiui,getallscore,countew,allupdate,filepoststudent,pdfdel,getallfile,filepost, postput,kickoff,toce,studendel,codeclass,getclass,dellpost,getoff,getlearningopc,rip,learndel,userup,Charty,searchRole,deletepost, getlearning,createGroupl,accept,getAdmin,deleteaccount,role,setc,postExac,deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
+export {emotion,searchText,qtq,jscore,chune,sote,uiui,getallscore,countew,allupdate,filepoststudent,pdfdel,getallfile,filepost, postput,kickoff,toce,studendel,codeclass,getclass,dellpost,getoff,getlearningopc,rip,learndel,userup,Charty,searchRole,deletepost, getlearning,createGroupl,accept,getAdmin,deleteaccount,role,setc,postExac,deleteGr,searchrequest,deleteaff,searchaff,listcomment,commenti,dislike,inlike,listpost,creatpost,listactivate,namegr,chatlist,dmmn,activate,take,okgr,getGroup,socket,group,profile,kdp,stop,count,random,req,brei,searched,logout,search,delf,addf,addfriend,all,passhw,handleLogin, getUsers,handleRegister,getEdit, getDelete, getCheckChangeEmail,forgotPass,getBox, refresh, header}
 

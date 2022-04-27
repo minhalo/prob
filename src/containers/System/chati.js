@@ -19,7 +19,9 @@ import dislike from '../../assets/images/dislike.jpg'
 import Picker from 'emoji-picker-react';
 import imoji from '../../assets/images/haha.webp'
 
-import {retext} from 'retext'
+import up from '../../assets/images/up.png'
+
+import { retext } from 'retext'
 import retextProfanities from 'retext-profanities'
 
 
@@ -35,7 +37,7 @@ import retextProfanities from 'retext-profanities'
 
 
 
-import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, header } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend, refresh, addf, delf, search, req, header, emotion } from '../../services/userService'
 
 // import { getAllUsers } from '../../services/userService'
 
@@ -47,6 +49,7 @@ import Modelcreate from './modelcreate';
 // import group from '../../services/userService'
 import { group, take } from '../../services/userService';
 import { getgroups } from 'process';
+import Modeluphide from './Modeluphide';
 // import { header } from '../../services/userService';
 
 class Chati extends Component {
@@ -61,16 +64,39 @@ class Chati extends Component {
             mes: '',
             thischeck: false,
             imo: null,
-            chooseImo: false
+            chooseImo: false,
+            emojiu: [],
+            iur: false,
+            isOpen: false
         };
     }
+
+    handleClick = (idk) => {
+
+        this.setState({
+            isOpen: true
+        })
+    }
+
+    handleHind = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+    }
+
 
     async componentDidMount() {
         let data = await chatlist(this.props.isokay)
         this.setState({
             dove: data.userData
         })
-        
+
+        let emo = await emotion()
+        this.setState({
+            emojiu: emo.userData
+        })
+
+        // document.getElementById("name").value + 'i'
 
         const listener = event => {
             if (event.code === "Enter" || event.code === "NumpadEnter") {
@@ -89,7 +115,7 @@ class Chati extends Component {
         };
     }
 
-   
+
     handlechoose = () => {
         this.setState({
             chooseImo: !this.state.chooseImo
@@ -101,6 +127,12 @@ class Chati extends Component {
         this.setState({
             thischeck: true
         })
+        let check = document.getElementById("name")
+        check.value = ''
+        let circle = document.querySelector('.listemoju')
+        if (this.state.iur === true) {
+            circle.style.display = 'none'
+        }
     }
 
 
@@ -112,25 +144,26 @@ class Chati extends Component {
 
 
     async componentDidUpdate() {
-        // let data = await chatlist(this.props.isokay)
-        // this.setState({
-        //     dove:data.userData
-
-        // })
-        let circle = document.querySelector('.uey')
-        if(this.state.chooseImo === false)
-        {
+       
+        let circle = document.querySelector('.listemoju')
+        if (this.state.iur === false) {
             circle.style.display = 'none'
         }
-        else{
+        else {
             circle.style.display = 'block'
         }
-        if (this.state.thischeck === true) {
-            let datas = await chatlist(this.props.isokay)
-            this.setState({
-                dove: datas.userData
-            })
-        }
+
+         let data = await chatlist(this.props.isokay)
+        this.setState({
+            dove:data.userData
+
+        })
+        // if (this.state.thischeck === true) {
+        //     let datas = await chatlist(this.props.isokay)
+        //     this.setState({
+        //         dove: datas.userData
+        //     })
+        // }
 
 
     }
@@ -140,35 +173,61 @@ class Chati extends Component {
         let obk = dbk.concat('&#x', emojiObject.originalUnified, ';')
         this.setState({
             imo: obk
-        })      
+        })
 
         let data = await take(this.props.userInfo.id, this.props.isokay, emojiObject.originalUnified)
-        
+
+
     };
 
+    setimo = (imo) => {
+        let result = this.state.mes.slice(0, this.state.mes.length) + imo + this.state.mes.slice(this.state.mes.length)
+        let check = document.getElementById("name")
+        check.value = this.state.mes + imo
+        this.setState({
+            mes: result
+        })
+        // let checkk = document.getElementById("name")
+        // check.value = ''
+        
+    }
 
+    showdi = () => {
+        this.setState({
+            iur: !this.state.iur
+        })
+        console.log(1)
+    }
 
 
     render() {
-    
+        console.log(this.state.dove)
+
         return (
             <div className='app5'>
+                <Modeluphide
+                    isOpen={this.state.isOpen}
+                    isHide={this.handleHind}
+                    isok1={this.props.userInfo.id}
+                    isok2={this.props.isokay}
+                />
                 <div className='chati' ref={this.chati}>
 
                     <ReactScrollableFeed>
                         {this.state.dove.map(d =>
                             <div className='cati'>
                                 <div className='poci'>
-                                    <img className={d.firstName === this.props.userInfo.firstName ? 'poirc' : 'poird'} src={d.image} />
+                                    <img className={d.id === this.props.userInfo.id ? 'poirc' : 'poird'} src={d.image} />
                                 </div>
                                 <div className='abcd'>
-                                    <p className={d.firstName === this.props.userInfo.firstName ? 'c' : 'd'}>{d.firstName} </p>
+                                    <p className={d.id === this.props.userInfo.id ? 'c' : 'd'}>{d.firstName} </p>
                                 </div>
                                 <div className='timezone'>
-                                    <p className={d.firstName === this.props.userInfo.firstName ? 'k' : 'g'}> {moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')} </p>
+                                    <p className={d.id === this.props.userInfo.id ? 'k' : 'g'}> {moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')} </p>
                                 </div>
                                 <div className='mys'>
-                                    <p className={d.firstName === this.props.userInfo.firstName ? 'r' : 't'}>{d.message } </p>
+                                    {d.message.charAt(0) === 'd' ?  <p className={d.id === this.props.userInfo.id ? 'r' : 't'}> <img className='ojs' src={d.image}/></p> :   <p className={d.id === this.props.userInfo.id ? 'r' : 't'}>{d.message} </p>}
+                                  
                                     {/* {d.message} */}
                                 </div>
                                 {/* <div className='iconseri'>
@@ -181,12 +240,24 @@ class Chati extends Component {
 
                             </div>
                         )}
-                        
-                       
+
+
                     </ReactScrollableFeed>
                 </div>
+                <div className='listemoju'>
+                    {this.state.emojiu.map(d =>
+
+                        <div onClick={() => this.setimo(d.emo)} className='omiy'>{d.emo}</div>
+                    )}
+                </div>
                 <div className='uey'>
-                    <Picker onEmojiClick={this.onEmojiClick} />
+                    {/* <Picker onEmojiClick={this.onEmojiClick} /> */}
+                    <img onClick={() => this.showdi()} className='ompx' src={imoji} />
+                </div>
+
+                <div className='uey1'>
+                    {/* <Picker onEmojiClick={this.onEmojiClick} /> */}
+                    <img onClick={() => this.handleClick()} className='ompx1' src={up} />
                 </div>
 
                 <div className='chiopl'>
@@ -194,7 +265,7 @@ class Chati extends Component {
                        <img onClick={() => this.handlechoose()} className='lqp1' src={imoji}/>
                     </div> */}
                     <div className='chat-con'>
-                        <input placeholder='Aa' className='input-chat' max="200" onChange={(event) => this.handleOnChangeSet(event)} type='text' />
+                        <input id="name" placeholder='Aa' className='input-chat' max="200" onChange={(event) => this.handleOnChangeSet(event)} type='text' />
                     </div>
                 </div>
             </div >
