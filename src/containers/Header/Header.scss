@@ -1,4 +1,39 @@
 @import "../../styles/common.scss";
+@media screen and (max-width: 400px) and (min-width: 350px) {
+  
+       
+    .avtart{
+        margin-top: 2px !important;
+        margin-left: 10px !important;
+        .v-avtart{
+            width: 35px !important;
+            height: 35px !important;
+         }
+    }
+       
+    .text-dudes{
+       
+        .text-dude{
+            margin-top: 10px !important;
+            font-size: 35px !important;
+    }
+    }
+
+    .lp{
+        margin-top: 2px !important;
+        left: 330px !important;
+        .okk{
+          width: 35px !important;
+          height: 35px !important;
+        }
+    }
+
+    .kjkjk{
+        top: -260px !important;
+        left: 280px !important;
+    }
+        
+  }
 
 .header-container {
     position: fixed;
@@ -12,6 +47,21 @@
     box-shadow: 0px 0px 15px -5px;
     transition: 0.6s;
     z-index: 100000;
+
+    .buy{
+        position: absolute;
+        border-radius: 50%;
+        left: 90%;
+        top: 25%;
+        .buy1{
+            width: 30px;
+            height: 30px;
+        }
+    }
+    .buy:hover{
+        cursor: pointer;
+        background-color:blanchedalmond;
+    }
     .text-dudes{
         display: flex;
         justify-content: center;
@@ -88,8 +138,9 @@
     }
 }
 
-.Forgot-account{
+.kjkjk{
     position: absolute;
     top: -356px;
     left: 94.15%;
+    // left: 0px;
 }

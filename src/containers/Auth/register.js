@@ -103,8 +103,8 @@ class Register extends Component {
 
                     <div className="overlay-container">
                         <form>
-                            <h1>What is DUDE?</h1>
-                            <p>DUDE is ...</p>
+                            <h1>What is EduZ?</h1>
+                            <p>EduZ is a social for student</p>
                             
                             <button disabled className='button5 mt-5'><Link className='link' to='/login'>Back to Sign In</Link></button>
                         </form>

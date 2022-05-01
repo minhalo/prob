@@ -34,7 +34,7 @@ class Modelset extends Component {
             <Modal
                 isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}
-                className={"Forgot-account"}
+                className={"kjkjk"}
                 centered
                 size="sm"
             >

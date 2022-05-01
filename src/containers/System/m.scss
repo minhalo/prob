@@ -1,4 +1,11 @@
 
+@media screen and (max-width: 400px) and (min-width: 350px) {
+  .navf{
+    display: none;
+  }
+}
+
+
 @keyframes myanimation {
   0% {background-color: red;}
   25%{background-color:yellow;}
@@ -1908,4 +1915,49 @@
     margin-left: 285px;
   }
 
+}
+
+.permission{
+  position: absolute;
+  top: 15%;
+  left: 30%;
+}
+
+.permission1{
+  width: 500px;
+  top: 19%;
+  height: 300px;
+  left: 36%;
+  position: absolute;
+}
+
+.permission2{
+  position: absolute;
+  top: 55%;
+  left: 47%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 10px 10px;
+}
+
+.hole{
+  position: absolute;
+  top: 50%;
+}
+
+.carpsel{
+  position: absolute;
+  width: 900px;
+  height: 500px;
+  .carpsel1{
+    width: 900px;
+    height: 500px;
+  }
+}
+
+.cape{
+  width: 600px;
+  height: 500px;
 }

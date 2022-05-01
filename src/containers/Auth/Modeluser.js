@@ -66,9 +66,9 @@ class Modeluser extends Component {
                 <ModalHeader toggle={() => { this.toggle() }} >Forgot password</ModalHeader>
                 <ModalBody>
                     <div className='text-forg'>
-                        <p>Your have to provide your email.</p>
-                        <p>We will send you an email to your gmail to verify</p>
-                        <p>Then you can change the password. Thank you!</p>
+                        <p className='chet'>Your have to provide your email.</p>
+                        <p className='chet'>We will send you an email to your gmail to verify</p>
+                        <p className='chet'>Then you can change the password. Thank you!</p>
                     </div>
                     <div className='input-container'>
                         <div><label>Email</label></div>

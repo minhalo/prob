@@ -1,4 +1,175 @@
 
+@media screen and (max-width: 400px) and (min-width: 350px) {
+	.container{
+		width: 350px !important;
+		min-height: 300px !important;
+	}
+	.overlay-panel{
+		padding: 0 10px !important;
+	}
+
+	.sign{
+		font-size: 15px !important;
+	}
+
+	.input5{
+		width: 150px !important;
+		font-size: 8px !important;
+	}
+
+	.input6{
+		margin-top: 15px !important;
+		width: 150px !important;
+		font-size: 8px !important;
+	}
+
+	.button3{
+		font-size: 10px !important;
+		padding: 8px 20px !important ;
+	}
+
+	a{
+		font-size: 12px !important;
+	}
+
+	h1{
+		font-size: 15px !important;
+	}
+	.Error{
+		font-size: 8px !important;
+		width: 150px !important;
+		margin-left: -20px !important;
+		top: 40% !important;
+	}
+
+	.Error3{
+		font-size: 8px !important;
+		width: 150px !important;
+		margin-left: -40px !important;
+		top: 31.5% !important;
+	}
+	
+	.Error4{
+		font-size: 8px !important;
+		width: 150px !important;
+		margin-left: -44px !important;
+		top: 48.4% !important;
+	}
+	.Error5{
+		font-size: 8px !important;
+		width: 150px !important;
+		margin-left: -12px !important;
+		top: 48.4% !important;
+	}
+	.Error6{
+		font-size: 8px !important;
+		margin-left: 5px !important;
+	}
+	
+
+	.Error10{
+		font-size: 8px !important;
+		width: 150px !important;
+		margin-left: -20px !important;
+		top: 57% !important;
+	}
+	p{
+		width: 100px !important;
+		font-size: 12px !important;
+		
+		
+	}
+	p.chet{
+		width: 300px !important;
+	}
+
+	
+
+	.ghost{
+		font-size: 10px !important;
+		padding: 8px 20px !important ;
+		width: 120px !important;
+		// top: 50% !importantgosht;
+		.link
+		{
+		font-size: 8px !important;
+		}
+	}
+
+	.ghost1{
+		font-size: 10px !important;
+		padding: 8px 20px !important ;
+		width: 120px !important;
+		margin-top: 43px !important;
+		// top: 50% !importantgosht;
+		.link
+		{
+		font-size: 8px !important;
+		}
+	}
+
+	.input7{
+		margin-top: 15px !important;
+		width: 150px !important;
+		font-size: 8px !important;
+	}
+
+	.button5{
+		padding: 8px 20px !important;
+		top: 60.5% !important;
+		.link{
+			font-size: 8px !important;
+		}
+	}
+
+
+	.containerx{
+		height: 300px !important;
+		width: 300px !important;
+		.textx{
+			
+			font-size: 15px !important;
+			margin-left: 19px !important;
+		}
+
+		.top{
+			margin-left: -45px !important;
+		}
+
+		.textx1{
+			font-size: 15px !important;
+		}
+
+		.textx2{
+			font-size: 15px !important;
+		}
+
+		.inputx1{
+			font-size: 15px !important;
+			width: 286px !important;
+		}
+		.inputx2{
+			font-size: 15px !important;
+			width: 286px !important;
+		}
+
+		.Errorx1{
+			width: 300px !important;
+			font-size: 10px !important;
+		}
+		.Errorx2{
+			width: 300px !important;
+			font-size: 10px !important;
+		}
+
+		.px{
+			width: 300px !important;
+		}
+	}
+
+}
+
+
 @keyframes example {
 	0%   {background-color: red;}
 	25%  {background-color: yellow;}
@@ -88,7 +259,22 @@ a {
 	top: 75%;
 }
 
-
+.ghost1 {
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+	background-color: transparent;
+	border-color: #FFFFFF;
+	// top: 50%;
+	margin-top: 75px;
+}
 
 .ghost {
 	border-radius: 20px;

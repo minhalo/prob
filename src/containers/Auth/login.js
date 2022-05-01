@@ -110,9 +110,9 @@ class Login extends Component {
                     <div className="overlay-container">
                         <div className="overlay">
                             <div className="overlay-panel overlay-right">
-                                <h1>Welcom to DUDE!</h1>
+                                <h1>Welcom to EduZ!</h1>
                                 <p>Let's start your journey</p>
-                                <button disabled className="ghost"><Link className='link' to='/register'>Go to Sign Up</Link></button>
+                                <button disabled className="ghost1"><Link className='link' to='/register'>Go to Sign Up</Link></button>
                             </div>
                         </div>
                     </div>

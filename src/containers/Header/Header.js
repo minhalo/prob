@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import Modelset from './Modelset';
 import okk from '../../assets/images/list.png'
+import buy from '../../assets/images/buy.png'
 
 
 class Header extends Component {
@@ -60,6 +61,7 @@ class Header extends Component {
                 <div className='lp' onClick={() => this.handleClick()}>
                     <img className='okk' src={okk}/>
                 </div>
+                {/* <div className='buy'><Link to='/system/user-store'><img className='buy1' src={buy}/></Link></div> */}
             </div>
         );
     }

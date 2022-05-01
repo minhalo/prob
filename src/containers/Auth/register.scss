@@ -88,9 +88,9 @@ form {
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	// width: 768px;
 	max-width: 100%;
-	min-height: 480px;
+	// min-height: 480px;
 }
 
 .form-container {
@@ -171,20 +171,20 @@ form {
   	transform: translateX(50%);
 }
 
-.overlay-panel {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 40px;
-	text-align: center;
-	top: 0;
-	height: 100%;
-	width: 50%;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
+// .overlay-panel {
+// 	position: absolute;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	flex-direction: column;
+// 	padding: 0 40px;
+// 	text-align: center;
+// 	top: 0;
+// 	height: 100%;
+// 	width: 50%;
+// 	transform: translateX(0);
+// 	transition: transform 0.6s ease-in-out;
+// }
 
 .overlay-left {
 	transform: translateX(-20%);

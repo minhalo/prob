@@ -1,3 +1,16 @@
+@media screen and (max-width: 400px) and (min-width: 350px) {
+  .users-container{
+    top: 17% !important;
+    left: 0px !important;
+    height: 83vh !important;
+    width: 100vw !important;
+  }
+
+  .random{
+    left: 0px !important;
+  }
+}
+
 .tet{
   position: absolute;
   top: 5%;

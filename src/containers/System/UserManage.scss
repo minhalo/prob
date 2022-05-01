@@ -1,18 +1,8 @@
-// .users-container{
-  
-//   width: 65vw;
-//   top: 5.2%;
-//   left: 20%;
-//   height: 86vh;
-//   position: absolute;
-//   // border: 1px solid red;
-
-//   .testok{
-//     position: absolute;
-//       left:7%;
-//       top: 1%;
-//       height: 600px;
-//       width: 650px;
+@media screen and (max-width: 400px) and (min-width: 350px) {
+  .nav{
+    display: none;
+  }
+}
 
  .commentpost{
   border: 1px solid red;
@@ -248,6 +238,8 @@
 // {
 //   background-color: #FFECEC;
 // }
+
+
 .nav{
   // box-shadow: 0px 0px 15px -1px;
     top: 6.5%;
@@ -255,6 +247,7 @@
     height: 60vh;
     position: absolute;
     left: 0.7%;
+    // display: none;
     // border: 1px solid red;
     border-bottom-left-radius: 2.5%;
     border-bottom-right-radius: 2.5%;

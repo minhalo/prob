@@ -228,8 +228,7 @@ class UserManage extends Component {
     }
     render() {
         const { userInfo } = this.props
-        console.log(this.state.pops.length)
-        console.log(this.state.diey.length)
+    
         return (
             <div>
                 <Nav />

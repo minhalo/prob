@@ -130,7 +130,7 @@ class Roleupdate extends Component {
 
 
     render() {
-        console.log(this.state.check.roleid)
+        // console.log(this.state.check.roleid)
         return (
             <div className='app8'>
                 <Modelrole

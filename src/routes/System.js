@@ -18,11 +18,22 @@ import Managepost from '../containers/System/Managepost';
 import studentaccess from '../containers/System/studentaccess';
 import Score from '../containers/System/Score';
 import mangeuser from '../containers/System/mangeuser';
+// import permission from '../containers/System/permisiondo';
 // import '../routes/system.scss';
+import { header } from '../services/userService';
+import Permissiondo from '../containers/System/Permissiondo';
+import bookstore from '../containers/System/bookstore';
+
+
+
+
 
 class System extends Component {
+
     render() {
+        // console.log(this.props.userInfo.roleid)
         return (
+
             <div className="system-container">
                 <div className="system-list">
                     <Switch>
@@ -33,18 +44,59 @@ class System extends Component {
                         <Route path="/system/user-change" component={Changepass} />
                         <Route path="/system/user-delete" component={Delete} />
                         <Route path="/system/user-profile/:id" component={Profile} />
-                        <Route path="/system/user-fr" component={Managefe}/>
-                        <Route path="/system/user-chat" component={Chat}/>
-                        <Route path="/system/user-chats/:id" component={Chats}/>
-                        <Route path="/system/user-video" component={Video}/>
-                        <Route path="/system/user-updaterole" component={Roleupdate}/>
-                        <Route path="/system/user-group/:id" component={Groupaccess}/>
-                        <Route path="/system/user-managepost" component={Managepost}/>
-                        <Route path="/system/user-student/:id" component={studentaccess}/>
-                        <Route path="/system/user-score/:id" component={Score}/>
-                        <Route path="/system/user-mage" component={mangeuser}/>
+                        <Route path="/system/user-fr" component={Managefe} />
+                        <Route path="/system/user-chat" component={Chat} />
+                        <Route path="/system/user-chats/:id" component={Chats} />
+                        <Route path="/system/user-video" component={Video} />
+                        <Route path="/system/user-student/:id" component={studentaccess} />
+                        <Route path="/system/user-score/:id" component={Score} />
+                        <Route path="/system/user-permission" component={Permissiondo} />
+                        <Route path="/system/user-store" component={bookstore} />
 
-                        {/* <Redirect to="/system/user-manage"/> */}
+
+
+                        {this.props.userInfo.roleid === 1 ?
+                            <Route path="/system/user-updaterole" component={Roleupdate} />
+                            :
+                            <Redirect
+                                to={{
+                                    pathname: "/system/user-permission",
+                                }}
+                            />
+                        }
+
+                        <Route path="/system/user-group/:id" component={Groupaccess} />
+
+                        {this.props.userInfo.roleid === 1 ?
+                            <Route path="/system/user-managepost" component={Managepost} />
+                            :
+                            <Redirect
+                                to={{
+                                    pathname: "/system/user-permission",
+                                }}
+                            />
+                        }
+
+                        {this.props.userInfo.roleid === 1 ?
+                            <Route path="/system/user-mage" component={mangeuser} />
+                            :
+                            <Redirect
+                                to={{
+                                    pathname: "/system/user-permission",
+                                }}
+                            />
+                        }
+
+                        {/* {this.props.userInfo.roleid === 2 ?
+                            <Route path="/system/user-student/:id" component={studentaccess} />
+                            :
+                            <Redirect
+                                to={{
+                                    pathname: "/system/user-permission",
+                                }}
+                            />
+                        } */}
+
                     </Switch>
                 </div>
             </div>
@@ -54,7 +106,8 @@ class System extends Component {
 
 const mapStateToProps = state => {
     return {
-        systemMenuPath: state.app.systemMenuPath
+        systemMenuPath: state.app.systemMenuPath,
+        userInfo: state.user.userInfo,
     };
 };
 
