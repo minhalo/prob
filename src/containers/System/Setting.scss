@@ -1,13 +1,41 @@
 @media screen and (max-width: 400px) and (min-width: 350px) {
   .users-container{
-    top: 17% !important;
+   
+    top: 6.1% !important;
     left: 0px !important;
-    height: 83vh !important;
+    height: 93.8vh !important;
     width: 100vw !important;
+    overflow:scroll !important;
+    scroll-behavior: smooth !important;
+    overflow-x: hidden !important;
+    &::-webkit-scrollbar {
+      width: 0px !important; 
+      background: transparent !important; /* make scrollbar transparent */
+  }
+    // overflow-x: visible;
   }
 
+  .cardio{
+    min-width: 360px !important;
+    max-width: 360px !important;
+    margin-left: 2% !important;
+    // margin-top: 5% !important;
+    .oppc{
+      // margin-left: 0px !important;
+      width: 327px !important;
+      height: 250px !important;
+    }
+  }
+
+  .lopl{
+    margin-top: 70px !important;
+    // border: 1px solid red !important;
+  }
+
+  
+
   .random{
-    left: 0px !important;
+    display: none;
   }
 }
 
@@ -71,6 +99,7 @@
     // backface-visibility: hidden;
     .lopl{
       margin-top: 380px;
+      height: 1px;
     }
 
    
@@ -80,6 +109,7 @@
       margin-top: 2%;
       box-shadow: 0px 0px 15px -5px;
       border-radius: 10px 10px;
+      bottom: 2%;
       
       .oppc{
         width: 610px;
@@ -98,78 +128,78 @@
     }
     .Er{
       position: absolute;
-      top: 108%;
-      left: 37.5%;
+      top: 87%;
+      left: 45%;
       color: red;
       font-style: italic;
     }
     .Er1{
       position: absolute;
-      top: 40%;
-      left: 37.5%;
+      top: 11%;
+      left: 36%;
       color: red;
       font-style: italic;
     }
     .Er2{
       position: absolute;
-      top: 40%;
-      left:70%;
+      top: 22%;
+      left:36%;
       color: red;
       font-style: italic;
     }
     .Er3{
       position: absolute;
-      top: 48%;
-      left:37.5%;
+      top: 55%;
+      left:36%;
       color: red;
       font-style: italic;
     }
     .Er4{
       position: absolute;
-      top: 55.5%;
-      left:37.5%;
+      top: 33%;
+      left:36%;
       color: red;
       font-style: italic;
     }
     .Er5{
       position: absolute;
-      top: 64%;
-      left:70%;
+      top: 67%;
+      left:36%;
       color: red;
       font-style: italic;
     }
     .Er6{
       position: absolute;
-      top: 80%;
-      left:37.5%;
+      top: 47%;
+      left:77%;
       color: red;
       font-style: italic;
     }
     .Er7{
       position: absolute;
-      top: 31.2%;
-      left:53%;
+      top: 44%;
+      left:36%;
       color: red;
       font-style: italic;
     }
     .Er8{
       position: absolute;
-      top: 64%;
-      left: 37.5%;
+      top: 44%;
+      left: 36%;
       color: red;
       font-style: italic;
     }
     .Er9{
       position: absolute;
-      top: 108.5%;
-      left: 37.5%;
+      top: 87%;
+      left: 45%;
       color: red;
       font-style: italic;
     }
     .Er10{
       position: absolute;
-      top: 93%;
-      left: 53%;
+      top: 60%;
+      left: 79%;
       color: red;
       font-style: italic;
     }

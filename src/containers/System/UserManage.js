@@ -29,9 +29,13 @@ import FileDownload from 'js-file-download'
 import { triggerBase64Download } from 'common-base64-downloader-react';
 import RainbowText from 'react-rainbow-text';
 import movert from '../../assets/images/bird.png'
+
+import io from '../../assets/images/io.png'
+
 // import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import chalkAnimation from 'chalk-animation';
+import Sidebar from "react-sidebar";
 
 
 
@@ -52,10 +56,16 @@ class UserManage extends Component {
             isOpen: false,
             ids: [],
             ide: '',
-            diey: []
+            diey: [],
+            sidebarOpen: false
         }
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
-    componentDidUpdate () {
+
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
+    }
+    componentDidUpdate() {
         // let circle = document.querySelector('.nav3')
         // if (this.state.click === false && this.state.home === false){
         //     circle.style.display = 'none'
@@ -72,14 +82,13 @@ class UserManage extends Component {
         //     circles.style.display = 'block'
         // }
         let circle = document.querySelector('.loadmore')
-        if (this.state.pops.length === this.state.diey.length)
-        {
-            circle.style.display = 'none'   
+        if (this.state.pops.length === this.state.diey.length) {
+            circle.style.display = 'none'
         }
-         else{
-                circle.style.display = 'block'
-            }
-        
+        else {
+            circle.style.display = 'block'
+        }
+
     }
 
     effexts = () => {
@@ -228,10 +237,9 @@ class UserManage extends Component {
     }
     render() {
         const { userInfo } = this.props
-    
+
         return (
             <div>
-                <Nav />
 
                 <div className="users-container">
                     <Modalpost
@@ -246,6 +254,19 @@ class UserManage extends Component {
                         ide={this.state.ide}
                         handleback={this.handleCallback}
                     />
+                    <Sidebar
+                        sidebar={
+                            <b className='meus'>Menu</b>
+                        }
+                        open={this.state.sidebarOpen}
+                        onSetOpen={this.onSetSidebarOpen}
+                        styles={
+                            { sidebar: { background: "white", minWidth: "150px", maxWidth: '150px' }, root: { overflow: "hidden" } }
+                        }
+                    >
+
+
+                    </Sidebar>
                     <div className='testok'>
                         <div className='random'>
                             {this.state.datas.map(d =>
@@ -270,6 +291,12 @@ class UserManage extends Component {
                                 </Card>
                             )}
                         </div>
+
+
+
+
+
+
                         <div className='text-post'>
                             {/* {this.state.imgk} */}
                             <img className='img-post' src={this.state.imgi.image} />
@@ -317,10 +344,19 @@ class UserManage extends Component {
                                 </CardActions>
                             </Card>
                         )}
+
                         <div onClick={() => this.loading()} className='loadmore'><h6 className='loadmore1'>Load more</h6></div>
+
+
+                    </div>
+                    
+                    <div className='root1'>
+                        <img className='root' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                     </div>
                 </div>
+                <Nav />
                 <Friends />
+
             </div>
         );
     }

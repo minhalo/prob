@@ -273,7 +273,7 @@ class Setting extends Component {
     render() {
         const { userInfo } = this.props
         const { profileImg } = this.state
-    
+        console.log(this.state.errMessagesxztuk)
 
         return (
             <div className=''>

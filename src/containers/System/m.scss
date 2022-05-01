@@ -2,6 +2,17 @@
 @media screen and (max-width: 400px) and (min-width: 350px) {
   .navf{
     display: none;
+    
+
+  }
+
+  .loadmore{
+    margin-left: 2% !important;
+    width: 360px !important;
+    .loadmore1{
+      margin-left: 150px !important;
+      // text-align: center !important;
+    }
   }
 }
 

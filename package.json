@@ -63,6 +63,7 @@
     "react-search": "^2.1.1",
     "react-search-box": "^2.2.1",
     "react-select": "^5.2.2",
+    "react-sidebar": "^3.0.2",
     "react-toastify": "^5.5.0",
     "reactjs-popup": "^2.0.5",
     "reactstrap": "^8.10.1",

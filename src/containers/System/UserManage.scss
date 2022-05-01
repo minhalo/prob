@@ -1,6 +1,156 @@
 @media screen and (max-width: 400px) and (min-width: 350px) {
+  
+  .meus{
+    // text-align: center !important;
+    font-size: 20px !important;
+    margin-left: 45px;
+  }
+  .root1{
+    position: absolute !important;
+    top: 3.4% !important;
+    
+    left: 20px;
+    width: 375px;
+    // border: 1px solid red !important;
+    .root{
+      position: absolute !important;
+    
+      left: 2% !important;
+      top: 2% !important;
+      width: 30px !important;
+      height: 30px !important;
+      display: block !important;
+    }
+  }
   .nav{
     display: none;
+    // position: relative !important;
+    // display: none;
+    background-color: white;
+    left: 2% !important;
+    width: 360px !important;
+    height: 120px !important;
+    top: 6.1% !important;
+    border-bottom: 1px solid gray;
+    .navz{
+      top: -10% !important;
+      height: 33px !important;
+      box-shadow: 0px 0px 5px 0px !important;
+      border-radius: 10px 10px !important;
+      left: 80px !important;
+      width: 280px !important;
+      // border: 1px solid red !important;
+      .navcim{
+        margin-top: 0.5% !important;
+        .navimg{
+          width: 30px !important;
+          height: 30px !important;
+        }
+      }
+      .navzk{
+        margin-left: 0% !important;
+        top: 15% !important;
+        font-size: 18px !important;
+      }
+    }
+
+    .navz1{
+      top: 23% !important;
+      height: 33px !important;
+      box-shadow: 0px 0px 5px 0px !important;
+      border-radius: 10px 10px !important;
+      left: 80px !important;
+      width: 280px !important;
+      .navcim1{
+        margin-top: 0.5% !important;
+        .navimg1{
+          width: 30px !important;
+          height: 30px !important;
+        }
+      }
+      .navzk1{
+        margin-left: 0% !important;
+        top: 15% !important;
+        font-size: 18px !important;
+      }
+    }
+
+    .navz3{
+      top: 55% !important;
+      height: 33px !important;
+      box-shadow: 0px 0px 5px 0px !important;
+      border-radius: 10px 10px !important;
+      left: 80px !important;
+      width: 280px !important;
+      .navcim3{
+        margin-top: 0.5% !important;
+        .navimg3{
+          width: 30px !important;
+          height: 30px !important;
+        }
+      }
+      .navzk3{
+        margin-left: 0% !important;
+        top: 15% !important;
+        font-size: 18px !important;
+      }
+    }
+
+
+    .vacim{
+      margin-top: 3% !important;
+      left: 0% !important;
+      width: 70px !important;
+      height: 100px !important;
+      .navk{
+        .navcim{
+          // border: 1px solid red;
+          margin-left: 14% !important;
+          .navimg{
+            width: 50px !important;
+            height: 50px !important;
+          }
+        }
+        .vancem{
+          top: 70% !important;
+          left: 10% !important;
+          font-size: 10px !important;
+        }
+      }
+    }
+  }
+
+  .onj{
+    width: 360px !important;
+    .formo1{
+      width: 330px !important;
+    }
+  }
+
+  .text-post{
+    top: 2% !important;
+    width: 360px !important;
+    left: 2% !important;
+    height: 45px !important;
+    .img-post{
+      display: none;
+      margin-top: 5px !important;
+      margin-left: 18px !important;
+      width: 35px !important;
+      height: 35px !important;
+      // border: 1px solid red !important;
+    }
+
+    .clickmodal{
+      width: 275px !important;
+      margin-top: 8px !important;
+      height: 30px !important;
+      margin-left: 70px !important;
+      .hclick{
+        margin-top: 8px !important;
+        font-size: 10px !important;
+      }
+    }
   }
 }
 
@@ -81,6 +231,15 @@
 //   }
   
 // }
+
+.root1{
+  .root{
+  // top: 10%;
+  display: none;
+
+}
+}
+
 .nav2{
   // box-shadow: 0px 0px 15px -5px;
   position: absolute;
@@ -201,6 +360,11 @@
         font-size: 20px;
       }
   }
+}
+
+
+.eusc{
+  min-width: 250px;
 }
 
 // .navz{

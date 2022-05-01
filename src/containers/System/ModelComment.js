@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import Select from 'react-select'
 
 import { socket } from '../../services/userService';
-
+import '../System/UserManage.scss'
 
 
 
@@ -52,7 +52,7 @@ class ModelComment extends Component {
 
 
     render() {
-        console.log(this.props.ido)
+        // console.log(this.props.ido)
         const { processLogout } = this.props;
         return (
             <Modal
