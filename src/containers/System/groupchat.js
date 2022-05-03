@@ -81,6 +81,13 @@ class Groupchat extends Component {
 
     }
 
+    resetcheck =async () => {
+        let dato = await okgr(this.props.userInfo.id)
+        this.setState({
+            oo: dato.userData
+        })
+    }
+
     handlemes = async () => {
         //to do
         let data = await take(this.props.userInfo.id, this.state.idchange, this.state.mes)
@@ -126,6 +133,7 @@ class Groupchat extends Component {
                 <Modelcreate
                     isOpen={this.state.isOpen}
                     isHide={this.handleHind}
+                    reset={this.resetcheck}
                 />
                 <Modalheaderchat
                       isOpen={this.state.isOpens}
@@ -143,7 +151,7 @@ class Groupchat extends Component {
                         </div> */}
                         <Menu menuButton={<img className='createo' src={created} />} transition>
                             <MenuItem onClick={() => this.handleClick()}>Add New Group</MenuItem>
-                            <MenuItem onClick={() => this.handleClicks()}>Activate Group</MenuItem>
+                            {/* <MenuItem onClick={() => this.handleClicks()}>Activate Group</MenuItem> */}
 
                         </Menu>
                     </div>

@@ -20,14 +20,18 @@ class Modelcreate extends Component {
         super(props);
         this.state = {
             isOpen: false,
-            name:'',
+            name: '',
             id: '',
             dataok: [],
             idf: '',
             names: '',
+            err: ''
         }
     }
     toggle = () => {
+        this.setState({
+            err: ''
+        })
         this.props.isHide()
     }
 
@@ -42,7 +46,7 @@ class Modelcreate extends Component {
         })
     }
 
-    async componentDidMount(){
+    async componentDidMount() {
         let data = await kdp(this.props.userInfo.id)
         const options = data.users.map(d => ({
             "value": d.id,
@@ -61,15 +65,25 @@ class Modelcreate extends Component {
             room: this.state.name,
             idFriend: this.state.idf
         }
-        
+
         // await socket.emit("sen_message",mes)
         let daaa = await getGroup(this.state.name, this.props.userInfo.id)
-        this.props.isHide()
-        window.location.reload()
+
+        if (daaa.userData != 1 ) {
+            this.setState({
+                err: daaa.userData
+            })
+        }
+        else {
+            this.props.reset()
+            this.props.isHide()
+            // window.location.reload()
+        }
+
     }
 
     render() {
-        const { processLogout} = this.props;
+        const { processLogout } = this.props;
         return (
             <Modal
                 isOpen={this.props.isOpen}
@@ -79,12 +93,14 @@ class Modelcreate extends Component {
                 size="sm"
             >
                 <ModalBody>
-                    <div className='input-created'>
-                       <label>Group name</label>
+                    <div className='input-created1'>
+                        <label className='input-created2'>Group name</label>
                     </div>
                     <div className='input-create'>
-                        <input className='inputgr'  onChange={(event) => this.handleOnChangeName(event)} type='text'/>
+                        <input className='inputgr' onChange={(event) => this.handleOnChangeName(event)} type='text' placeholder='Your group name'/>
                     </div>
+
+                    <div className='errfocu'>{this.state.err}</div>
                     {/* <div className='input-cccre'>
                        <label>Add at least 1 member</label>
                     </div>

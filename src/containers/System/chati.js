@@ -201,7 +201,7 @@ class Chati extends Component {
 
 
     render() {
-        console.log(this.state.dove)
+        // console.log(this.state.dove)
 
         return (
             <div className='app5'>

@@ -97,7 +97,7 @@ class ModelComment extends Component {
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button className='px-3' color='primary' onClick={() => this.handleComment()} >Create</Button>
+                    <Button className='px-3' color='primary' onClick={() => this.handleComment()} >Comment</Button>
                 </ModalFooter>
                 
             </Modal>

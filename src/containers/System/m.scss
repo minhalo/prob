@@ -1,17 +1,214 @@
 
 @media screen and (max-width: 400px) and (min-width: 350px) {
+  .uey{
+    top: 95% !important;
+    left: 2% !important;
+  }
+
+  .uey1{
+    top: 95% !important;
+    left: 10% !important;
+  }
+  .chiopl{
+    top: 95% !important;
+    left: 20% !important;
+    width: 290px !important;
+    height: 27px !important;
+    border: 1px solid red !important;
+  }
+
+  .group{
+    // border: 1px solid red !important;
+    width: 99.5vw !important;
+    height: 18vh !important;
+    .headgroup{
+      width:  99.5vw !important;
+      height: 5vh !important;
+      .avatargr{
+        display: none;
+      }
+      .createo{
+        margin-top: 5px !important;
+        margin-left: 20px !important;
+      }
+    }
+    .listmem{
+      &::-webkit-scrollbar {
+        width: 0px !important; 
+        background: transparent !important; /* make scrollbar transparent */
+    }
+      overflow-y: scroll !important;
+      overflow-x: hidden !important;
+      
+      width: 99.5vw !important;
+      height: 85px !important;
+      .groupoo{
+        margin-left: 3px !important;
+        // border: 1px solid red !important;
+        position: relative !important;
+        float: left !important;
+        .avtargr{
+          position: relative !important;
+        }
+        .p-goup{
+          margin-top: -22px !important;
+          position: relative !important;
+        }
+       
+      }
+    }
+  }
+
+  .chati{
+    display: none;
+   
+  }
+  .headerchat{
+    top: 25% !important;
+    width: 99.5vw !important; 
+    border: 1px solid red !important;
+    left: 0% !important;
+    .nameavto{
+      width: 30px !important;
+      height: 30px !important;
+    }
+    .name{
+      font-size: 15px !important;
+      left: 20% !important;
+    }
+    .meni{
+      margin-left: 90% !important;
+    }
+  }
+
+  .listfriend{
+    display: none !important;
+  }
+
+  .navf{
+    display: none;
+  }
+  .wib{
+    top: 30% !important;
+    left: 35% !important;
+    width: 150px !important;
+    height: 300px !important;
+    // display: none !important;
+  }
+
+  .wib1{
+    // display: none !important;
+    top: 75% !important;
+    left: 34% !important;
+  }
+
+  .wib2{
+    // display: none !important;
+    top: 80% !important;
+    left: 25% !important;
+  }
+  
+  
   .navf{
     display: none;
     
 
   }
 
+  .bob{
+    // width: 360px !important;
+    width: 100vw !important;
+    height: 93.8vh !important;
+    overflow:scroll !important;
+    scroll-behavior: smooth !important;
+    overflow-x: hidden !important;
+    &::-webkit-scrollbar {
+      width: 0px !important; 
+      background: transparent !important; /* make scrollbar transparent */
+  }
+    left: 0% !important;
+
+
+    .cutew{
+      margin-top: 85% !important;
+    }
+
+    .loadmore3{
+      width: 95vw !important;
+      .loadmore4{
+
+      }
+    }
+
+    .prob{
+      left: 2% !important;
+      width: 96vw !important;
+      
+      .img-prie{
+        width: 97vw !important;
+      }
+
+      .img-prof{
+        top: 14% !important;
+        .img-prof-f{
+          height: 80px !important;
+          width: 80px !important;
+        }
+      }
+      .input-prof{
+        left: 40% !important;
+        .input-prie{
+          font-size: 22px !important;
+        }
+      }
+      .genders{
+        display: none;
+      }
+      .phonenumbers{
+        // border: 1px solid red !important;
+        width: 150px !important;
+        top: 50% !important;
+        left: 50% !important;
+      }
+      .desi{
+        display: none;
+      }
+      .desip{
+        display: none;
+      }
+      .addresses{
+        left: 50% !important;
+        top: 40% !important;
+      }
+      .totole{
+        left: 10% !important;
+        top: 50% !important;
+      }
+      .age{
+        left: 10% !important;
+        top: 40% !important;
+      }
+    }
+  }
+
   .loadmore{
     margin-left: 2% !important;
     width: 360px !important;
     .loadmore1{
-      margin-left: 150px !important;
+      margin-left: 145px !important;
       // text-align: center !important;
+    }
+  }
+
+  .bisode
+  {
+    // max-height: 200px !important;
+    // min-height: 200px !important;
+    margin-top: 40px !important;
+    margin-left: 20px !important;
+    .okmg{
+      left: 40px !important;
+      top: 47px !important;
     }
   }
 }
@@ -470,6 +667,21 @@
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
   overflow-wrap: break-word;
+  .loadmore3{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 700px;
+    // border:1px solid red;
+    height: 23px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 10px 10px;
+    box-shadow: 0px 0px 15px -5px;
+
+    .loadmore4{
+      text-align: center;
+    }
+  }
   .cardio{
     margin-left: 1%;
     margin-top: 2%;
@@ -629,9 +841,9 @@
   
 
   .listmem{
-    overflow: -moz-scrollbars-vertical;
+    // overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
-  overflow-wrap: break-word;
+  // overflow-wrap: break-word;
     border: 1px solid gray;
     width: 425px;
     height: 655px;
@@ -1971,4 +2183,28 @@
 .cape{
   width: 600px;
   height: 500px;
+}
+
+.input-created2{
+  font-size: 20px;
+}
+
+
+
+.input-create{
+  // font-size: 20px;
+  .inputgr{
+    border: none;
+    width: 270px;
+    outline: none;
+  }
+}
+
+.errfocu{
+  margin-top: 15px;
+  font-size: 12px;
+  margin-left: 10px;
+  color: red;
+  font-style: italic;
+  font-weight: bold;
 }

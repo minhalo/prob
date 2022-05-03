@@ -4,7 +4,7 @@ import '../Auth/login.scss'
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { getCheckChangeEmail, profile, setc, listcomment,jscore } from '../../services/userService';
+import { getCheckChangeEmail, profile, setc, listcomment, jscore } from '../../services/userService';
 import { Link } from 'react-router-dom';
 import { Collapse } from 'react-collapse';
 import p from '../../assets/images/back.webp'
@@ -53,6 +53,7 @@ class Profile extends Component {
             ids: [],
             ide: '',
             score: '',
+            check: []
         }
     }
     effext = () => {
@@ -73,10 +74,13 @@ class Profile extends Component {
             datas: data.users
         })
         let io = await setc(this.state.id)
+        let sos = io.userData.slice(0, 10)
         this.setState({
-            set: io.userData
+            set: sos
         })
-
+        this.setState({
+            check: io.userData
+        })
 
         let alljscore = await jscore(this.props.userInfo.id)
         let check = alljscore.userData[0].pop
@@ -107,6 +111,17 @@ class Profile extends Component {
     }
 
 
+    loading = async () => {
+
+        let io = await setc(this.state.id)
+        let sos = io.userData.slice(0, this.state.set.length + 10)
+        this.setState({
+            set: sos
+        })
+
+    }
+
+
     render() {
         console.log(this.state.score)
         return (
@@ -133,10 +148,10 @@ class Profile extends Component {
                             <p className=''>Addess: {this.state.datas.address}</p>
                         </div>
                         <div className='phonenumbers'>
-                            <p className=''>Phonenumber: {this.state.datas.phonenumber}</p>
+                            <p className=''>Phonenumber: +84 {this.state.datas.phonenumber}</p>
                         </div>
                         <div className='totole'>
-                            <p className=''>Total score: {this.state.score == null ? 0 : this.state.score} Point</p>
+                            <p className=''>Score: {this.state.score == null ? 0 : this.state.score} Point</p>
                         </div>
                         <div className='desi'>
                             <p>Description</p>
@@ -148,31 +163,34 @@ class Profile extends Component {
                     <div className='cutew'></div>
 
                     {this.state.set.map(d =>
-                            <Card className='cardio' sx={{ maxWidth: 700, minWidth: 700, minHeight: 100, maxHeight: 1000 }}>
-                                <CardHeader
-                                    avatar={<Avatar src={d.image} />}
-                                    title={d.firstName}
-                                    subheader={moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
-                                />
-                                <CardContent>
-                                    <Typography paragraph>
-                                       
-                                        <div> {d.text}</div>
-                                        {/* {d.op} */}
-                                        {d.op ? <img className='oppc' src={d.op}/> : <div></div>}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions className='btn-act'>
-                                    <Button onClick={() => this.handlelike(d.id)} size="small">Like {d.like} </Button>
-                                    <Button onClick={() => this.handledislike(d.id)} size="small">Dislike {d.dislike}</Button>
-                                    <Button onClick={() => this.handleClick(d.id)} size="small">Comment</Button>
-                                    {d.op ?<Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
-                                        Download
-                                    </Button> : <div></div>}
+                        <Card className='cardio' sx={{ maxWidth: 700, minWidth: 700, minHeight: 100, maxHeight: 1000 }}>
+                            <CardHeader
+                                avatar={<Avatar src={d.image} />}
+                                title={d.firstName}
+                                subheader={moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                            />
+                            <CardContent>
+                                <Typography paragraph>
 
-                                </CardActions>
-                            </Card>
-                        )}
+                                    <div> {d.text}</div>
+                                    {/* {d.op} */}
+                                    {d.op ? <img className='oppc' src={d.op} /> : <div></div>}
+                                </Typography>
+                            </CardContent>
+                            <CardActions className='btn-act'>
+                                <Button onClick={() => this.handlelike(d.id)} size="small">Like {d.like} </Button>
+                                <Button onClick={() => this.handledislike(d.id)} size="small">Dislike {d.dislike}</Button>
+                                <Button onClick={() => this.handleClick(d.id)} size="small">Comment</Button>
+                                {d.op ? <Button onClick={() => triggerBase64Download(d.op, 'my_download_name')}>
+                                    Download
+                                </Button> : <div></div>}
+
+                            </CardActions>
+                        </Card>
+                    )}
+                    {this.state.set.length === this.state.check.length ? null :
+                        <div onClick={() => this.loading()} className='loadmore3'><h6 className='loadmore4'>Load more</h6></div>
+                    }
                 </div>
                 {/* <div className='profiig'>
 

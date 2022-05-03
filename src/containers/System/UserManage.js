@@ -32,6 +32,11 @@ import movert from '../../assets/images/bird.png'
 
 import io from '../../assets/images/io.png'
 
+import friend from '../../assets/images/fixedfriend.jpg'
+
+import chat from '../../assets/images/chat.jpg'
+import group from '../../assets/images/groupicon.jpg'
+
 // import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import chalkAnimation from 'chalk-animation';
@@ -57,7 +62,8 @@ class UserManage extends Component {
             ids: [],
             ide: '',
             diey: [],
-            sidebarOpen: false
+            sidebarOpen: false,
+            check: []
         }
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
@@ -123,7 +129,8 @@ class UserManage extends Component {
         })
 
         // console.log(this.state.diey)
-
+        let dataoi = await header(this.props.userInfo.id)
+        this.setState({ check: dataoi.userData })
 
     }
 
@@ -200,7 +207,6 @@ class UserManage extends Component {
 
     handleCallback = async () => {
         let data = await listcomment(this.state.ide)
-
         this.setState({
             ids: data.userData
         })
@@ -214,7 +220,7 @@ class UserManage extends Component {
     }
 
     deletepost = async (idk) => {
-        let ok = deletepost(idk)
+        let ok = await deletepost(idk)
         let pop = await listpost()
         this.setState({
             pops: pop.userData
@@ -227,6 +233,12 @@ class UserManage extends Component {
         this.setState({
             pops: sos
         })
+    }
+
+    
+    rem = () => {
+        let id = `/system/user-profile/${this.props.userInfo.id}`
+        window.location.assign(id);
     }
 
 
@@ -256,12 +268,46 @@ class UserManage extends Component {
                     />
                     <Sidebar
                         sidebar={
-                            <b className='meus'>Menu</b>
+                            <div className='totalo'>
+                                <b className='meus'>Menu</b>
+                                <Link className='vacim' onClick={() => this.rem()} >
+                                    <div className='navk'>
+                                        <div className='navcim'>
+                                            <img className='navimg' src={this.state.check.image} />
+                                        </div>
+                                        <div className='vancem'>{this.state.check.firstName} {this.state.check.lastName}</div>
+                                    </div>
+                                </Link>
+                                <Link className='navz' to='/system/user-addfr'>
+                                    <div className='navcim'>
+                                        <img className='navimg' src={friend} />
+                                    </div>
+                                    <div className='navzk' >Friends</div>
+                                </Link>
+                                <Link className='navz1' to='/system/user-chat'>
+                                    <div className='navcim1'>
+                                        <img className='navimg1' src={chat} />
+                                    </div>
+                                    <div className='navzk1' >Chat</div>
+                                </Link>
+                                {this.state.check.roleid == 1 ?
+                                    <Link className='navz3' to='/system/user-updaterole'>
+                                        <div className='navcim3'>
+                                            <img className='navimg3' src={group} />
+                                        </div>
+                                        <div className='navzk3' >Admin</div>
+                                    </Link> :
+                                    null
+                                }
+
+                            </div>
+
+
                         }
                         open={this.state.sidebarOpen}
                         onSetOpen={this.onSetSidebarOpen}
                         styles={
-                            { sidebar: { background: "white", minWidth: "150px", maxWidth: '150px' }, root: { overflow: "hidden" } }
+                            { sidebar: { background: "white", minWidth: "250px", maxWidth: '250px',maxHeight:'700px', overflow: 'hidden' }, root: { overflow: "hidden" } }
                         }
                     >
 
@@ -349,7 +395,7 @@ class UserManage extends Component {
 
 
                     </div>
-                    
+
                     <div className='root1'>
                         <img className='root' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                     </div>

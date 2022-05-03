@@ -39,7 +39,7 @@ class Listfr extends Component {
             dove: [],
             search: '',
             clickprop: false,
-            
+
         };
     }
     effexts = () => {
@@ -56,7 +56,7 @@ class Listfr extends Component {
     }
 
     async componentDidMount() {
-        let dove = await dmmn(this.props.isokay,this.props.userInfo.id)
+        let dove = await dmmn(this.props.isokay, this.props.userInfo.id)
         // let dove = await req(this.props.userInfo.id)
         this.setState({
             dove: dove.userData
@@ -92,7 +92,7 @@ class Listfr extends Component {
         return (
             <div className='app5'>
                 <div className='listfriend'>
-                <p className='pf'>Members</p>
+                    <p className='pf'>Members</p>
                     {this.state.dove.map(d =>
                         <div className='hipe' onClick={() => this.rem(d.id)} >
                             <img className='pic4' src={d.image} />
