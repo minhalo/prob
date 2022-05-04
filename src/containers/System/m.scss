@@ -4,6 +4,115 @@
     top: 95% !important;
     left: 2% !important;
   }
+  .search{
+    // display: none !important;
+    // border: 1px solid red !important;
+    left: 2.5% !important;
+    top: 20% !important;
+  }
+
+  .manage-fr{
+    left: 0% !important;
+    top: 30% !important;
+    width: 99vw !important;
+    height: 70vh !important;
+    &::-webkit-scrollbar {
+      width: 0px !important; 
+      background: transparent !important; /* make scrollbar transparent */
+  }
+  // border: 1px solid red !important;
+  }
+
+  .erp{
+    left: 0% !important;
+    top: 30% !important;
+    width: 99vw !important;
+    height: 70vh !important;
+    &::-webkit-scrollbar {
+      width: 0px !important; 
+      background: transparent !important; /* make scrollbar transparent */
+  }
+  // border: 1px solid red !important;
+  }
+
+  .add{
+    // border: 1px solid red !important ;
+    left: 0% !important;
+    top: 30% !important;
+    width: 99.5vw !important;
+    height: 70vh !important;
+    &::-webkit-scrollbar {
+      width: 0px !important; 
+      background: transparent !important; /* make scrollbar transparent */
+  }
+  }
+
+  .nav-setting-user{
+    display: none !important;
+  }
+  .searchRole{
+    // display: none;
+    top: 15% !important;
+    height: 60px !important;
+    left: 5.5% !important;
+    .searchp{
+      margin-top: 1% !important;
+    }
+
+    .searchpp{
+      margin-top: -30px !important;
+    }
+  }
+
+  .role{
+    // border: 1px solid red;
+    left: 0% !important;
+    width: 99vw !important;
+    top: 30% !important;
+    height: 70vh !important;
+    &::-webkit-scrollbar {
+      width: 0px !important; 
+      background: transparent !important; /* make scrollbar transparent */
+  }
+  }
+  // .meus1{
+  //   // text-align: center !important;
+  //   font-size: 20px !important;
+  //   margin-left: 45px !important;
+  //   margin-top: 40px !important;
+  // }
+
+  .root2{
+    position: absolute !important;
+    box-shadow: 0px 0px 15px -5px !important;
+    top: 8% !important;
+    border-radius: 10px 10px !important;
+    // border: 1px solid red !important;
+    width: 20vw !important;
+    height: 33px !important;
+    left: 20px;
+    width: 375px;
+    // border: 1px solid red !important;
+    .root3{
+      position: absolute !important;
+    
+      left: 2% !important;
+      top: 2% !important;
+      width: 30px !important;
+      height: 30px !important;
+      display: block !important;
+    }
+  }
+  
+  .chart{
+    margin-left: 0% !important;
+    margin-top: 30% !important;
+    width: 99vw !important;
+  }
+  .Upcomment{
+    margin-left: 2% !important;
+    margin-top: 90% !important;
+  }
 
   .uey1{
     top: 95% !important;
@@ -14,7 +123,19 @@
     left: 20% !important;
     width: 290px !important;
     height: 27px !important;
-    border: 1px solid red !important;
+    // border: 1px solid red !important;
+    .chat-con{
+      width: 290px !important;
+      height: 25px !important;
+      // border: 1px solid red !important;
+      .input-chat{
+        height: 23px !important;
+        // font-size: 15px !;
+        margin-top:0% !important;
+        width: 260px !important;
+       
+      }
+    }
   }
 
   .group{
@@ -60,13 +181,29 @@
   }
 
   .chati{
-    display: none;
+    // display: none;
+    // border: 1px solid red;
+    // overflow: scroll !important;
+    &::-webkit-scrollbar {
+      width: 0px !important; 
+      background: transparent !important; /* make scrollbar transparent */
+  }
+    left: 0% !important;
+    top: 33% !important;
+    width: 99vw !important;
+    height: 60vh !important;
+    .r{
+      margin-top: 15px !important;
+    }
+    .t{
+      margin-top: 15px !important;
+    }
    
   }
   .headerchat{
     top: 25% !important;
     width: 99.5vw !important; 
-    border: 1px solid red !important;
+    // border: 1px solid red !important;
     left: 0% !important;
     .nameavto{
       width: 30px !important;
@@ -221,6 +358,16 @@
   75%{background-color:brown;}
   100% {background-color: red;}
 }
+
+
+.root2{
+  .root3{
+  // top: 10%;
+  display: none;
+
+}
+}
+
 .erp{
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;

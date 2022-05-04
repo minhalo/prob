@@ -21,7 +21,12 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import vio from '../../assets/images/violet.png'
+import set from '../../assets/images/setting.png'
+import change from '../../assets/images/change.png'
+import del from '../../assets/images/delete.png'
 
+import Sidebar from "react-sidebar";
+import io from '../../assets/images/io.png'
 
 
 
@@ -54,7 +59,14 @@ class Managefe extends Component {
             test: [],
             search: '',
             // datas: []
+            sidebarOpen: false,
         };
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    }
+
+    
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
     }
 
 
@@ -110,6 +122,45 @@ class Managefe extends Component {
         return (
             <div className=''>
                 <Navfriend/>
+                <Sidebar
+                    sidebar={
+                        <div className='totalo'>
+                            <b className='meus1'>Menu</b>
+                            <Link className='navz' to='/system/user-addfr'>
+                                <div className='navcim'>
+                                    <img className='navimg' src={set} />
+                                </div>
+                                <div className='navzk' >Global friend</div>
+                            </Link>
+                            <Link className='navz1' to='/system/user-fr'>
+                                <div className='navcim1'>
+                                    <img className='navimg1' src={change} />
+                                </div>
+                                <div className='navzk1' >Manage Friends</div>
+                            </Link>
+
+                            <Link className='navz3' to='/system/user-update'>
+                                <div className='navcim3'>
+                                    <img className='navimg3' src={del} />
+                                </div>
+                                <div className='navzk3' >Friend request</div>
+                            </Link>
+                        </div>
+
+
+                    }
+                    open={this.state.sidebarOpen}
+                    onSetOpen={this.onSetSidebarOpen}
+                    styles={
+                        { sidebar: { background: "white", minWidth: "250px", maxWidth: '250px', maxHeight: '700px', overflow: 'hidden' }, root: { overflow: "hidden" } }
+                    }
+                >
+
+
+                </Sidebar>
+                <div className='root2'>
+                    <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
+                </div>
                 <div className='search'>
                     <div className='sep'>
                         <img className='ser' src={ser} />

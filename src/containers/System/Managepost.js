@@ -26,7 +26,9 @@ import moment from 'moment'
 import { triggerBase64Download } from 'common-base64-downloader-react';
 import { Bar } from "react-chartjs-2";
 import increase from '../../assets/images/increase.png'
-
+import set from '../../assets/images/setting.png'
+import change from '../../assets/images/change.png'
+import del from '../../assets/images/delete.png'
 
 
 import '../System/m.scss';
@@ -40,7 +42,8 @@ import Modelrole from './Modelrole';
 // import { BarController } from 'chart.js';
 import Barchart from './barchart.js'
 
-
+import Sidebar from "react-sidebar";
+import io from '../../assets/images/io.png'
 
 
 
@@ -58,7 +61,9 @@ class Managepost extends Component {
             useup: '',
             uppost: '',
             upcomment: '',
+            sidebarOpen: false,
         }
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
     async componentDidMount() {
@@ -71,16 +76,16 @@ class Managepost extends Component {
         // let io = di.userData[0][0].pop - di.userData[1][0].pop 
         // console.log(io)
         this.setState({
-            useup: di.userData[0][0].pop / di.userData[1][0].pop  * 100
+            useup: di.userData[0][0].pop / di.userData[1][0].pop * 100
         })
         this.setState({
-            uppost: di.userData[2][0].pop / di.userData[3][0].pop  * 100
+            uppost: di.userData[2][0].pop / di.userData[3][0].pop * 100
         })
         this.setState({
-            upcomment: di.userData[4][0].pop / di.userData[5][0].pop  * 100
+            upcomment: di.userData[4][0].pop / di.userData[5][0].pop * 100
         })
+        console.log(di.userData)
 
-        
         let check = await header(this.props.userInfo.id)
 
         this.setState({
@@ -102,25 +107,67 @@ class Managepost extends Component {
         };
     }
 
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
+    }
 
 
 
     render() {
-        console.log(this.state.upcomment)
+        console.log(this.state.uppost)
         return (
             <div className='app8'>
                 <Navor />
                 <Barchart />
+                <Sidebar
+                    sidebar={
+                        <div className='totalo'>
+                            <b className='meus1'>Menu</b>
+                            <Link className='navz' to='/system/user-managepost'>
+                                <div className='navcim'>
+                                    <img className='navimg' src={set} />
+                                </div>
+                                <div className='navzk' >Dashboard</div>
+                            </Link>
+                            <Link className='navz1' to='/system/user-updaterole'>
+                                <div className='navcim1'>
+                                    <img className='navimg1' src={change} />
+                                </div>
+                                <div className='navzk1' >Role update</div>
+                            </Link>
+
+                            <Link className='navz3' to='/system/user-mage'>
+                                <div className='navcim3'>
+                                    <img className='navimg3' src={del} />
+                                </div>
+                                <div className='navzk3' >Post management</div>
+                            </Link>
+                        </div>
+
+
+                    }
+                    open={this.state.sidebarOpen}
+                    onSetOpen={this.onSetSidebarOpen}
+                    styles={
+                        { sidebar: { background: "white", minWidth: "250px", maxWidth: '250px', maxHeight: '700px', overflow: 'hidden' }, root: { overflow: "hidden" } }
+                    }
+                >
+
+
+                </Sidebar>
+                <div className='root2'>
+                    <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
+                </div>
                 <div className='role'>
 
                 </div>
                 <div className='Upcomment'>
-                    <img className='increase' src={increase}/>
+                    <img className='increase' src={increase} />
                     <p className='userup'>User</p>
                     <p className='io'>{this.state.useup > 0 ? this.state.useup : 0}%</p>
                 </div>
 
-                <div className='Uppost'>
+                {/* <div className='Uppost'>
                     <img className='increase' src={increase}/>
                     <p className='userup'>Post</p>
                     <p className='io'>{this.state.uppost > 0 ? this.state.uppost : 0}%</p>
@@ -129,9 +176,9 @@ class Managepost extends Component {
                     <img className='increase' src={increase}/>
                     <p className='userup'>Comment</p>
                     <p className='io'>{this.state.upcomment > 0 && this.state.upcomment != Infinity  ? this.state.upcomment: 0}%</p>
-                </div>
+                </div> */}
 
-            
+
             </div>
 
         )

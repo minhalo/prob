@@ -78,7 +78,7 @@ class Navor extends Component {
                         <div className='nav-img-setting'>
                             <img className='navimg-setting' src={set} />
                         </div>
-                        <div className='nav-text-setting' >Update user</div>
+                        <div className='nav-text-setting' >Dashboard</div>
                     </Link>
                     <Link className='nav-child-setting1' to='/system/user-updaterole'>
                         <div className='nav-img-setting1'>

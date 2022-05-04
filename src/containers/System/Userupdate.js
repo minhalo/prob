@@ -14,13 +14,19 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import ser from '../../assets/images/uo.png'
+import set from '../../assets/images/setting.png'
+import change from '../../assets/images/change.png'
+import del from '../../assets/images/delete.png'
+
+import Sidebar from "react-sidebar";
+import io from '../../assets/images/io.png'
 
 
 
 
 import '../System/UserManage.scss';
 import { Link } from 'react-router-dom';
-import {searchrequest, deleteaff, addf, delf, req, stop } from '../../services/userService';
+import { searchrequest, deleteaff, addf, delf, req, stop } from '../../services/userService';
 
 import Nav from './nav';
 import Navfriend from './navfriend';
@@ -33,8 +39,14 @@ class Userupdate extends Component {
             clickprop: false,
             dove: [],
             han: '',
-            search: ''
+            search: '',
+            sidebarOpen: false,
         }
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    }
+
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
     }
 
     effext = () => {
@@ -49,7 +61,7 @@ class Userupdate extends Component {
         })
     }
 
-  
+
 
     async componentDidMount() {
         let dove = await req(this.props.userInfo.id)
@@ -57,18 +69,18 @@ class Userupdate extends Component {
             dove: dove.users
         })
         const listener = event => {
-            if (event.code === "Enter"|| event.code === "NumpadEnter") {
-            //console.log("Enter key was pressed. Run function.");
+            if (event.code === "Enter" || event.code === "NumpadEnter") {
+                //console.log("Enter key was pressed. Run function.");
                 event.preventDefault();
                 // callMyFunction();
                 this.spo()
-                
+
             }
-          };
-          document.addEventListener("keydown", listener);
-          return () => {
+        };
+        document.addEventListener("keydown", listener);
+        return () => {
             document.removeEventListener("keydown", listener);
-          };
+        };
     }
 
     spo = async () => {
@@ -87,12 +99,12 @@ class Userupdate extends Component {
     }
 
     handleok = async (id) => {
-        let data = await stop(this.props.userInfo.id,id)
+        let data = await stop(this.props.userInfo.id, id)
         // window.location.reload();
         let datai = await req(this.props.userInfo.id)
         this.setState({
             dove: datai.users
-        }) 
+        })
     }
 
     deleted = async (ids) => {
@@ -100,7 +112,7 @@ class Userupdate extends Component {
         let datai = await req(this.props.userInfo.id)
         this.setState({
             dove: datai.users
-        })    
+        })
     }
     handleOnChangeSearch = (event) => {
         this.setState({
@@ -113,21 +125,60 @@ class Userupdate extends Component {
         // console.log(this.state.dove)
 
         return (
-            
+
             <div>
-                <Navfriend/>
+                <Navfriend />
+                <Sidebar
+                    sidebar={
+                        <div className='totalo'>
+                            <b className='meus1'>Menu</b>
+                            <Link className='navz' to='/system/user-addfr'>
+                                <div className='navcim'>
+                                    <img className='navimg' src={set} />
+                                </div>
+                                <div className='navzk' >Global friend</div>
+                            </Link>
+                            <Link className='navz1' to='/system/user-fr'>
+                                <div className='navcim1'>
+                                    <img className='navimg1' src={change} />
+                                </div>
+                                <div className='navzk1' >Manage Friends</div>
+                            </Link>
+
+                            <Link className='navz3' to='/system/user-update'>
+                                <div className='navcim3'>
+                                    <img className='navimg3' src={del} />
+                                </div>
+                                <div className='navzk3' >Friend request</div>
+                            </Link>
+                        </div>
+
+
+                    }
+                    open={this.state.sidebarOpen}
+                    onSetOpen={this.onSetSidebarOpen}
+                    styles={
+                        { sidebar: { background: "white", minWidth: "250px", maxWidth: '250px', maxHeight: '700px', overflow: 'hidden' }, root: { overflow: "hidden" } }
+                    }
+                >
+
+
+                </Sidebar>
+                <div className='root2'>
+                    <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
+                </div>
                 <div className='search'>
                     <div className='sep'>
                         <img className='ser' src={ser} />
                     </div>
-                  
+
                     <input className='search-in' onChange={(event) => this.handleOnChangeSearch(event)} type='text' />
                 </div>
                 <div className='erp'></div>
                 <div className='manage-fr'>
 
-                
-                {this.state.dove.map(d =>
+
+                    {this.state.dove.map(d =>
                         <Card className='cardi2' sx={{ maxWidth: 350, minWidth: 350, minHeight: 250, maxHeight: 250 }}>
                             <CardHeader
                                 avatar={<Avatar src={d.image} />}
@@ -141,7 +192,7 @@ class Userupdate extends Component {
                                 <Typography paragraph>
                                     Description: {d.description}
                                 </Typography>
-                                
+
 
                             </CardContent>
                             <CardActions className='btn-act'>

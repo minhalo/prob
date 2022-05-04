@@ -88,7 +88,7 @@ class Navfriend extends Component {
                         <div className='nav-img-setting'>
                             <img className='navimg-setting' src={fr}/>
                         </div>
-                        <div className='nav-text-setting' >Home</div>      
+                        <div className='nav-text-setting' >Global friend</div>      
                     </Link>
                     <Link className='nav-child-setting1' to='/system/user-fr'>
                         <div className='nav-img-setting1'>

@@ -35,8 +35,12 @@ import Friends from './Friends';
 import Navor from './navor';
 import { ButtonBase } from '@mui/material';
 import Modelrole from './Modelrole';
+import set from '../../assets/images/setting.png'
+import change from '../../assets/images/change.png'
+import del from '../../assets/images/delete.png'
 
-
+import Sidebar from "react-sidebar";
+import io from '../../assets/images/io.png'
 
 
 
@@ -50,8 +54,11 @@ class Roleupdate extends Component {
             check: '',
             isOpen: false,
             idl: '',
-            search: ''
+            search: '',
+            sidebarOpen: false,
+
         }
+        this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     }
 
     async componentDidMount() {
@@ -126,6 +133,9 @@ class Roleupdate extends Component {
             search: event.target.value
         })
     }
+    onSetSidebarOpen(open) {
+        this.setState({ sidebarOpen: open });
+    }
 
 
 
@@ -141,6 +151,45 @@ class Roleupdate extends Component {
                     isCheck={this.state.check}
                 />
                 <Navor />
+                <Sidebar
+                    sidebar={
+                        <div className='totalo'>
+                            <b className='meus1'>Menu</b>
+                            <Link className='navz' to='/system/user-managepost'>
+                                <div className='navcim'>
+                                    <img className='navimg' src={set} />
+                                </div>
+                                <div className='navzk' >Dashboard</div>
+                            </Link>
+                            <Link className='navz1' to='/system/user-updaterole'>
+                                <div className='navcim1'>
+                                    <img className='navimg1' src={change} />
+                                </div>
+                                <div className='navzk1' >Role update</div>
+                            </Link>
+
+                            <Link className='navz3' to='/system/user-mage'>
+                                <div className='navcim3'>
+                                    <img className='navimg3' src={del} />
+                                </div>
+                                <div className='navzk3' >Post management</div>
+                            </Link>
+                        </div>
+
+
+                    }
+                    open={this.state.sidebarOpen}
+                    onSetOpen={this.onSetSidebarOpen}
+                    styles={
+                        { sidebar: { background: "white", minWidth: "250px", maxWidth: '250px', maxHeight: '700px', overflow: 'hidden' }, root: { overflow: "hidden" } }
+                    }
+                >
+
+
+                </Sidebar>
+                <div className='root2'>
+                    <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
+                </div>
                 <div className='role'>
                     <table class="table">
                         <thead>
