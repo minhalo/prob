@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from "../../store/actions";
 import Modeladstudent from './Modeladstudent';
-import { getUsers, getEdit, getBox, all, addfriend,countew, allupdate, refresh, getallfile, addf, delf, search, req, header, rip, getlearningopc, getoff, dellpost } from '../../services/userService'
+import { getUsers, getEdit, getBox, all, addfriend,countew, allupdate, refresh, getallfile, addf, delf, search,delpdf, req, header, rip, getlearningopc, getoff, dellpost } from '../../services/userService'
 import Avatar from 'react-avatar';
 import '../System/m.scss';
 import '../System/Setting.scss';
@@ -102,11 +102,27 @@ class Studentaccess extends Component {
         window.location.assign(id);
     }
 
+    delpdf = async (ids) => {
+        // console.log(ids)
+        let data = await delpdf(ids)
+        let allfie = await allupdate(this.props.userInfo.id, this.state.id)
+        this.setState({
+            sutu: allfie.userData
+        })
+    }
+
+    hadnkereset = async() => {
+        let allfie = await allupdate(this.props.userInfo.id, this.state.id)
+        this.setState({
+            sutu: allfie.userData
+        })
+    }
+
 
 
 
     render() {
-        // console.log(this.state.total)
+        console.log(this.state.sutu)
 
         return (
             <div className='app5'>
@@ -140,6 +156,7 @@ class Studentaccess extends Component {
                         isHide={this.handleHind}
                         isId={this.state.id} 
                         isO={this.state.ido}
+                        ispro={this.hadnkereset}
                         />
 
                     {this.state.datas.map(d =>

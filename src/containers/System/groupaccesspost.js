@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from "../../store/actions";
 import Modeladstudent from './Modeladstudent';
-import { getUsers, getEdit, getBox, getPostClass, sendmessage, getlistmessger, all, addfriend, refresh, addf, delf, search, req, header, pdfdel, rip, getlearningopc, getoff, dellpost, toce, kickoff, getallfile, getdocumentclass } from '../../services/userService'
+import { getUsers, getEdit, getBox, getPostClass, getdocuio, sendmessage, getlistmessger, all, addfriend, refresh, addf, delf, search, req, header, pdfdel, rip, getlearningopc, getoff, dellpost, toce, kickoff, getallfile, getdocumentclass } from '../../services/userService'
 import Avatar from 'react-avatar';
 import '../System/m.scss';
 import '../System/Setting.scss';
@@ -35,6 +35,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import Modelupload from './Modelupload';
+import Modalviewpdf from './modalviewpdf';
 
 const Tutor = 'Tutor'
 class Groupaccesspost extends Component {
@@ -49,7 +50,10 @@ class Groupaccesspost extends Component {
             iko: [],
             mes: '',
             oda: [],
-            checks: ''
+            checks: '',
+            isOpen: false,
+            // ioeq: ''
+            document: ''
         };
 
     }
@@ -96,13 +100,49 @@ class Groupaccesspost extends Component {
         })
     }
 
+    handleClick = async (ids) => {
+        let data = await getdocuio(ids)
+        // window.URL.createObjectURL(data.userData.file)
+        const file = new Blob(
+            [data.userData.file],
+            { type: 'application/pdf' })
+
+        const fileURL = URL.createObjectURL(file)
+        // window.open(fileURL)
+        this.setState({
+            document: data.userData.file
+        })
+        this.setState({
+            isOpen: true
+        })
+    }
+
+    handleHind = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+    }
+
+    openPDF() {
+
+        let pdfWindow = window.open("");
+
+        pdfWindow.document.write(`<iframe width='100%' height='1000%' src=" + encodeURI(this.state.document) + "></iframe>`);
+
+    }
+
 
 
     render() {
-        // console.log(this.state.checks)
+        console.log(this.state.document)
 
         return (
             <div className='app5'>
+                <Modalviewpdf
+                    isIds={this.state.document}
+                    isOpen={this.state.isOpen}
+                    isHide={this.handleHind}
+                />
                 <div className='minhe'>
                     <Avatar size={40} className='avtarminhe' name={Tutor} />
                     <h4 className='minhetext'>Tutor request</h4>
@@ -130,7 +170,7 @@ class Groupaccesspost extends Component {
                 <div className='minhe2'>
                     <div className='minhe21'>
                         {this.state.iko.map(d =>
-                            <div className='minhe22'>
+                            <div className='minhe22' onClick={() => this.handleClick(d.id)}>
                                 <h4 className='minhe222'>{d.fileName}</h4>
                             </div>
                         )}
