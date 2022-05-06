@@ -359,6 +359,137 @@
   100% {background-color: red;}
 }
 
+.minhe{
+  box-shadow: 0px 0px 15px -5px;
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  // border: 1px solid red;
+  width: 600px;
+  border-radius: 10px 10px;
+  word-wrap: break-word;
+  min-height: 200px;
+  max-height: 700px;
+  .avtarminhe{
+    border-radius: 50%;
+    position: absolute;
+    top: 2%;
+    left: 6%;
+  }
+  .minhetext{
+    top: 7%;
+    position: absolute;
+    left: 15%;
+  }
+
+  .divminhe{
+    // border: 1px solid red;
+    width: 470px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    word-wrap: break-word;
+    left: 10%;
+     .minhetext1{
+    position: absolute;
+  }
+  }
+ 
+}
+
+.minhe1{
+  box-shadow: 0px 0px 15px -5px;
+  position: absolute;
+  top: 7%;
+  left: 45%;
+  // border: 1px solid red;
+  width: 400px;
+  border-radius: 10px 10px;
+  word-wrap: break-word;
+  height: 700px;
+  .minhe11{
+    text-align: center;
+    font-size: 17px;
+    margin-top: 5px;
+  }
+  .listminhe11{
+    overflow: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    border: 1px solid gray;
+    width: 350px;
+    margin-left: 26.5px;
+    height: 600px;
+    .stusg{
+      color: green;
+    }
+    .teamsg{
+      color: red;
+    }
+  }
+  .minhe121{
+    position: absolute;
+    top: 93%;
+    box-shadow: 0px 0px 15px -5px;
+    left: 26.5px;
+    border-radius: 10px 10px;
+    width: 250px;
+    height: 40px;
+    // border: 1px solid red;
+    .minhe1211{
+      margin-top: 8px;
+      margin-left: 7px;
+      width: 235px;
+      outline: none;
+      border: none;
+    }
+  }
+  .minhe122{
+    position: absolute;
+    top: 94%;
+    border-width: thin;
+    width: 70px;
+    left: 75%;
+  }
+}
+
+.minhe2{
+  box-shadow: 0px 0px 15px -5px;
+  position: absolute;
+  top: 7%;
+  left: 73%;
+  // border: 1px solid red;
+  width: 400px;
+  border-radius: 10px 10px;
+  word-wrap: break-word;
+  height: 700px;
+  .minhe21{
+    overflow-x: hidden;
+    overflow: scroll;
+    // border: 1px solid red;
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    width: 392px;
+    height: 650px;
+    .minhe22{
+      border: 1px solid gray;
+      width: 350px;
+      height: 40px;
+      margin-top: 5px;
+      margin-left: 20px;
+      border-radius: 10px 10px;
+      border-width:medium;
+      .minhe222{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 10px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
 
 .root2{
   .root3{

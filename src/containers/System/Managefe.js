@@ -121,7 +121,7 @@ class Managefe extends Component {
 
         return (
             <div className=''>
-                <Navfriend/>
+               
                 <Sidebar
                     sidebar={
                         <div className='totalo'>
@@ -158,6 +158,7 @@ class Managefe extends Component {
 
 
                 </Sidebar>
+                <Navfriend/>
                 <div className='root2'>
                     <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                 </div>

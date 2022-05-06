@@ -33,7 +33,7 @@ class Video extends Component {
             age: '',
             datas: '',
             arr: [],
-            ok: '',
+            ok: 100,
             ui: '',
             arrs: []
         }
@@ -45,11 +45,7 @@ class Video extends Component {
         })
     }
 
-    handleOnChangeOk = (event) => {
-        this.setState({
-            ok: event.target.value
-        })
-    }
+   
 
     handleOnChangeui = (event) => {
         this.setState({
@@ -143,8 +139,6 @@ class Video extends Component {
                         <p className='topg'>Create new group</p>
                         <p className='topj'>Name</p>
                         <input className='topg1' placeholder='Create name here..' onChange={(event) => this.handleOnChangeAge(event)} type="text" />
-                        <p className='topj1'>Point</p>
-                        <input className='topg2' placeholder='Create point here..' onChange={(event) => this.handleOnChangeOk(event)} type="text" />
                         <button className='btnr' onClick={() => this.handlecreat()}>Create</button>
                     </div>
                     : null

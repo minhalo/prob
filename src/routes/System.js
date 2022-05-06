@@ -23,6 +23,7 @@ import mangeuser from '../containers/System/mangeuser';
 import { header } from '../services/userService';
 import Permissiondo from '../containers/System/Permissiondo';
 import bookstore from '../containers/System/bookstore';
+import groupaccesspost from '../containers/System/groupaccesspost';
 
 
 
@@ -52,8 +53,8 @@ class System extends Component {
                         <Route path="/system/user-score/:id" component={Score} />
                         <Route path="/system/user-permission" component={Permissiondo} />
                         <Route path="/system/user-store" component={bookstore} />
-
-
+                        <Route path="/system/user-group/:id" component={Groupaccess} />
+                        <Route path="/system/user-groupaccesspost/:id" component={groupaccesspost} />
 
                         {this.props.userInfo.roleid === 1 ?
                             <Route path="/system/user-updaterole" component={Roleupdate} />
@@ -65,7 +66,7 @@ class System extends Component {
                             />
                         }
 
-                        <Route path="/system/user-group/:id" component={Groupaccess} />
+
 
                         {this.props.userInfo.roleid === 1 ?
                             <Route path="/system/user-managepost" component={Managepost} />

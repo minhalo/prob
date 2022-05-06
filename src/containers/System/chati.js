@@ -104,14 +104,13 @@ class Chati extends Component {
                 event.preventDefault();
                 // callMyFunction();
                 this.handlemes()
-                this.setState({
-                    thischeck: false
-                })
+               
             }
         };
         document.addEventListener("keydown", listener);
         return () => {
             document.removeEventListener("keydown", listener);
+           
         };
     }
 
@@ -127,12 +126,16 @@ class Chati extends Component {
         this.setState({
             thischeck: true
         })
+        this.setState({
+            thischeck: false
+        })
         let check = document.getElementById("name")
         check.value = ''
         let circle = document.querySelector('.listemoju')
         if (this.state.iur === true) {
             circle.style.display = 'none'
         }
+        
     }
 
 
@@ -153,17 +156,17 @@ class Chati extends Component {
             circle.style.display = 'block'
         }
 
-         let data = await chatlist(this.props.isokay)
-        this.setState({
-            dove:data.userData
+        //  let data = await chatlist(this.props.isokay)
+        // this.setState({
+        //     dove:data.userData
 
-        })
-        // if (this.state.thischeck === true) {
-        //     let datas = await chatlist(this.props.isokay)
-        //     this.setState({
-        //         dove: datas.userData
-        //     })
-        // }
+        // })
+        if (this.state.thischeck === true) {
+            let datas = await chatlist(this.props.isokay)
+            this.setState({
+                dove: datas.userData
+            })
+        }
 
 
     }
@@ -201,7 +204,7 @@ class Chati extends Component {
 
 
     render() {
-        // console.log(this.state.dove)
+        console.log(this.state.dove)
 
         return (
             <div className='app5'>

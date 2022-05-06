@@ -185,8 +185,13 @@ class Groupaccess extends Component {
         window.location.assign(id);
     }
 
+    show = (idk) => {
+        let id = `/system/user-groupaccesspost/${idk}`
+        window.location.assign(id);
+    }
+    
     render() {
-        console.log(this.state.folder[0])
+        // console.log(this.state.folder[0])
 
         return (
             <div className='app5'>
@@ -254,6 +259,7 @@ class Groupaccess extends Component {
                             </CardContent>
                             <CardActions className='btn-act'>
                                 <Button onClick={() => this.handleClick(d.id)} size="small">Update</Button>
+                                <Button onClick={() => this.show(d.id)}  size="small" >Show</Button>
                             </CardActions>
                         </Card>
                     )}

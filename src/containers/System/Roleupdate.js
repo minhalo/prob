@@ -150,7 +150,7 @@ class Roleupdate extends Component {
                     isConcen={this.concent}
                     isCheck={this.state.check}
                 />
-                <Navor />
+                
                 <Sidebar
                     sidebar={
                         <div className='totalo'>
@@ -187,6 +187,7 @@ class Roleupdate extends Component {
 
 
                 </Sidebar>
+                <Navor />
                 <div className='root2'>
                     <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                 </div>

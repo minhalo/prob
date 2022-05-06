@@ -123,7 +123,7 @@ class Manageuser extends Component {
 
         return (
             <div className='app8'>
-                <Navor />
+                
                 <Sidebar
                     sidebar={
                         <div className='totalo'>
@@ -159,7 +159,9 @@ class Manageuser extends Component {
                 >
 
 
+
                 </Sidebar>
+                <Navor />
                 <div className='root2'>
                     <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                 </div>

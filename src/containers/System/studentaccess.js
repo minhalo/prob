@@ -97,6 +97,12 @@ class Studentaccess extends Component {
     }
 
 
+    show = (idk) => {
+        let id = `/system/user-groupaccesspost/${idk}`
+        window.location.assign(id);
+    }
+
+
 
 
     render() {
@@ -156,7 +162,9 @@ class Studentaccess extends Component {
                             </CardContent>
                             <CardActions className='btn-act'>
                                 <Button onClick={() => this.handleClick(d.id)} size="small" >Upload</Button>
+                                <Button onClick={() => this.show(d.id)}  size="small" >Show</Button>
                             </CardActions>
+                            
                         </Card>
                     )}
 

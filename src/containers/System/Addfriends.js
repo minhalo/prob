@@ -182,7 +182,7 @@ class Addfriends extends Component {
                     isOpen={this.state.isOpen}
                     isHide={this.handleHind}
                 />
-                <Navfriend />
+                
                  <Sidebar
                     sidebar={
                         <div className='totalo'>
@@ -219,6 +219,7 @@ class Addfriends extends Component {
 
 
                 </Sidebar>
+                <Navfriend />
                 <div className='root2'>
                     <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                 </div>

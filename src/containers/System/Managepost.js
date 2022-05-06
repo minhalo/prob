@@ -117,7 +117,7 @@ class Managepost extends Component {
         console.log(this.state.uppost)
         return (
             <div className='app8'>
-                <Navor />
+               
                 <Barchart />
                 <Sidebar
                     sidebar={
@@ -155,6 +155,7 @@ class Managepost extends Component {
 
 
                 </Sidebar>
+                <Navor />
                 <div className='root2'>
                     <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                 </div>

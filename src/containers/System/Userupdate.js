@@ -127,7 +127,7 @@ class Userupdate extends Component {
         return (
 
             <div>
-                <Navfriend />
+                
                 <Sidebar
                     sidebar={
                         <div className='totalo'>
@@ -164,6 +164,7 @@ class Userupdate extends Component {
 
 
                 </Sidebar>
+                <Navfriend />
                 <div className='root2'>
                     <img className='root3' src={io} onClick={() => this.onSetSidebarOpen(true)} />
                 </div>

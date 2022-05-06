@@ -25,6 +25,7 @@ class Modelset extends Component {
      handleout = async () => {
         await logout(this.props.userInfo.id)
         this.props.processLogout()
+        window.history.replaceState(null, "Dude", "/login")
     }
 
     render() {

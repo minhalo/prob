@@ -235,7 +235,7 @@ class UserManage extends Component {
         })
     }
 
-    
+
     rem = () => {
         let id = `/system/user-profile/${this.props.userInfo.id}`
         window.location.assign(id);
@@ -307,7 +307,7 @@ class UserManage extends Component {
                         open={this.state.sidebarOpen}
                         onSetOpen={this.onSetSidebarOpen}
                         styles={
-                            { sidebar: { background: "white", minWidth: "250px", maxWidth: '250px',maxHeight:'700px', overflow: 'hidden' }, root: { overflow: "hidden" } }
+                            { sidebar: { background: "white", minWidth: "250px", maxWidth: '250px', maxHeight: '700px', overflow: 'hidden' }, root: { overflow: "hidden" } }
                         }
                     >
 
@@ -357,7 +357,7 @@ class UserManage extends Component {
                                 <CardHeader
                                     avatar={<Avatar src={d.image} />}
                                     title={d.firstName}
-                                    subheader={moment(d.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                                    subheader={moment(d.createdAt).add('hours', 5).format('MMMM Do YYYY, h:mm:ss')}
                                     action={d.pop === this.props.userInfo.id ?
                                         <IconButton onClick={() => this.deletepost(d.id)} aria-label="settings">
                                             {/* <MoreVertIcon /> */}
