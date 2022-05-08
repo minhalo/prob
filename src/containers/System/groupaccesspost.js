@@ -143,6 +143,7 @@ class Groupaccesspost extends Component {
                     isOpen={this.state.isOpen}
                     isHide={this.handleHind}
                 />
+                {/* <button className='button-56'>Activate private comment</button> */}
                 <div className='minhe'>
                     <Avatar size={40} className='avtarminhe' name={Tutor} />
                     <h4 className='minhetext'>Tutor request</h4>
