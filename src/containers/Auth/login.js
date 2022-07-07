@@ -69,6 +69,7 @@ class Login extends Component {
                 {/* <Container fluid> */}
                     <Row>
                         <Col>
+                        ok
                         <Image className='Background_image_login' src={Background_image_login}/>
                         </Col>
                         <Col>con2</Col>
