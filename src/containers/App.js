@@ -14,18 +14,11 @@ import Home from '../routes/Home';
 //import Login from '../routes/Login';
 import Login from './Auth/login';
 import Register from './Auth/register'
-import Header from './Header/Header';
-import Modeluser from './Auth/Modeluser';
 // import Menubar from './Menubar/Menubar';
 import System from '../routes/System';
-import Footer from './footer/Footer';
 
 import { CustomToastCloseButton } from '../components/CustomToast';
 import ConfirmModal from '../components/ConfirmModal';
-import Forgot from './Auth/forgot'
-import io from 'socket.io-client'
-
-const socket = io.connect("http://localhost:7000")
 
 class App extends Component {
 
@@ -57,13 +50,12 @@ class App extends Component {
                 <Router history={history}>
                     <div className="main-container">
                         <ConfirmModal />
-                        {this.props.isLoggedIn && <Header />}
                         <span className="content-container">
                             <Switch>
                                 <Route path={path.HOME} exact component={(Home)} />
                                 <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                                 <Route path={path.REGISTER} component={userIsNotAuthenticated(Register)} />
-                                <Route path={path.FORGOT} component={userIsNotAuthenticated(Forgot)} />
+                                
                                 <Route path={path.SYSTEM} component={userIsAuthenticated(System)} />                   
                             </Switch>
                         </span>
@@ -74,7 +66,7 @@ class App extends Component {
                             pauseOnFocusLoss={true} closeOnClick={false} draggable={false}
                             closeButton={<CustomToastCloseButton />}
                         />
-                        {this.props.isLoggedIn && <Footer />}
+                      
                     </div>
                 </Router>
             </Fragment>

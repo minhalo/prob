@@ -2,19 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from "connected-react-router";
 import { handleLogin } from '../../services/userService';
-import Popup from "reactjs-popup";
-import Modeluser from './Modeluser';
-// import bcrypt from 'bcryptjs';
-
-
-
+import { Button, Col, Container, Row, ThemeProvider,Image } from 'react-bootstrap';
+import Background_image_login from "../../assets/images/background_login.jpg"
 import * as actions from "../../store/actions";
-
-//import './Login.scss';
 import '../Auth/login.scss'
-import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
-
 
 class Login extends Component {
     constructor(props) {
@@ -41,6 +32,7 @@ class Login extends Component {
     }
 
     handleLogin = async () => {
+        console.log(1)
         this.setState({
             errMessage: '',
             errMessages: '',
@@ -71,53 +63,18 @@ class Login extends Component {
         }
     }
 
-    handleClick =   () =>
-    {
-        this.setState({
-            isOpen:true
-        })
-    }
-
-    handleHind =   () =>
-    {
-        this.setState({
-            isOpen: !this.state.isOpen
-        })
-    }
-
-
-
-
     render() {
         return (
-            <div className='back-ground'>
-                <div className="container">
-                    <div className="form-container sign-in-container">
-                        <div className='ok'>
-                            <Modeluser
-                                isOpen={this.state.isOpen}
-                                isHide={this.handleHind}
-                            />
-                            <h1 className='sign'>Sign in</h1>
-                            <input className='input5' onChange={(event) => this.handleOnChangeUsername(event)} type="email" placeholder="Email" />
-                            <p className='Error'>{this.state.errMessage}</p>
-                            <input className='input6' onChange={(event) => this.handleOnChangePassword(event)} type="password" placeholder="Password" />
-                            <p className='Error10'>{this.state.errMessages}</p>
-                            <a className='forg' onClick={()=> this.handleClick()}>Forgot password</a>
-                            <button className='button3' onClick={() => this.handleLogin()} >Sign In</button>
-                        </div>
-                    </div>
-                    <div className="overlay-container">
-                        <div className="overlay">
-                            <div className="overlay-panel overlay-right">
-                                <h1>Welcom to EduZ!</h1>
-                                <p>Let's start your journey</p>
-                                <button disabled className="ghost1"><Link className='link' to='/register'>Go to Sign Up</Link></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <ThemeProvider>
+                {/* <Container fluid> */}
+                    <Row>
+                        <Col>
+                        <Image className='Background_image_login' src={Background_image_login}/>
+                        </Col>
+                        <Col>con2</Col>
+                    </Row>
+                {/* </Container> */}
+            </ThemeProvider>
         )
     }
 }
