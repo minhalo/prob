@@ -4,7 +4,7 @@ export const path = {
     REGISTER: '/register',
     LOG_OUT: '/logout',
     SYSTEM: '/system',
-    FORGOT: '/forgot/:id',
+    POLICY: '/policy'
     // MODALUSER: '/modal'
 };
 

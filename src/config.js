@@ -1,6 +1,6 @@
-export default {
+const aip = {
     api: {
-        API_BASE_URL: "http://localhost:8080/",
+        API_BASE_URL: "http://localhost:8081/",
         ROUTER_BASE_NAME: null,
     },
     app: {
@@ -11,3 +11,5 @@ export default {
         ROUTER_BASE_NAME: null,
     }
 };
+
+export default aip

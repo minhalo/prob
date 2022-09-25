@@ -2,30 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../System/UserManage.scss'
 import * as actions from "../../store/actions";
-
+import { ThemeProvider } from 'react-bootstrap';
 class UserManage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-           
+
         }
-      
+
     }
 
     logout = () => {
         this.props.processLogout()
     }
-    
+
+
     render() {
-      
-
         return (
-            <div>
-                <button onClick={() => this.logout()}></button>
-                ok
-
-            </div>
+            <ThemeProvider>
+              <button onClick={() => this.logout()}>Out</button>
+            </ThemeProvider>
         );
     }
 
